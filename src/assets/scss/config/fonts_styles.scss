@@ -1,0 +1,174 @@
+
+$main-headers: 'Montserrat';
+$animated-title: 'Sorts Mill Goudy';
+$thin-font: 'Ultrathin';
+
+$main-headers-italic: 'Gilroy-BlackItalic';
+$secondary-headers: 'Eina-semibold';
+$text: 'Roboto';
+
+$small-text: 1.7rem;
+$small-title: 3em;
+$large-title: 6rem;
+$horizontal-large-title: 8rem;
+// $mid-size;
+
+
+:root {
+  font-size: 62.5%;
+  body {
+    font-size: $small-text;
+    width: 100vw;
+    font-family: $text, sans-serif;
+  }
+}
+
+html {
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+.ultrathin-font {
+  font-family: $thin-font, sans-serif;
+}
+
+
+h1 {
+  font-family: $main-headers;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: 0.1px;
+  line-height: 123.964px;
+  text-transform: none;
+  color: $main-color;
+  margin: 10px 0px 10px 0px;
+}
+
+.paragraph__title {
+  h2 {
+      line-height: 60px;
+      font-weight: bolder;
+      margin-bottom: 20px;
+  }
+}
+
+h4 {
+  line-height: 60px;
+  font-weight: bolder;
+  font-size: 1em;
+  margin: 0px;
+}
+
+
+.mobile {
+
+  h1 {
+    font-size: 8rem;
+    }
+}
+.tablet {
+
+  h1 {
+    font-size: 8rem;
+    }
+}
+.laptop {
+
+  h1 {
+    font-size: 14rem;
+    }
+}
+
+
+h2 {
+  font-size: $small-title;
+  font-family: $main-headers;
+}
+
+h3 {
+  font-family: $main-headers;
+  font-size: 6rem;
+  line-height: 80px;
+}
+
+p {
+  font-family: $text, sans-serif;
+  line-height: 2em;
+  color: $text-grey;
+}
+
+.intro-text {
+
+  &.mobile {
+    h1 {
+      font-size: 3rem;
+      margin: 10px;
+    }
+
+    h3 {
+      font-size: 3.5rem;
+      line-height: 80px;
+    }
+  }
+}
+
+.large-italic-header {
+  font-family: $main-headers-italic;
+}
+
+
+
+.text-underline {
+  background-repeat: no-repeat;
+  background-position: 0 120%;
+  background-size: 80% 50%;
+  color: initial;
+  text-decoration: none;
+}
+
+.text-red {
+  color: $red;
+}
+.text-white {
+  color: white;
+}
+
+
+.text-pink {
+  color: $pink;
+}
+.text-yellow {
+  color: $dark-yellow;
+}
+.text-azur {
+  color: $azur;
+}
+.text-dark-blue {
+  color: $dark-blue;
+}
+.text-light-blue {
+  color: $light-blue;
+}
+
+.text-grey {
+  color: $text-grey
+}
+
+.text-underline-yellow {
+  background-image: linear-gradient(to right, $light-yellow, $light-yellow);
+}
+
+.text-underline-azur {
+  background-image: linear-gradient(to right, rgba(114, 204, 188,0.5), rgba(114, 204, 188, 0.5));
+}
+.text-underline-dark-blue {
+  background-image: linear-gradient(to right, rgba(0, 73, 118, 0.5), rgba(0, 73, 118, 0.5));
+}
+.text-underline-light-blue {
+  background-image: linear-gradient(to right, rgba(86, 127, 248, 0.5), rgba(86, 127, 248, 0.5));
+}
+

@@ -1,0 +1,43 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  overflow-x:hidden;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+
+// functions
+@function random_element($elements...) {
+  @return nth($elements, random(length($elements)))
+}
+
+.pink-background {
+  background-color: $pink;
+}
+
+.black-background {
+  background-color: black;
+}
+
+.azur-background {
+  background-color: $azur;
+}
+
+.red-background {
+  background-color: $red;
+}
+
+.dark-yellow-background {
+  background-color: $dark-yellow
+}
