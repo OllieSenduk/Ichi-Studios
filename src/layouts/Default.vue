@@ -1,17 +1,15 @@
 <template>
   <div class="layout">
-    <main-menu />
-    <transition name="fade">
-      <router-view/> 
-    </transition>
+    <Navigation/>
+    <router-view/> 
   </div>
 </template>
 
 <script>
-  import MainMenu from '~/components/MainMenu';
+  import Navigation from '~/components/Navigation';
   export default {
     components: {
-      MainMenu,
+      Navigation,
     },
   };
 </script>
@@ -25,16 +23,7 @@
 </static-query>
 
 <style>
-  .fade-enter-active, .fade-leave-active {
-    transition-property: opacity;
-    transition-duration: 0.5s;
-  }
-
-  .fade-enter-active {
-    transition-delay: 2s;
-  }
-
-  .fade-enter, .fade-leave-active {
-    opacity: 0
-  }
+ body {
+   margin: 0px;
+ }
 </style>

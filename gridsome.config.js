@@ -38,14 +38,8 @@ module.exports = {
   //       return options
   //     })
   // },
+
   chainWebpack: config => {
-    config.module
-    .rule('less')
-      .test(/\.less$/)
-      .use('less-loader')
-      .loader('less-loader')
-  },
-   chainWebpack: config => {
     const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
     types.forEach(type => addStyleResource(config.module.rule('scss').oneOf(type)))
   },
