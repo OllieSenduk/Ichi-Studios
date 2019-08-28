@@ -1,24 +1,17 @@
 
-$main-headers: 'Montserrat';
-$animated-title: 'Sorts Mill Goudy';
-$thin-font: 'Ultrathin';
+$headers: 'Poppins';
 
-$main-headers-italic: 'Gilroy-BlackItalic';
-$secondary-headers: 'Eina-semibold';
-$text: 'Roboto';
 
 $small-text: 1.7rem;
 $small-title: 3rem;
-$large-title: 5rem;
+$large-title: 4rem;
 $horizontal-large-title: 6rem;
 // $mid-size;
 
-.large-italic-header {
-  font-family: $main-headers-italic;
+.header {
+  font-family: $headers, sans-serif;
+  font-size: $small-title;
 }
-
-
-
 .text-underline {
   background-repeat: no-repeat;
   background-position: 0 120%;
