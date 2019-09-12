@@ -23,7 +23,16 @@
 </static-query>
 
 <style>
- body {
+ html, body {
    margin: 0px;
  }
+
+ html {
+   font-size: 10px;
+ }
+
+
+  .remove_page {
+    display: none;
+  }
 </style>
