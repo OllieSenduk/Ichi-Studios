@@ -9,11 +9,11 @@
             <div class="navigation__container">
                 <ul class="navigation__list">
                         <li class="navigation__item header">Navigation</li>
-                        <li class="navigation__item header"><a class="navigation__link" href="#">Home</a></li>
-                        <li class="navigation__item header"><a class="navigation__link" href="#">Our Story</a></li>
-                        <li class="navigation__item header"><a class="navigation__link" href="#">Work</a></li>
-                        <li class="navigation__item header"><a class="navigation__link" href="#">Services</a></li>
-                        <li class="navigation__item header"><a class="navigation__link" href="#">Contact</a></li>
+                        <li class="navigation__item header"><p>01</p><a class="navigation__link" href="#">Home</a></li>
+                        <li class="navigation__item header"><p>02</p><a class="navigation__link" href="#">Our Story</a></li>
+                        <li class="navigation__item header"><p>03</p><a class="navigation__link" href="#">Work</a></li>
+                        <li class="navigation__item header"><p>04</p><a class="navigation__link" href="#">Services</a></li>
+                        <li class="navigation__item header"><p>05</p><a class="navigation__link" href="#">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -22,17 +22,18 @@
 
 <script>
     import { TimelineMax } from 'gsap'
+    import  { mapMutations } from 'vuex'
 
     export default {
         data () {
             return {
-                navigationOpen: false,
                 tlMax1: new TimelineMax({paused: true})
             }
         },
         methods: {
             openNavigation: function() {
-             this.tlMax1.reversed(!this.tlMax1.reversed());
+                this.tlMax1.reversed(!this.tlMax1.reversed());
+                this.$store.dispatch('updateNavStatus')
             },
         },
         mounted () {
@@ -56,21 +57,29 @@
             this.tlMax1.staggerFrom(".navigation__item", 0.4, {x: -200, opacity: 0, ease:Expo.easeOut}, 0.3);
             this.tlMax1.reverse();
         },
+        // computed: {
+        //     ...mapMutations([
+        //         'CHANGE_NAV_STATUS'
+        //     ]),
+        // }
     }
 </script>
 
 <style lang='scss' scoped>
 
     .navigation {
+
+        &__active {
+        }
         
         &__btn {
             position: fixed;
             margin: 1.4rem;
-            padding: 1rem;
+            padding: 3rem;
             width: 40px;
             height: 1.2rem;
             right: 2rem;
-            z-index: 1;
+            z-index: 101;
             cursor: pointer;
         }
 
@@ -90,11 +99,11 @@
             background: $pink;
             right: 0;
             margin-top: 12px;
-            z-index: 2;
+            z-index: 101;
         }
 
         &__page-wrapper {
-            z-index: 0;
+            z-index: 100;
             position: absolute;
             background: $smooth-black;
             height: 100vh;
@@ -103,12 +112,36 @@
         }
 
         &__container {
-            padding: 8rem 0 0 2rem;
-            text-align: left;
+            padding: 2rem 0 0 2rem;
+            text-align: center;
+            height: 100%;
         }
 
         &__list {
             list-style: none;
+            display: flex;
+            flex-direction: column; 
+            justify-content: center;
+        }
+
+        &__item {
+            text-align: left;
+            margin-bottom: 20px;
+            display: flex;
+            transform: rotate(-10deg) skew(-10deg, 0);
+
+
+            p {
+                font-size: 1.5rem;
+                display: block;
+                margin-right: 21px;
+                color: pink;
+                padding-top: 20px;
+            }
+
+            @include mq($from: tablet) {
+                width: 50%;
+            }
         }
 
         &__item:first-child {
@@ -117,13 +150,26 @@
         }
 
         &__item:not(:first-child) {
-            color: $navigation-text
+            color: $navigation-text;
         }
 
         &__link {
             text-decoration: none;
             color: $navigation-text;
-            font-size: $large-title
+            font-size: 3rem;
+            text-transform: uppercase;
+
+            @include mq(tablet, laptop) {
+                font-size: 5rem;
+            }
+
+            @include mq($from: laptop) {
+                font-size: 5rem;
+            }
+
+            @include mq($from: high-res) {
+                font-size: 10rem;
+            }
         }
 
     }
