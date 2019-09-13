@@ -1,23 +1,30 @@
 <template>
-    <div class='project' :class='id'>
-        <div class="project__details">
-            <div class="project__description">{{text}}</div>
-            <div class="project__title">{{title}}</div>
+    <section class="project__wrapper">
+        <div class='project' :class='{project__hidden: hidden}'>
+            <div class="project__details">
+                <div class="project__description">{{text}}</div>
+                <div class="project__title">{{title}}</div>
+            </div>
+            <div class="project__hero">
+                <a href="">
+                    <img class="project__hero__image-left" :src="imgLeft" :alt="title" :class="{ project__hero__disappear: navStatus }">
+                    <img class="project__hero__image-right" :src="imgRight" :alt="title" :class="{ project__hero__disappear: navStatus }">
+                </a>
+            </div>
         </div>
-        <div class="project__hero">
-            <a href="">
-                <img class="project__hero__image-left" :src="imgLeft" :alt="title" :class="{ project__hero__disappear: navStatus }">
-                <img class="project__hero__image-right" :src="imgRight" :alt="title" :class="{ project__hero__disappear: navStatus }">
-            </a>
-        </div>
-    </div>
+    </section>
 </template>
 
 <script>
     import  { mapState, mapGetters, mapMutations } from 'vuex'
 
     export default {
-        props: ['id', 'title', 'imgRight', 'imgLeft', 'text', 'categories', 'background'],
+        props: ['id', 'title', 'imgRight', 'imgLeft', 'text', 'categories', 'background', 'hidden', 'pageNum'],
+        data() {
+            return {
+                currentPageNum: 0
+            }
+        },
         computed: {
             ...mapState([
                 'navOpen'
@@ -55,7 +62,7 @@
     // }
 
     .project {
-        font-family: $headers;
+        font-family: $main-font;
         font-weight: $thin-text;
         color: white;
         // background: radial-gradient(rgba(43,55,96,1), rgba(11,16,35,1));
@@ -68,10 +75,17 @@
         grid-template-columns: 5% 1fr 5%;
         grid-template-rows: 20% 2fr 1fr 10%;
         align-items: center;
-        background: radial-gradient(rgb(177, 139, 179), rgba(11, 16, 35, 1));
-
         @include mq($from: laptop) {
             
+        }
+
+        &__hidden {
+            position: absolute;
+            bottom: 0%;
+            left: 0%;
+            width: 100%;
+            opacity: 0;
+            pointer-events: none;
         }
     
         &__hero {
