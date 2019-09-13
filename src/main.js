@@ -15,10 +15,11 @@ export default function (Vue, { router, head, isClient, appOptions}) {
     // RESPONSIVE DESIGN 
   Vue.use(VueMq, {
     breakpoints: {
-      mobile: 450,
-      tablet: 900,
-      laptop: 1250,
-      desktop: Infinity,
+      mobile: 320,
+      tablet: 740,
+      laptop: 980,
+      wide: 1300,
+      external: 1600
     }
   })
 
