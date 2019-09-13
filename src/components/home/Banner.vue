@@ -123,7 +123,7 @@
         }
 
         &__title {
-            font-family: $headers;
+            font-family: $main-font;
             font-size: $large-title;
             font-weight: 700;
             text-transform: uppercase;
@@ -157,7 +157,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-family: $headers;
+            font-family: $main-font;
             color: #323232;
             font-size: 15rem;
             font-weight: 800;
@@ -178,7 +178,7 @@
 
         // CREATE SEPERATE COMPONENT
         &__btn {
-            font-family: $headers;
+            font-family: $main-font;
             position: absolute;
             top: 50%;
             left: 50%;
@@ -188,7 +188,7 @@
         &__btn {
             display: block; 
             padding: 24px 48px;
-            font-family: $headers;
+            font-family: $main-font;
             font-size: 1.2rem;
             letter-spacing: 6px;
             color: $white;

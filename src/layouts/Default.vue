@@ -23,13 +23,29 @@
 </static-query>
 
 <style>
- html, body {
-   margin: 0px;
- }
 
- html {
-   font-size: 10px;
- }
+  *,
+  *:before,
+  *:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    overflow-x: hidden;
+    font-size: 10px;
+    margin: 0px;
+    font-family: $main-font; 
+  }
+
+  body {
+    overflow-x:hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    margin: 0px;
+  }
+
 
 
   .remove_page {
