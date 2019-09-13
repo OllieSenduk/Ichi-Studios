@@ -102,15 +102,14 @@ export default {
 
             const pages = this.$children
             // Current & Next Page
-            const currentPage = this.$children[this.pageNum];
+            const currentPage = this.$children[this.current];
             // const nextPage = this.$children[this.pageNum + 1];
-
-            var nextPage
-           if (this.pageNum === this.$children.length-1) {
-                nextPage = this.$children[0];
-            } else {
-                nextPage = this.$children[this.pageNum + 1];
-            }
+            const nextPage = this.$children[this.pageNum]
+        //    if (this.pageNum === this.$children.length-1) {
+        //         nextPage = this.$children[0];
+        //     } else {
+        //         nextPage = this.$children[this.pageNum + 1];
+        //     }
             var context = this
             // Page Elements
             // console.log(currentPage)
@@ -146,29 +145,23 @@ export default {
             .fromTo(nextText, 0.3, { opacity: 0, y: 0 }, { opacity: 1, y: 0 })
             .set(nextLeft, { clearProps: "all" })
             .set(nextRight, { clearProps: "all" });
-            console.log(this.pageNum)
 
-            if (this.pageNum === this.projects.length-1) {
-                this.pageNum = 0;
-            } else {
-                this.pageNum += 1
-            }
-            console.log(this.pageNum)
+            this.current = this.pageNum
+
 
         },
         updateSlideNum(e) {
-            //    if (e.deltaY > 0) {
-            //         this.pageNum += 1;
-            //     } else {
-            //         this.pageNum -= 1;
-            //     }
-
-                // if (this.pageNum > 2) {
-                //     this.pageNum = 0;
-                // }
-                // if (this.pageNum < 0) {
-                //     this.pageNum = ;
-                // }
+             if (e.deltaY > 0) {
+                this.pageNum += 1;
+            } else {
+                this.pageNum -= 1;
+            }
+            if (this.pageNum === this.projects.length) {
+                this.pageNum = 0;
+            }
+            if (this.pageNum < 0) {
+                this.pageNum = 2;
+            }
             this.updateSlide()
         },
         throttle(func, limit) {
@@ -195,6 +188,9 @@ export default {
     data () {
         return {
             tl: new TimelineMax({}),
+            started: false,
+            scrollSlide: 0,
+            current: 0,
             pageNum: 0,
             projects: [
                 {   pageNum: 0,
