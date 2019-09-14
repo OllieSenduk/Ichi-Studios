@@ -5,7 +5,7 @@
             <span class="navigation__line-two"></span>
         </div>
 
-        <div class="navigation__page-wrapper">
+        <div class="navigation__page-wrapper" :class="{hidden: !navOpen }">
             <div class="navigation__container">
                 <ul class="navigation__list">
                         <li class="navigation__item header">Navigation</li>
@@ -27,13 +27,18 @@
     export default {
         data () {
             return {
-                tlMax1: new TimelineMax({paused: true})
+                tlMax1: new TimelineMax({paused: true}),
+                navOpen: false
             }
         },
         methods: {
             openNavigation: function() {
+                if (this.navOpen === false) {
+                    this.navOpen = true
+                }
                 this.tlMax1.reversed(!this.tlMax1.reversed());
                 this.$store.dispatch('updateNavStatus')
+                console.log(this.navOpen)
             },
         },
         mounted () {
@@ -56,16 +61,16 @@
 
             this.tlMax1.staggerFrom(".navigation__item", 0.4, {x: -200, opacity: 0, ease:Expo.easeOut}, 0.3);
             this.tlMax1.reverse();
+
         },
-        // computed: {
-        //     ...mapMutations([
-        //         'CHANGE_NAV_STATUS'
-        //     ]),
-        // }
     }
 </script>
 
 <style lang='scss' scoped>
+
+    .hidden {
+        display: none;
+    }
 
     .navigation {
 
@@ -108,7 +113,7 @@
             background: $smooth-black;
             height: 100vh;
             width: 100%;
-            top: -100%;
+            top: -150%;
         }
 
         &__container {
