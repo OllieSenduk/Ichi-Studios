@@ -1,6 +1,6 @@
 <template>
     <div class="btn">
-        <a href="#" class="cta" :style="btnStyle">
+        <a href="#" class="cta">
             <span>{{text}}</span>
             <svg width="13px" height="10px" viewBox="0 0 13 10">
                 <path d="M1,5 L11,5"></path>
@@ -40,7 +40,7 @@
         computed: {
             btnStyle() {
                 return {
-                    "background-color": this.color
+                    // "background-color": this.backgroundColor
                 }
             }
         },
