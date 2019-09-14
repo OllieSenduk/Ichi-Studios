@@ -1,6 +1,6 @@
 <template>
     <div class="btn">
-        <a href="#" class="cta">
+        <a href="#" class="cta" :style="btnStyle">
             <span>{{text}}</span>
             <svg width="13px" height="10px" viewBox="0 0 13 10">
                 <path d="M1,5 L11,5"></path>
@@ -16,7 +16,17 @@
 
     export default {
         props: {
-            text: String
+            text: {
+                type: String,
+            },
+            backgroundColor: {
+                type: String,
+                default: 'rgba(#FFAB9D,.5);'
+            },
+            color: {
+                type: String,
+                default: 'black'
+            }
         },
         data () {
             return {
@@ -25,6 +35,13 @@
         methods: {
             btnClicked() {
 
+            }
+        },
+        computed: {
+            btnStyle() {
+                return {
+                    "background-color": this.color
+                }
             }
         },
         mounted () {
