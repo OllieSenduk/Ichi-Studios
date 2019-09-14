@@ -3,6 +3,7 @@
         <div class='project' :class='{project__hidden: hidden}'>
             <div class="project__title">{{title}}</div>
             <div class="project__details">
+                <div class="project__small-title">{{title}} </div>
                 <div class="project__description">{{text}}</div>
             </div>
             <div class="project__hero">
@@ -23,7 +24,6 @@
         props: ['id', 'title', 'imgRight', 'imgLeft', 'text', 'categories', 'background', 'hidden', 'pageNum'],
         data() {
             return {
-                currentPageNum: 0
             }
         },
         computed: {
@@ -32,16 +32,50 @@
             ]),
             ...mapGetters([
                 'navStatus'
-            ])
+            ]),
         },
-        mounted() {
+        // methods: {
+            // changeTitleSize() {
+            //     const context = this
+            //     this.$nextTick(() => { 
+            //         const titles = document.querySelectorAll('.project__title')
+            //         titles.forEach(function(title) {
+            //             console.log(context.title.length)
+            //             if (context.title.length >= 12) {
+            //                 title.style.fontSize = `calc(3vw + 6vh + -4vmin)`
+            //             }
+            //             if (context.title.length < 12 ) {
+            //                 title.style.fontSize = `calc(4vw + 8vh + -4vmin)`
+            //             } 
+
+                        
+                        // if context.title.length {
+                        //     title.style.fontSize = `calc(3vw + 12vh + -4vmin)`
+
+                        // }
+                //     })
+                //  })
+
+           
+            //    titles.forEach( 
+            //     function(currentValue, currentIndex, listObj) { 
+            //         console.log(currentValue + ', ' + currentIndex + ', ' + this); 
+            //     },
+            //     'myThisArg'
+            //     );
+        //     }
+        // },
+        // created() {
+        //     if (window.innerWidth > 740) {
+        //             this.changeTitleSize()
+        //      }
+        // },
             // this.$store.watch(
             //     (state, getters) => getters.navStatus,
             //     (updated, old) => {
             //         console.log(old)
             //     }
             // )
-        },
         watch: {
             navOpen(newVal, oldVal) {
             }
@@ -61,8 +95,8 @@
         grid-template-columns: 5% 1fr 5%;
         grid-template-rows: 20% 3fr 1fr 10% 10%;
         align-items: center;
-        @include mq($from: laptop) {
-            
+        @include mq($from: tablet) {
+            grid-template-columns: 15% 1fr 15%;
         }
 
         &__hidden {
@@ -115,10 +149,14 @@
         }
 
         &__details {
-            grid-column: 1/3;
+            grid-column: 2/3;
             align-self: end;
             grid-row: 3/4;
             text-align: center;
+
+            @include mq($from: tablet) {
+                grid-row: 4/5;
+            }
         }
 
         &__title {
@@ -127,8 +165,25 @@
             grid-row: 4/5;
             grid-column: 2/3;
             text-align: center;
-            @include mq($from: tablet, $until: laptop) {
-                font-size: 4rem;
+            @include mq($from: tablet) {
+                grid-row: 1/6;
+                grid-column: 1/2;
+                opacity: 0.2;
+                text-transform: uppercase;
+                writing-mode: vertical-rl;
+                align-self: center;
+                font-size: calc(3vw + 6vh + -4vmin);   
+            }
+        }
+
+        &__small-title {
+            display: none;
+
+            @include mq($from: tablet) {
+                display: block;
+                font-size: 2rem;
+                font-weight: bolder;
+                // margin-bottom: 20px;
             }
         }
 
@@ -137,8 +192,9 @@
             margin-bottom: 8px;
             font-style: italic;
 
-            @include mq($from: tablet, $until: laptop) {
-                font-size: 4rem;
+            @include mq($from: tablet) {
+                font-size: 3.5rem;
+                font-style: normal;
             }
         }
          

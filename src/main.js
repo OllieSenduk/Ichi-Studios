@@ -16,6 +16,7 @@ export default function (Vue, { router, head, isClient, appOptions}) {
   Vue.use(VueMq, {
     breakpoints: {
       mobile: 320,
+      largeMobile: 500,
       tablet: 740,
       laptop: 980,
       wide: 1300,

@@ -139,9 +139,14 @@
                 padding-top: 20px;
             }
 
-            @include mq($from: tablet) {
-                width: 50%;
+            @include mq(tablet) {
+                width: 100%;
             }
+
+            @include mq($from: laptop) {
+                width: 60%;
+            }
+
         }
 
         &__item:first-child {
@@ -159,15 +164,19 @@
             font-size: 3rem;
             text-transform: uppercase;
 
+            @include mq(largeMobile) {
+                font-size: 5rem
+            }
+
             @include mq(tablet, laptop) {
-                font-size: 5rem;
+                font-size: 7rem;
             }
 
             @include mq($from: laptop) {
                 font-size: 5rem;
             }
 
-            @include mq($from: high-res) {
+            @include mq($from: external) {
                 font-size: 10rem;
             }
         }

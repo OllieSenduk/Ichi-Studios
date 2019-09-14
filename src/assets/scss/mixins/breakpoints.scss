@@ -1,10 +1,11 @@
 
 $mq-breakpoints: (
     mobile:  320px,
+    largeMobile: 400px,
     tablet:  740px,
     laptop:  980px,
     wide:    1300px,
-    high-res: 1600px
+    external: 1600px
 );
 
 $mq-show-breakpoints: (mobile, tablet, laptop, wide);

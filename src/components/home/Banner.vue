@@ -1,5 +1,6 @@
 <template>
     <section class='home-header'>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <div class="home-header__container">
             <div class="home-header__overlay">
                 <p class="home-header__screen">OLLS<span class="home-header__screen--pink">U</span>M</p>
@@ -10,34 +11,46 @@
             <div class="home-header__overlay-2">
                 
             </div>
-            <div class="home-header__content">
+            <div class="home-container" :class="{hidden: homePageClosed}">
+                <div class="home-container__stripes">
+                    <div class="home-container__stripes__one"></div>
+                    <div class="home-container__stripes__two"></div>
+                    <div class="home-container__stripes__three"></div>
+                </div>
+                <div class="home-container__add">
+                    <i class="fa fa-plus"></i>
+                </div>
                 <h1 class="home-header__title">
                     Ollsum Agency
                 </h1>
                 <div class="home-header__text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis tenetur eius libero excepturi laborum? Hic magni voluptatem asperiores iusto molestiae laborum harum dolorum, inventore aspernatur veniam quibusdam odit quam fugiat.
-                    Nulla quis impedit quas culpa ratione dolore corrupti laudantium doloribus porro a, corporis repellat. Fugit aspernatur consequatur debitis animi ab repellendus est, beatae commodi cumque inventore molestias dolores dignissimos possimus?
-                    Consectetur, eaque odit, in cupiditate architecto perferendis quod corporis voluptatem, laboriosam exercitationem obcaecati doloremque repellat fugit excepturi quaerat unde? Numquam ratione cupiditate commodi iste? Pariatur architecto saepe iste eveniet sit.
-                    Aspernatur veniam reiciendis eos consectetur facere, numquam quas ad et ipsam dolor impedit, rem iste consequuntur possimus a obcaecati amet expedita, enim debitis nulla? Inventore laboriosam deleniti cumque iusto suscipit!
-                    Iure aspernatur neque quaerat quibusdam quos possimus esse saepe inventore corporis! Obcaecati expedita sint sequi harum voluptatum. Odit inventore autem totam expedita, itaque, quasi suscipit velit voluptatem eum sit eveniet!
+                    Young & Ambitious experts who get things done!
                 </div>
+                <appAbout />
             </div>
         </div>
     </section>
 </template>
 
 <script>
-    import { TweenMax } from 'gsap'
+    import { TweenMax } from 'gsap';
+    import About from '~/components/home/About';
+
 
     export default {
+        components: {
+            appAbout: About
+        },
          data () {
             return {
+                homePageClosed: true
                 // navigationOpen: false,
                 // tlMax1: new TimelineMax({paused: true})
             }
         },
         methods: {
             fadeOutAbove: function() {
+                this.homePageClosed = false
                 TweenMax.to(".home-header__btn", 1, {
                     y: -100,
                     opacity: 0
@@ -47,7 +60,7 @@
                     y: -400,
                     opacity: 0,
                     ease: Power2.easeInOut,
-                    delay: 2
+                    delay: 1
                 });
 
                 TweenMax.from(".home-header__overlay", 2, {
@@ -55,29 +68,46 @@
                 });
 
                 TweenMax.to(".home-header__overlay", 2, {
-                    delay: 2.6,
+                    delay: 2.0,
                     top: "-110%",
                     ease: Expo.easeInOut
                 });
 
                 TweenMax.to(".home-header__overlay-2", 2, {
-                    delay: 3,
+                    delay: 2.2,
                     top: "-110%",
                     ease: Expo.easeInOut
                 });
 
-                TweenMax.from(".home-header__content", 2, {
-                    delay: 3.2,
+                TweenMax.from(".home-container", 2, {
+                    delay: 2.4,
                     opacity: 0,
                     ease: Power2.easeInOut
                 });
 
-                TweenMax.to(".home-header__content", 2, {
+                TweenMax.to(".home-container", 2, {
                     opacity: 1,
                     y: -300,
-                    delay: 3.2,
+                    delay: 2.6,
                     ease: Power2.easeInOut
+                });  
+                TweenMax.from(".home-container__add", 2, {
+                    delay: 4,
+                    opacity: 0,
+                    x: 100,
+                    rotation: 90,
+                    ease: Expo.easeInOut
                 });
+                TweenMax.from(".home-container__stripes__one", 2, {
+                    height: 0,
+                    delay: 4,
+                    ease: Power2.easeInOut
+                })
+                TweenMax.to(".home-container__stripes__one", 2, {
+                    height: '100%',
+                    delay: 4.2,
+                    ease: Power2.easeInOut
+                })
             //  this.tlMax1.reversed(!this.tlMax1.reversed());
             },
         },
@@ -107,20 +137,57 @@
 
 <style lang='scss'>
 
+    .hidden {
+        display: none;
+    }
+
+    .home-container {
+        width: 80%;
+        margin: 0 auto;
+        z-index: -1;
+        position: absolute;
+        top: 50%;
+        left: 10%;
+        transform: translate(0, -50%);
+
+        &__stripes {
+            &__one {
+                position: fixed;
+                width: 1px;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.2);
+                left: 25%;
+            }
+
+            &__two {
+                position: fixed;
+                width: 1px;
+                height: 100vh;
+                background: rgba(0, 0, 0, 0.2);
+                left: 50%;
+            }
+
+            &__three {
+                position: fixed;
+                width: 1px;
+                height: 100vh;
+                background: rgba(0, 0, 0, 0.2);
+                left: 75%;
+            }
+        }
+
+        &__add {
+            position: absolute;
+            top: 20vh;
+            right: 10px;
+            padding: 10px 30px;
+            opacity: 0.2;
+            font-size: 2rem;
+        }
+    }
+
     .home-header {
         cursor: crosshair;
-        height: 100vh;
-
-
-        &__content {
-            width: 60%;
-            margin: 0 auto;
-            z-index: -1;
-            position: absolute;
-            top: 60%;
-            left: 10%;
-            transform: translate(0, -50%);
-        }
 
         &__title {
             font-family: $main-font;
@@ -134,6 +201,8 @@
             margin-top: 0px;
             text-align: left;
             font-weight: 400;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
         }
 
         &__overlay-2 {
@@ -155,7 +224,7 @@
         &__screen {
             position: absolute;
             top: 50%;
-            left: 50%;
+            left: 30%;
             transform: translate(-50%, -50%);
             font-family: $main-font;
             color: #323232;
@@ -173,6 +242,7 @@
                 writing-mode: horizontal-tb;
                 font-size: 30rem;
                 top: 70%;
+                left: 50%;
             }
         }
 
@@ -233,9 +303,6 @@
                 opacity: 0.6;
             }
         }
-
-        // RESPONSIVENESS
-
     }
 
 </style>
