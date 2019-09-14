@@ -177,7 +177,7 @@ export default {
             };
          }
     },
-    created () {
+    mounted () {
         window.addEventListener("wheel", this.throttle(this.updateSlideNum, 1500));
         window.addEventListener("touchmove", this.throttle(this.updateSlideNum, 1500));
     },
