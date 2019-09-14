@@ -57,6 +57,8 @@
   margin: auto;
   padding: 19px 22px;
   transition: all .2s ease;
+  color: black;
+  text-decoration: none;
   &:before {
     content: "";
     position: absolute;
