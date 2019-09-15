@@ -18,41 +18,11 @@
         <div class="home-about__btn">
             <appBtn text="About us"> </appBtn>
         </div>
-        <br>
-        <br>
-        <br>
-
-        <div class="super">
-       <div class="whatsup">
-            <h1>Hello world</h1>
-        </div>
-        </div>
-        <!-- <div v-observe-visibility="startPageAnimation"> -->
- 
-
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <!-- <div v-observe-visibility="startPageAnimation" class="helloWorld" >
-            <h1>Hi!</h1>
-        </div> -->
-
-        <!-- <div class="home-about__block-four">
-            <div class="home-about__skills link">
-                Click to read more About Us!
-            </div>
-        </div> -->
     </section>
 </template>
 
 <script>
     import { TweenMax } from 'gsap';
-
 
     import Button from '~/components/shared/Button'
 
@@ -70,103 +40,60 @@
         },
         methods: {
             startPageAnimation() {
-                const controller = this.$scrollmagic
                 const tl = new TimelineMax({})
-                tl.from('.whatsup', .5, {x:200, opacity: 0});
-                const scene = this.$scrollmagic.Scene({
-                    triggerElement: '.super',
-                    triggerHook: 'onLeave',
-                    duration: '100%'
+                
+                tl.from('.one', 2, {
+                    x: -100,
+                    opacity: 0
                 })
-                .setPin('.super')
-                .setTween(tl)
-                .addTo(controller)
-                                console.log(controller)
 
-                // var controller = new ScrollMagic.Controller();
+                tl.from('.two', 2, {
+                    x: 100,
+                    opacity: 0
+                })
+
+                tl.from('.three', 2, {
+                    x: -100,
+                    opacity: 0
+                })
+
+                const box1 = this.$scrollmagic.scene({
+                    triggerElement: '.home-about',
+                    triggerHook: 0.7,
+                    duration: 700
+                })
+
+                const box2 = this.$scrollmagic.scene({
+                    triggerElement: '.home-about',
+                    triggerHook: 0.7,
+                    duration: 500
+                })
+
+                const box3 = this.$scrollmagic.scene({
+                    triggerElement: '.home-about',
+                    triggerHook: 0.7,
+                    duration: 500
+                })
+
+                .setTween(tl)
+                this.$scrollmagic.addScene(box1)
+                this.$scrollmagic.addScene(box2)
+                this.$scrollmagic.addScene(box3)
+                .addIndicators({ name: '2 (duration: 300)' })
+
+                this.$scrollmagic.attachTo(this.$refs.scrollBox)
+
+
 
             }
-                // this.isVisible = isVisible
-                // this.entry = entry
-
-                // const blockOne = document.querySelector('.home-about__block.one')
-                // const blockTwo = document.querySelector('.home-about__block.two')
-                // const blockThree = document.querySelector('.home-about__block.three')
-                // const blocks = [blockOne, blockTwo, blockThree]
-                
-                // const observerOptions = {
-                //     root: document.querySelector('.home-about'),
-                //     rootMargin: '0px',
-                //     treshold: 0.2
-                // }
-                // const tl = new TimelineMax({})
-                // const context = this
-                // // const observer = new IntersectionObserver((entries) => {
-                // //     entries.forEach((entry, index) =>{
-                // console.log(isVisible)
-                // console.log(entry.target)
-
-                // if (isVisible) {
-                //     TweenMax.to(entry.target, 0.5, {
-                //         x: 0,
-                //         opacity: 1,
-                //         ease: Power2.easeInOut,
-                //         delay: context.delayTime * 3,
-                //                 // ease: Back.easeInOut.config(1.7)
-                //     });
-                // }
-
-                // if (!isVisible) {
-                //     TweenMax.to(entry.target, 0.1, {
-                //         x: 0,
-                //         opacity: 0,
-                //         ease: Power2.easeInOut,
-                //         // delay: context.delayTime * 3,
-                //                 // ease: Back.easeInOut.config(1.7)
-                //     });
-                // }
-                // }
-                //         if (entry.intersectionRatio >= 0) {
-                //             TweenMax.to(entry.target, 2, {
-                //                 x: 0,
-                //                 opacity: 1,
-                //                 ease: Power2.easeInOut,
-                //                 delay: context.delayTime * 3,
-                //                 // ease: Back.easeInOut.config(1.7)
-                //             });
-                //          } else {
-                //              TweenMax.to(entry.target, 2, {
-                //                 // x: -200,
-                //                 opacity: 0,
-                //                 ease: Power2.easeInOut,
-                //                 delay: context.delayTime * 3,
-                //                 // ease: Back.easeInOut.config(1.7)
-                //             });
-                //          }
-                //     })
-                // })
-                // blocks.forEach((block) => {
-                //     observer.observe(block)
-                //     // console.log(observer)
-
-                // })
         },
         mounted() {
             this.startPageAnimation()
-            // const tl = new TimelineMax({})
-            // const controller = new VueScrollmagic
-            // console.log("hoi")
-            // console.log(tl)
-            // this.startPageAnimation()
         }
     }
 </script>
 
 <style lang='scss' scoped>
-
-    .hidden {
-        display: none;
-    }
 
     .home-about {
         display: grid;
