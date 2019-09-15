@@ -5,12 +5,16 @@ import DefaultLayout from '~/layouts/Default.vue'
 import App from '~/components/App';
 import Vuex from 'vuex'
 import VueMq from 'vue-mq'
+import VueObserveVisibility from 'vue-observe-visibility'
+import VueScrollmagic from 'vue-scrollmagic'
+
 
 export default function (Vue, { router, head, isClient, appOptions}) {
   Vue.use(Vuex)
-  // if (process.isClient) {
-    // WHENEVER WE NEED IT TO HAPPEN IN THE BROWESER, E.g, when plugin uses window
-  // }
+  Vue.use(VueObserveVisibility)
+  if (process.isClient) {
+    Vue.use(VueScrollmagic)
+  }
 
   appOptions.render = h => h(App);
   Vue.component('layout', DefaultLayout)
@@ -31,6 +35,16 @@ export default function (Vue, { router, head, isClient, appOptions}) {
   head.link.push({
     rel: 'stylesheet',
     href: 'https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap'
+  })
+
+  head.link.push({
+    rel: 'script',
+    src: "//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"
+  })
+
+  head.link.push({
+    rel: 'script',
+    src: "//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"
   })
 
 

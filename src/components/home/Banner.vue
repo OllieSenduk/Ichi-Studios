@@ -29,7 +29,9 @@
                         <br>
                         <br>
                     </div>
+                    <clientOnly>
                         <appAbout :animationTime="animationTime" :delayTime="delayTime" ></appAbout>
+                     </clientOnly>
                 </div>
                    <div class="home-video">
 
