@@ -8,6 +8,9 @@ import VueMq from 'vue-mq'
 
 export default function (Vue, { router, head, isClient, appOptions}) {
   Vue.use(Vuex)
+  // if (process.isClient) {
+    // WHENEVER WE NEED IT TO HAPPEN IN THE BROWESER, E.g, when plugin uses window
+  // }
 
   appOptions.render = h => h(App);
   Vue.component('layout', DefaultLayout)
@@ -34,12 +37,12 @@ export default function (Vue, { router, head, isClient, appOptions}) {
     // VUEX
   appOptions.store = new Vuex.Store({
     state: {
-      navOpen: false
+      navOpen: false,
     },
     getters: {
       navStatus:  state => {
         return state.navOpen
-      }
+      },
     },
     mutations: {
       setNavStatus (state) {

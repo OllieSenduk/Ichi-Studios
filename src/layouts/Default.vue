@@ -46,9 +46,15 @@
     margin: 0px;
   }
 
-
-
   .remove_page {
     display: none;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  .hidden-opacity {
+    opacity: 0;
   }
 </style>

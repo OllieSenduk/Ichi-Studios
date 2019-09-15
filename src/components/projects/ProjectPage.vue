@@ -21,7 +21,7 @@
     import  { mapState, mapGetters, mapMutations } from 'vuex'
 
     export default {
-        props: ['id', 'title', 'imgRight', 'imgLeft', 'text', 'categories', 'background', 'hidden', 'pageNum'],
+    props: ['id', 'title', 'imgRight', 'imgLeft', 'text', 'categories', 'background', 'hidden', 'pageNum'],
         data() {
             return {
             }
@@ -90,7 +90,7 @@
         font-weight: $thin-text;
         color: white;
 
-        min-height: 100vh;
+        max-height: 100vh;
         display: grid;
         grid-template-columns: 5% 1fr 5%;
         grid-template-rows: 20% 3fr 1fr 10% 10%;

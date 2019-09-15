@@ -12,21 +12,28 @@
                 
             </div>
             <div class="home-container" :class="{hidden: homePageClosed}">
-                <div class="home-container__stripes">
-                    <div class="home-container__stripes__one"></div>
-                    <div class="home-container__stripes__two"></div>
-                    <div class="home-container__stripes__three"></div>
+                <div class="home-container__wrapper">
+                    <div class="home-container__stripes">
+                        <div class="home-container__stripes__one"></div>
+                        <div class="home-container__stripes__two"></div>
+                        <div class="home-container__stripes__three"></div>
+                    </div>
+                    <div class="home-container__add">
+                        <i class="fa fa-plus"></i>
+                    </div>
+                    <h1 class="home-header__title">
+                        Ollsum Agency
+                    </h1>
+                    <div class="home-header__text">
+                        We help componies achieve bolder & Better things
+                        <br>
+                        <br>
+                    </div>
+                        <appAbout :animationTime="animationTime" :delayTime="delayTime" ></appAbout>
                 </div>
-                <div class="home-container__add">
-                    <i class="fa fa-plus"></i>
-                </div>
-                <h1 class="home-header__title">
-                    Ollsum Agency
-                </h1>
-                <div class="home-header__text">
-                    Young & Ambitious experts who get things done!
-                </div>
-                <appAbout />
+                   <div class="home-video">
+
+                    </div>
             </div>
         </div>
     </section>
@@ -43,7 +50,9 @@
         },
          data () {
             return {
-                homePageClosed: true
+                homePageClosed: true,
+                animationTime: 1,
+                delayTime: 1
                 // navigationOpen: false,
                 // tlMax1: new TimelineMax({paused: true})
             }
@@ -51,61 +60,63 @@
         methods: {
             fadeOutAbove: function() {
                 this.homePageClosed = false
-                TweenMax.to(".home-header__btn", 1, {
+                const context = this
+                console.log(this.animationTime)
+                TweenMax.to(".home-header__btn", this.animationTime * 0.7, {
                     y: -100,
                     opacity: 0
                 });
 
-                TweenMax.to(".home-header__screen", 2, {
+                TweenMax.to(".home-header__screen", this.animationTime * 1.2, {
                     y: -400,
                     opacity: 0,
                     ease: Power2.easeInOut,
-                    delay: 1
+                    delay: context.delayTime 
                 });
 
-                TweenMax.from(".home-header__overlay", 2, {
+                TweenMax.from(".home-header__overlay", this.animationTime * 1.2, {
                     ease: Power2.easeInOut
                 });
 
-                TweenMax.to(".home-header__overlay", 2, {
-                    delay: 2.0,
+                TweenMax.to(".home-header__overlay", this.animationTime * 1.2, {
+                    delay: context.delayTime,
                     top: "-110%",
                     ease: Expo.easeInOut
                 });
 
-                TweenMax.to(".home-header__overlay-2", 2, {
-                    delay: 2.2,
+                TweenMax.to(".home-header__overlay-2", this.animationTime * 1.2, {
+                    delay: context.delayTime * 1.2,
                     top: "-110%",
                     ease: Expo.easeInOut
                 });
 
-                TweenMax.from(".home-container", 2, {
-                    delay: 2.4,
+                TweenMax.from(".home-container", this.animationTime * 1.2, {
+                    delay: 1.4,
                     opacity: 0,
                     ease: Power2.easeInOut
                 });
 
-                TweenMax.to(".home-container", 2, {
+                TweenMax.to(".home-container", this.animationTime * 1.2, {
                     opacity: 1,
                     y: -300,
-                    delay: 2.6,
+                    delay: context.delayTime * 1.6,
                     ease: Power2.easeInOut
                 });  
-                TweenMax.from(".home-container__add", 2, {
-                    delay: 4,
+                TweenMax.from(".home-container__add", this.animationTime * 1.2, {
+                    delay: context.delayTime * 2,
                     opacity: 0,
                     x: 100,
                     rotation: 90,
                     ease: Expo.easeInOut
                 });
-                TweenMax.from(".home-container__stripes__one", 2, {
+                TweenMax.from(".home-container__stripes__one", this.animationTime * 1.2, {
                     height: 0,
-                    delay: 4,
+                    delay: context.delayTime * 2,
                     ease: Power2.easeInOut
                 })
-                TweenMax.to(".home-container__stripes__one", 2, {
+                TweenMax.to(".home-container__stripes__one", this.animationTime * 1.2, {
                     height: '100%',
-                    delay: 4.2,
+                    delay: context.delayTime * 2.4,
                     ease: Power2.easeInOut
                 })
             //  this.tlMax1.reversed(!this.tlMax1.reversed());
@@ -137,6 +148,12 @@
 
 <style lang='scss'>
 
+    .home-video {
+        width: 100vw;
+        height: 60vh;
+        background: black;
+    }
+
     .hidden {
         display: none;
     }
@@ -147,8 +164,12 @@
         z-index: -1;
         position: absolute;
         top: 50%;
-        left: 10%;
+        // left: 10%;
         transform: translate(0, -50%);
+
+        &__wrapper {
+            margin-left: 10%;
+        }
 
         &__stripes {
             &__one {
@@ -198,11 +219,11 @@
         }
 
         &__text {
-            margin-top: 0px;
+            margin-top: 100px;
             text-align: left;
             font-weight: 400;
             font-size: 2.5rem;
-            margin-bottom: 10px;
+            margin-bottom: 100px;
         }
 
         &__overlay-2 {
