@@ -5,14 +5,13 @@ import DefaultLayout from '~/layouts/Default.vue'
 import App from '~/components/App';
 import Vuex from 'vuex'
 import VueMq from 'vue-mq'
-import VueObserveVisibility from 'vue-observe-visibility'
-import VueScrollmagic from 'vue-scrollmagic'
+// import VueScrollmagic from 'vue-scrollmagic'
 
 
 export default function (Vue, { router, head, isClient, appOptions}) {
   Vue.use(Vuex)
-  Vue.use(VueObserveVisibility)
   if (process.isClient) {
+    const VueScrollmagic = require('vue-scrollmagic').default;
     Vue.use(VueScrollmagic)
   }
 
@@ -36,17 +35,6 @@ export default function (Vue, { router, head, isClient, appOptions}) {
     rel: 'stylesheet',
     href: 'https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap'
   })
-
-  head.link.push({
-    rel: 'script',
-    src: "//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"
-  })
-
-  head.link.push({
-    rel: 'script',
-    src: "//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"
-  })
-
 
     // VUEX
   appOptions.store = new Vuex.Store({

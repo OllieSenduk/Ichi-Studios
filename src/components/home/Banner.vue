@@ -12,30 +12,36 @@
                 
             </div>
             <div class="home-container" :class="{hidden: homePageClosed}">
-                <div class="home-container__wrapper">
-                    <div class="home-container__stripes">
-                        <div class="home-container__stripes__one"></div>
-                        <div class="home-container__stripes__two"></div>
-                        <div class="home-container__stripes__three"></div>
+                <div class="home-container--animated">
+                    <div class="home-container__wrapper">
+                        <div class="home-container__stripes">
+                            <div class="home-container__stripes__one"></div>
+                            <div class="home-container__stripes__two"></div>
+                            <div class="home-container__stripes__three"></div>
+                        </div>
+                        <div class="home-container__add">
+                            <i class="fa fa-plus"></i>
+                        </div>
+                        <div class="home-header__intro-text">
+                            <h1 class="home-header__title" :class="{revealText: !homePageClosed}">
+                               <span>Ollsum Agency</span>
+                            </h1>
+                            <div class="home-header__text" :class="{revealText: !homePageClosed}" >
+                               <span>Creative & Digital Superheroes that get things done</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="home-container__add">
-                        <i class="fa fa-plus"></i>
-                    </div>
-                    <h1 class="home-header__title">
-                        Ollsum Agency
-                    </h1>
-                    <div class="home-header__text">
-                        We help componies achieve bolder & Better things
-                        <br>
-                        <br>
-                    </div>
-                    <clientOnly>
-                        <appAbout :animationTime="animationTime" :delayTime="delayTime" ></appAbout>
-                     </clientOnly>
-                </div>
-                   <div class="home-video">
+                    <img src="https://i.imgur.com/9he5plI.png" alt="shapes">
+                     <div class="home-video">
 
                     </div>
+                    <div class="home-container__wrapper">
+                        <ClientOnly>
+                            <appAbout :animationTime="animationTime" :delayTime="delayTime" ></appAbout>
+                        </ClientOnly>
+                    </div>
+                     
+                </div>
             </div>
         </div>
     </section>
@@ -54,14 +60,19 @@
             return {
                 homePageClosed: true,
                 animationTime: 1,
-                delayTime: 1
+                delayTime: 1,
+                colors: [
+                    { left: "black", middle: "grey", right: "white" },
+                    { left: "#45a247", middle: "#4c879b", right: "#4c879b" },
+                    { left: "white", middle: "white", right: "white" },
+                    { left: "#37ccfd", middle: "#b32fff", right: "#b32fff" }
+                ]
                 // navigationOpen: false,
                 // tlMax1: new TimelineMax({paused: true})
             }
         },
         methods: {
             fadeOutAbove: function() {
-                this.homePageClosed = false
                 const context = this
                 console.log(this.animationTime)
                 TweenMax.to(".home-header__btn", this.animationTime * 0.7, {
@@ -89,31 +100,36 @@
                 TweenMax.to(".home-header__overlay-2", this.animationTime * 1.2, {
                     delay: context.delayTime * 1.2,
                     top: "-110%",
-                    ease: Expo.easeInOut
+                    ease: Expo.easeInOut,
+                    onComplete: context.completedIntro
+
                 });
 
                 TweenMax.from(".home-container", this.animationTime * 1.2, {
                     delay: 1.4,
                     opacity: 0,
-                    ease: Power2.easeInOut
+                    ease: Power2.easeInOut,
                 });
 
                 TweenMax.to(".home-container", this.animationTime * 1.2, {
                     opacity: 1,
                     y: -300,
                     delay: context.delayTime * 1.6,
-                    ease: Power2.easeInOut
+                    ease: Power2.easeInOut,
                 });  
+
+
                 TweenMax.from(".home-container__add", this.animationTime * 1.2, {
-                    delay: context.delayTime * 2,
+                    delay: context.delayTime * 2.2,
                     opacity: 0,
                     x: 100,
                     rotation: 90,
                     ease: Expo.easeInOut
                 });
+
                 TweenMax.from(".home-container__stripes__one", this.animationTime * 1.2, {
                     height: 0,
-                    delay: context.delayTime * 2,
+                    delay: context.delayTime * 2.2,
                     ease: Power2.easeInOut
                 })
                 TweenMax.to(".home-container__stripes__one", this.animationTime * 1.2, {
@@ -121,10 +137,25 @@
                     delay: context.delayTime * 2.4,
                     ease: Power2.easeInOut
                 })
+
+                TweenMax.from(".home-container__stripes__two", this.animationTime * 1.8, {
+                    height: 0,
+                    delay: context.delayTime * 2.8,
+                    ease: Power2.easeInOut
+                })
+                TweenMax.to(".home-container__stripes__one", this.animationTime * 1.2, {
+                    height: '100%',
+                    delay: context.delayTime * 2.8,
+                    ease: Power2.easeInOut
+                })
             //  this.tlMax1.reversed(!this.tlMax1.reversed());
             },
+            completedIntro() {
+                this.homePageClosed = false
+            }
         },
         mounted () {
+     
             // this.tlMax1.to(".navigation__page-wrapper", 0.3, {
             //     top: "0%",
             //     ease: Expo.easeInOut,
@@ -150,6 +181,10 @@
 
 <style lang='scss'>
 
+    .home-container--animated {
+        opacity: 1;
+    }
+
     .home-video {
         width: 100vw;
         height: 60vh;
@@ -161,13 +196,15 @@
     }
 
     .home-container {
-        width: 80%;
+        width: 100%;
         margin: 0 auto;
         z-index: -1;
         position: absolute;
         top: 50%;
-        // left: 10%;
         transform: translate(0, -50%);
+        overflow-x: hidden;
+        transition: display 1s;
+
 
         &__wrapper {
             margin-left: 10%;
@@ -201,23 +238,29 @@
 
         &__add {
             position: absolute;
-            top: 20vh;
+            top: 15vh;
             right: 10px;
             padding: 10px 30px;
-            opacity: 0.2;
-            font-size: 2rem;
+            opacity: 0.4;
+            font-size: 3rem
         }
     }
 
     .home-header {
         cursor: crosshair;
 
+        &__intro-text {
+            width: 80%;
+            height: 40vh;
+            // margin-top: 10vh;
+        }
         &__title {
             font-family: $main-font;
             font-size: $large-title;
             font-weight: 700;
             text-transform: uppercase;
             margin-bottom: 10px;
+            top:10vh;
         }
 
         &__text {
@@ -226,6 +269,8 @@
             font-weight: 400;
             font-size: 2.5rem;
             margin-bottom: 100px;
+            top:20vh;
+
         }
 
         &__overlay-2 {
@@ -327,5 +372,70 @@
             }
         }
     }
+
+    .revealText {
+        position: absolute;
+
+        span {
+            opacity: 0;
+            animation: appear-text 0.0001s linear forwards;
+            animation-delay: 1.4s;
+        }
+
+        &:after {
+            content: '';
+            top: 0;
+            left: 0;
+            position: absolute;
+            width: 0%;
+            height: 100%;
+            background: $black;
+            animation: revealText 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+            animation-delay: 1s;
+        }
+
+        &.home-header__text {
+            animation-delay: 2s;
+
+            span {
+                animation-delay: 2s;
+            }
+
+            &:after {
+                background: $red;
+                animation-delay: 1.4s;
+            }
+        }
+    }
+
+
+
+@keyframes revealText {
+
+     0% {
+          left: 0;
+          width: 0%;
+     }
+     50% {
+          left: 0;
+          width: 100%;
+     }
+     100% {
+          left: 100%;
+          width: 0%;
+     }
+
+}
+
+@keyframes appear-text {
+
+     0% {
+          opacity: 0;
+     }
+     100% {
+          opacity: 1;
+     }
+
+}
 
 </style>

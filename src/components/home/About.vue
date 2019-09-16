@@ -1,18 +1,28 @@
 <template>
+
     <section class='home-about'>
         <div class="home-about__block one">
             <div class="home-about__skills">
-                Branding & Marketing
+                Brand 
+                <br>
+                <br>
+                Campaigns
             </div>
         </div>
         <div class="home-about__block two">
             <div class="home-about__skills">
-                Website & App Development
+                Website & App 
+                <br>
+                <br>
+                Development
             </div>
         </div>
         <div class="home-about__block three">
             <div class="home-about__skills">
-                Growth & Stragegy
+                Growth & 
+                <br>
+                <br>
+                Stragegy
             </div>
         </div>
         <div class="home-about__btn">
@@ -25,6 +35,7 @@
     import { TweenMax } from 'gsap';
 
     import Button from '~/components/shared/Button'
+    import { setTimeout } from 'timers';
 
     export default {
         props: [
@@ -36,43 +47,43 @@
         },
          data () {
             return {
+                homeAnimationRunning: true
             }
         },
         methods: {
             startPageAnimation() {
                 const tl = new TimelineMax({})
                 
-                tl.from('.one', 2, {
-                    x: -100,
-                    opacity: 0
+                tl.to('.one', 2, {
+                    opacity: 1
                 })
 
-                tl.from('.two', 2, {
-                    x: 100,
-                    opacity: 0
+                tl.to('.two', 2, {
+                    opacity: 1,
+                    x: -10
                 })
 
-                tl.from('.three', 2, {
-                    x: -100,
-                    opacity: 0
+                tl.to('.three', 2, {
+                    opacity: 1,
+                    x: 10
                 })
 
                 const box1 = this.$scrollmagic.scene({
                     triggerElement: '.home-about',
-                    triggerHook: 0.7,
-                    duration: 700
+                    triggerHook: 1.2,
+                    duration: 0
                 })
 
                 const box2 = this.$scrollmagic.scene({
                     triggerElement: '.home-about',
-                    triggerHook: 0.7,
-                    duration: 500
+                    triggerHook: 1.2,
+                    duration: '100%'
                 })
 
                 const box3 = this.$scrollmagic.scene({
                     triggerElement: '.home-about',
-                    triggerHook: 0.7,
-                    duration: 500
+                    triggerHook: 0.5,
+                    duration: '100%'
                 })
 
                 .setTween(tl)
@@ -82,12 +93,13 @@
                 .addIndicators({ name: '2 (duration: 300)' })
 
                 this.$scrollmagic.attachTo(this.$refs.scrollBox)
-
-
-
             }
         },
         mounted() {
+            const context = this
+            window.setTimeout(() => {
+                context.homeAnimationRunning = false
+            }, 5000)
             this.startPageAnimation()
         }
     }
@@ -111,18 +123,22 @@
                 background: black;
                 grid-row: 1/2;
                 grid-column: 1/2;
+                opacity: 0;
+                translate: transformX(-200)
             }
 
             &.two {
                 background: $pink;
                 grid-row: 2/3;
                 grid-column: 2/4;
+                opacity: 0;
             }
 
             &.three {
                 background: $red;
                 grid-row: 4/5;
                 grid-column: 1/2;
+                opacity: 0;
             }
         }
 
