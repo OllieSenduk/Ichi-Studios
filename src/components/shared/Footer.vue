@@ -209,7 +209,7 @@ $footer-margin-bottom-wide: 60px;
   .social-buttons {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     margin-top: -10px;
 
     &__button {

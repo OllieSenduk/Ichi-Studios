@@ -1,18 +1,409 @@
 <template>
-  <div class="container">
-    <appBanner />
-  </div>
+  <section class="home-header">
+    <div class="home-header__container">
+      <div class="home-header__overlay" :class="{hidden: !homePageClosed}">
+        <p class="home-header__screen">
+          OLLS
+          <span class="home-header__screen--pink">U</span>M
+        </p>
+        <div class="home-header-intro">
+          <div class="btn home-header__btn" @click="fadeOutAbove">EXPLORE</div>
+        </div>
+      </div>
+      <div class="home-header__overlay-2" :class="{hidden: !homePageClosed}"></div>
+      <div class="home-container" :class="{hidden: homePageClosed}">
+        <div class="home-container--animated">
+          <div class="home-container__wrapper section home__banner">
+            <section class="home__video"></section>
+            <div class="page-stripes">
+              <div class="page-stripes__one"></div>
+              <div class="page-stripes__two"></div>
+              <div class="page-stripes__three"></div>
+            </div>
+            <div class="home-container__add">
+              <i class="fa fa-plus"></i>
+            </div>
+            <div class="home-header__intro-text">
+              <h1 class="home-header__title" :class="{revealText: !homePageClosed}">
+                <span>Ollsum Agency</span>
+              </h1>
+              <div class="home-header__text" :class="{revealText: !homePageClosed}">
+                <span>We are digital & creative superheroes send from the future to help your company’s goals align with your customer’s needs</span>
+              </div>
+            </div>
+            <img src="https://i.imgur.com/9he5plI.png" alt="shapes" />
+          </div>
+          <!-- 
+          <div class="section">
+            <div class="home-values__images">
+              <img src="https://i.imgur.com/wX89zWA.jpg" alt="our_values" />
+              <img src="https://i.imgur.com/WADhtbB.jpg" alt="our_values" />
+            </div>
+          </div>-->
+
+          <!-- <div class="home-video"></div> -->
+          <div class="home-container__wrapper">
+            <ClientOnly>
+              <appAbout :animationTime="animationTime" :delayTime="delayTime"></appAbout>
+            </ClientOnly>
+          </div>
+          <div class="home-bottom">
+            <appFooter></appFooter>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
-  import Banner from '@/components/home/Banner';
+import { TweenMax } from "gsap";
+import About from "~/components/home/About";
+import Footer from "~/components/shared/Footer";
 
-  export default {
-    components: {
-      appBanner: Banner,
+export default {
+  components: {
+    appAbout: About,
+    appFooter: Footer
+  },
+  data() {
+    return {
+      homePageClosed: true,
+      animationTime: 1,
+      delayTime: 1,
+      colors: [
+        { left: "black", middle: "grey", right: "white" },
+        { left: "#45a247", middle: "#4c879b", right: "#4c879b" },
+        { left: "white", middle: "white", right: "white" },
+        { left: "#37ccfd", middle: "#b32fff", right: "#b32fff" }
+      ]
+      // navigationOpen: false,
+      // tlMax1: new TimelineMax({paused: true})
+    };
+  },
+  methods: {
+    fadeOutAbove: function() {
+      const context = this;
+      console.log(this.animationTime);
+      TweenMax.to(".home-header__btn", this.animationTime * 0.7, {
+        y: -100,
+        opacity: 0
+      });
+
+      TweenMax.to(".home-header__screen", this.animationTime * 1.2, {
+        y: -400,
+        opacity: 0,
+        ease: Power2.easeInOut,
+        delay: context.delayTime
+      });
+
+      TweenMax.from(".home-header__overlay", this.animationTime * 1.2, {
+        ease: Power2.easeInOut
+      });
+
+      TweenMax.to(".home-header__overlay", this.animationTime * 1.2, {
+        delay: context.delayTime,
+        top: "-110%",
+        ease: Expo.easeInOut
+      });
+
+      TweenMax.to(".home-header__overlay-2", this.animationTime * 1.2, {
+        delay: context.delayTime * 1.2,
+        top: "-110%",
+        ease: Expo.easeInOut,
+        onComplete: context.completedIntro
+      });
+
+      TweenMax.from(".home-container", this.animationTime * 1.2, {
+        delay: 1.4,
+        opacity: 0,
+        ease: Power2.easeInOut
+      });
+
+      TweenMax.to(".home-container", this.animationTime * 1.2, {
+        opacity: 1,
+        y: -300,
+        delay: context.delayTime * 1.6,
+        ease: Power2.easeInOut
+      });
+
+      TweenMax.from(".home-container__add", this.animationTime * 1.2, {
+        delay: context.delayTime * 2.2,
+        opacity: 0,
+        x: 100,
+        rotation: 90,
+        ease: Expo.easeInOut
+      });
+      //  this.tlMax1.reversed(!this.tlMax1.reversed());
     },
-    metaInfo: {
-      title: 'Ollsum Agency'
+    completedIntro() {
+      this.homePageClosed = false;
+    }
+  },
+  mounted() {
+    // this.tlMax1.to(".navigation__page-wrapper", 0.3, {
+    //     top: "0%",
+    //     ease: Expo.easeInOut,
+    // })
+    // this.tlMax1.to('.navigation__line-one', 0.3, {
+    //     y: 6,
+    //     rotation: 45,
+    //     ease: Expo.easeInOut,
+    // });
+    // this.tlMax1.to('.navigation__line-two', 0.3, {
+    //     y: 6,
+    //     rotation: -45,
+    //     ease: Expo.easeInOut,
+    //     delay: -0.3
+    // });
+    // this.tlMax1.staggerFrom(".navigation__item", 0.4, {x: -200, opacity: 0, ease:Expo.easeOut}, 0.3);
+    // this.tlMax1.reverse();
+  }
+};
+</script>
+
+<style lang='scss'>
+.home-container--animated {
+  opacity: 1;
+}
+
+.home__banner {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.home-video {
+  width: 100vw;
+  height: 60vh;
+  background: black;
+}
+
+.hidden {
+  display: none;
+}
+
+.home-container {
+  width: 100%;
+  margin: 0 auto;
+  // z-index: -1;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  overflow-x: hidden;
+  transition: display 1s;
+
+  .home-bottom {
+    padding-bottom: 130rem;
+
+    @include mq($from: tablet) {
+      padding-bottom: 120rem;
+    }
+    @include mq($from: wide) {
+      padding-bottom: 100rem;
     }
   }
-</script>
+
+  &__wrapper {
+    margin-left: 10%;
+  }
+
+  &__add {
+    position: absolute;
+    top: 15vh;
+    right: 10px;
+    padding: 10px 30px;
+    opacity: 0.4;
+    font-size: 3rem;
+  }
+}
+
+.home-header {
+  cursor: crosshair;
+
+  &__intro-text {
+    width: 80%;
+    height: 40vh;
+    // margin-top: 10vh;
+  }
+  &__title {
+    font-family: $main-font;
+    font-size: $large-title;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    top: 10vh;
+  }
+
+  &__text {
+    margin-top: 100px;
+    text-align: left;
+    font-weight: 400;
+    font-size: 2.5rem;
+    margin-bottom: 100px;
+    top: 20vh;
+  }
+
+  &__overlay-2 {
+    z-index: 0;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background: #48a9a6;
+  }
+
+  &__overlay {
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background: #101010;
+  }
+
+  &__screen {
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    font-family: $main-font;
+    color: #323232;
+    font-size: 15rem;
+    font-weight: 800;
+    writing-mode: vertical-rl;
+    opacity: 0.6;
+    height: 100%;
+
+    &--pink {
+      color: $pink;
+      animation: 1s appear ease-in;
+    }
+
+    @include mq($from: wide) {
+      writing-mode: horizontal-tb;
+      font-size: 30rem;
+      top: 70%;
+      left: 50%;
+      width: 100%;
+      height: 0%;
+    }
+  }
+
+  // CREATE SEPERATE COMPONENT
+  &__btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .btn {
+    display: block;
+    padding: 24px 48px;
+    font-family: $main-font;
+    font-size: 1.2rem;
+    letter-spacing: 6px;
+    color: $white;
+    border: 2px solid $white;
+    text-transform: uppercase;
+    outline: none;
+    overflow: hidden;
+    background: none;
+    z-index: 1;
+    cursor: crosshair;
+    transition: 0.6s ease-out;
+
+    &--small {
+      padding: 15px 23px;
+    }
+
+    &:hover {
+      color: $pink;
+      cursor: crosshair;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      background: $white;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      top: 100%;
+      z-index: -1;
+      transition: top 0.6s ease-out;
+    }
+
+    &:hover:before {
+      top: 0;
+    }
+  }
+
+  // ANIMATIONS
+  @keyframes appear {
+    0% {
+      opacity: 0.1;
+    }
+    100% {
+      opacity: 0.6;
+    }
+  }
+}
+
+.revealText {
+  position: absolute;
+
+  span {
+    opacity: 0;
+    animation: appear-text 0.0001s linear forwards;
+    animation-delay: 1.4s;
+  }
+
+  &:after {
+    content: "";
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    background: $black;
+    animation: revealText 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+    animation-delay: 1s;
+  }
+
+  &.home-header__text {
+    animation-delay: 2s;
+
+    span {
+      animation-delay: 2s;
+    }
+
+    &:after {
+      background: $red;
+      animation-delay: 1.4s;
+    }
+  }
+}
+
+@keyframes revealText {
+  0% {
+    left: 0;
+    width: 0%;
+  }
+  50% {
+    left: 0;
+    width: 100%;
+  }
+  100% {
+    left: 100%;
+    width: 0%;
+  }
+}
+
+@keyframes appear-text {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+</style>
