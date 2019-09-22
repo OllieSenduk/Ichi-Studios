@@ -31,8 +31,9 @@
                 <span>We are digital & creative superheroes send from the future to help your company’s goals align with your customer’s needs</span>
               </div>
             </div>
-            <img src="https://i.imgur.com/9he5plI.png" alt="shapes" />
           </div>
+          <img src="https://i.imgur.com/9he5plI.png" alt="shapes" />
+
           <!-- 
           <div class="section">
             <div class="home-values__images">
@@ -168,8 +169,6 @@ export default {
 }
 
 .home__banner {
-  height: 100vh;
-  overflow: hidden;
 }
 
 .home-video {
