@@ -1,17 +1,26 @@
 <template>
   <div class="layout">
-    <Navigation/>
-    <router-view/> 
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- <div class="layout__content"> -->
+    <Navigation />
+    <router-view />
+    <!-- </div> -->
   </div>
 </template>
 
 <script>
-  import Navigation from '~/components/shared/Navigation';
-  export default {
-    components: {
-      Navigation,
-    },
-  };
+import Navigation from "~/components/shared/Navigation";
+import Footer from "~/components/shared/Footer";
+
+export default {
+  components: {
+    Navigation,
+    Footer
+  }
+};
 </script>
 
 <static-query>
@@ -22,39 +31,47 @@
   }
 </static-query>
 
-<style>
+<style lang="scss">
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-  *,
-  *:before,
-  *:after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
+html {
+  overflow-x: hidden;
+  font-size: 10px;
+  margin: 0px;
+  font-family: $main-font;
+}
 
-  html {
-    overflow-x: hidden;
-    font-size: 10px;
-    margin: 0px;
-    font-family: $main-font; 
-  }
+body {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  margin: 0px;
+}
 
-  body {
-    overflow-x:hidden;
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
-    margin: 0px;
-  }
+.layout {
+  position: relative;
+  min-height: 100vh;
 
-  .remove_page {
-    display: none;
-  }
+  // &__content {
+  //   padding-bottom: 8rem;
+  // }
+}
 
-  .hidden {
-    display: none !important;
-  }
+.remove_page {
+  display: none;
+}
 
-  .hidden-opacity {
-    opacity: 0;
-  }
+.hidden {
+  display: none !important;
+}
+
+.hidden-opacity {
+  opacity: 0;
+}
 </style>

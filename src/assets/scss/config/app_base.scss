@@ -1,0 +1,97 @@
+$element-margin-bottom: 50px;
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  overflow-x: hidden;
+  font-size: 10px;
+  font-family: $main-font;
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  margin: 0px;
+}
+
+p {
+  line-height: 30px;
+  font-size: 1.5rem;
+
+  @include mq($from: wide) {
+    line-height: 20px;
+  }
+
+}
+
+.section {
+  margin-bottom: $element-margin-bottom;
+}
+
+
+.page__wrapper {
+  padding-left: 10vw;
+  padding-top: 10vh;
+  width: 80%;
+}
+
+.first-element {
+  padding-top: 10px;
+}
+
+.page-stripes {
+  &__one {
+    position: fixed;
+    width: 1px;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    left: 25%;
+  }
+
+  &__two {
+    position: fixed;
+    width: 1px;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.2);
+    left: 50%;
+  }
+
+  &__three {
+    position: fixed;
+    width: 1px;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.2);
+    left: 75%;
+  }
+}
+
+.pink-background {
+  background-color: $pink;
+}
+
+.black-background {
+  background-color: black;
+}
+
+.azur-background {
+  background-color: $azur;
+}
+
+.red-background {
+  background-color: $red;
+}
+
+.dark-yellow-background {
+  background-color: $dark-yellow
+}
+
+.hidden {
+  display: none !important;
+}
