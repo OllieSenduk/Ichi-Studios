@@ -45,56 +45,92 @@ export default {
   },
   methods: {
     startPageAnimation() {
-      const tl = new TimelineMax({});
+      const boxes = [".one", ".two", ".three"];
+      const trigger = document.querySelector(".home-about");
 
-      tl.to(".one", 4, {
-        opacity: 1
-      });
-
-      tl.to(".two", 2, {
-        opacity: 1,
-        x: -10
-      });
-
-      tl.to(".three", 2, {
-        opacity: 1,
-        x: 10
-      });
-
-      const box1 = this.$scrollmagic.scene({
-        triggerElement: ".home-about",
-        triggerHook: 1.2,
-        duration: 2
-      });
-
-      const box2 = this.$scrollmagic.scene({
-        triggerElement: ".home-about",
-        triggerHook: 1.2,
-        duration: 2
-      });
-
-      const box3 = this.$scrollmagic
+      const scene = this.$scrollmagic
         .scene({
-          triggerElement: ".home-about",
-          triggerHook: 0.5,
-          duration: 2
+          triggerElement: trigger,
+          offset: -20
         })
+        .setClassToggle(".one", "is-active");
+      // .addIndicators({ name: "2 (duration: 300)" });
+      this.$scrollmagic.addScene(scene);
 
-        .setTween(tl);
-      this.$scrollmagic.addScene(box1);
-      this.$scrollmagic.addScene(box2);
-      this.$scrollmagic
-        .addScene(box3)
-        .addIndicators({ name: "2 (duration: 300)" });
+      const scene2 = this.$scrollmagic
+        .scene({
+          triggerElement: trigger,
+          triggerHook: "onCenter"
+        })
+        .setClassToggle(".two", "is-active");
+      // .addIndicators({ name: "2 (duration: 300)" });
+      this.$scrollmagic.addScene(scene2);
+
+      const scene3 = this.$scrollmagic
+        .scene({
+          triggerElement: trigger,
+          triggerHook: 0.2
+        })
+        .setClassToggle(".three", "is-active");
+      // .addIndicators({ name: "2 (duration: 300)" });
+      this.$scrollmagic.addScene(scene3);
+
+      this.$scrollmagic.attachTo(this.$refs.scrollBox);
+
+      // const tl = new TimelineMax({});
+
+      // tl.from(".one", 0.2, {
+      //   // delay: context.delayTime * 2.2,
+      //   opacity: 0,
+      //   x: 100,
+      //   rotation: 90,
+      //   ease: Expo.easeInOut
+      // });
+
+      // tl.to(".two", 2, {
+      //   opacity: 1,
+      //   x: -10
+      // });
+
+      // tl.to(".three", 2, {
+      //   opacity: 1,
+      //   x: 10
+      // });
+
+      // const box1 = this.$scrollmagic.scene({
+      //   triggerElement: ".home-about",
+      //   triggerHook: 1
+      //   // duration: 2
+      // });
+
+      // const box2 = this.$scrollmagic.scene({
+      //   triggerElement: ".two"
+      //   // triggerHook: 1.2,
+      //   // duration: 2
+      // });
+
+      // const box3 = this.$scrollmagic
+      //   .scene({
+      //     triggerElement: ".three"
+      //     // triggerHook: 0.5,
+      //     // duration: 2
+      //   })
+
+      //   .setTween(tl);
+      // this.$scrollmagic.addScene(box1);
+      // this.$scrollmagic.addScene(box2);
+      // this.$scrollmagic
+      //   .addScene(box3)
+      //   .addIndicators({ name: "2 (duration: 300)" });
 
       this.$scrollmagic.attachTo(this.$refs.scrollBox);
     }
   },
   mounted() {
     const context = this;
-    window.setTimeout(() => {
-      context.homeAnimationRunning = false;
-    }, 5000);
+    // window.setTimeout(() => {
+    //   context.homeAnimationRunning = false;
+    // }, 5000);
     this.startPageAnimation();
   }
 };
@@ -118,7 +154,13 @@ export default {
       grid-row: 1/2;
       grid-column: 1/2;
       opacity: 0;
-      translate: transformX(-200);
+      // transform: translate3d(-50px, 50px, 0);
+      transition: all 0.5s ease-out;
+
+      &.is-active {
+        opacity: 1;
+        // transform: translate3d(0, 0, 0);
+      }
     }
 
     &.two {
@@ -126,6 +168,13 @@ export default {
       grid-row: 2/3;
       grid-column: 2/4;
       opacity: 0;
+      // transform: translate3d(50px, 50px, 0);
+      transition: all 0.5s ease-out;
+
+      &.is-active {
+        opacity: 1;
+        // transform: translate3d(0, 0, 0);
+      }
     }
 
     &.three {
@@ -133,6 +182,12 @@ export default {
       grid-row: 4/5;
       grid-column: 1/2;
       opacity: 0;
+      // transform: translate3d(-50px, 50px, 0);
+
+      &.is-active {
+        opacity: 1;
+        // transform: translate3d(0, 0, 0);
+      }
     }
   }
 

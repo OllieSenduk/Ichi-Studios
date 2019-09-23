@@ -1,5 +1,10 @@
 <template>
   <section class="home-header">
+    <div class="page-stripes">
+      <div class="page-stripes__one"></div>
+      <div class="page-stripes__two"></div>
+      <div class="page-stripes__three"></div>
+    </div>
     <div class="home-header__container">
       <div class="home-header__overlay" :class="{hidden: !homePageClosed}">
         <p class="home-header__screen">
@@ -12,45 +17,50 @@
       </div>
       <div class="home-header__overlay-2" :class="{hidden: !homePageClosed}"></div>
       <div class="home-container" :class="{hidden: homePageClosed}">
-        <div class="home-container--animated">
-          <div class="home-container__wrapper section home__banner">
-            <section class="home__video"></section>
-            <div class="page-stripes">
-              <div class="page-stripes__one"></div>
-              <div class="page-stripes__two"></div>
-              <div class="page-stripes__three"></div>
+        <div class="home-container__wrapper section home__banner">
+          <div class="home-container__shape-1">
+            <i class="fa fa-plus"></i>
+          </div>
+          <div class="home-header__intro-text">
+            <h1 class="home-header__title" :class="{revealText: !homePageClosed}">
+              <span>Ollsum Agency</span>
+            </h1>
+            <div class="home-header__text" :class="{revealText: !homePageClosed}">
+              <span>
+                We are digital & creative superheroes
+                send from the future to help your company achieve its goals
+              </span>
             </div>
-            <div class="home-container__add">
-              <i class="fa fa-plus"></i>
-            </div>
-            <div class="home-header__intro-text">
-              <h1 class="home-header__title" :class="{revealText: !homePageClosed}">
-                <span>Ollsum Agency</span>
-              </h1>
-              <div class="home-header__text" :class="{revealText: !homePageClosed}">
-                <span>We are digital & creative superheroes send from the future to help your company’s goals align with your customer’s needs</span>
-              </div>
+            <div class="home-container__shape-2">
+              <img src="https://i.imgur.com/9he5plI.png" alt="shapes" />
             </div>
           </div>
-          <img src="https://i.imgur.com/9he5plI.png" alt="shapes" />
-
-          <!-- 
+          <div class="home-container__mascote">
+            <img src="https://i.imgur.com/F41Ca3i.png" alt="mascote" />
+          </div>
+          <div class="home-container__background">
+            <img src="https://i.imgur.com/IhtDB7k.png" alt="background" />
+          </div>
+        </div>
+        <div class="home-video">
+          <img src="https://i.imgur.com/SHnSWQe.jpg" alt width="500" />
+        </div>
+        <!-- 
           <div class="section">
             <div class="home-values__images">
-              <img src="https://i.imgur.com/wX89zWA.jpg" alt="our_values" />
-              <img src="https://i.imgur.com/WADhtbB.jpg" alt="our_values" />
+              <img src="https://i.imgur.com/SHnSWQe.jpg" alt="our_values" />
+              <img src="https://i.imgur.com/07Pc9JM.jpg" alt="our_values" />
+              <img src="https://i.imgur.com/rdWlkBq.jpg" alt="our_values" />
             </div>
-          </div>-->
+        </div>-->
 
-          <!-- <div class="home-video"></div> -->
-          <div class="home-container__wrapper">
-            <ClientOnly>
-              <appAbout :animationTime="animationTime" :delayTime="delayTime"></appAbout>
-            </ClientOnly>
-          </div>
-          <div class="home-bottom">
-            <appFooter></appFooter>
-          </div>
+        <div class="home-container__wrapper">
+          <ClientOnly>
+            <appAbout :animationTime="animationTime" :delayTime="delayTime"></appAbout>
+          </ClientOnly>
+        </div>
+        <div class="home-bottom">
+          <appFooter></appFooter>
         </div>
       </div>
     </div>
@@ -85,7 +95,6 @@ export default {
   methods: {
     fadeOutAbove: function() {
       const context = this;
-      console.log(this.animationTime);
       TweenMax.to(".home-header__btn", this.animationTime * 0.7, {
         y: -100,
         opacity: 0
@@ -128,35 +137,46 @@ export default {
         ease: Power2.easeInOut
       });
 
-      TweenMax.from(".home-container__add", this.animationTime * 1.2, {
+      TweenMax.from(".home-container__shape-1", this.animationTime * 1.2, {
         delay: context.delayTime * 2.2,
         opacity: 0,
         x: 100,
         rotation: 90,
         ease: Expo.easeInOut
       });
+
+      TweenMax.from(".home-container__mascote", this.animationTime * 1.6, {
+        delay: context.delayTime * 4.2,
+        x: 500,
+        rotation: 90,
+        ease: Expo.easeInOut
+      });
+
       //  this.tlMax1.reversed(!this.tlMax1.reversed());
     },
     completedIntro() {
       this.homePageClosed = false;
+    },
+    fadeToBlack() {
+      // const trigger = document.querySelector(".home-video");
+      // const scene = this.$scrollmagic
+      //   .scene({
+      //     triggerElement: trigger,
+      //     offset: -200
+      //     //   duration: 1
+      //   })
+      //   .setClassToggle(".home-container", "fade-to-black");
+      // this.$scrollmagic.addScene(scene);
+      // this.$scrollmagic.attachTo(this.$refs.scrollBox);
     }
   },
   mounted() {
+    this.fadeToBlack();
     // this.tlMax1.to(".navigation__page-wrapper", 0.3, {
     //     top: "0%",
     //     ease: Expo.easeInOut,
     // })
-    // this.tlMax1.to('.navigation__line-one', 0.3, {
-    //     y: 6,
-    //     rotation: 45,
-    //     ease: Expo.easeInOut,
-    // });
-    // this.tlMax1.to('.navigation__line-two', 0.3, {
-    //     y: 6,
-    //     rotation: -45,
-    //     ease: Expo.easeInOut,
-    //     delay: -0.3
-    // });
+
     // this.tlMax1.staggerFrom(".navigation__item", 0.4, {x: -200, opacity: 0, ease:Expo.easeOut}, 0.3);
     // this.tlMax1.reverse();
   }
@@ -164,6 +184,43 @@ export default {
 </script>
 
 <style lang='scss'>
+.home-video {
+  transition: all 0.7s ease-out;
+  // background-color: black;
+  height: 200vh;
+
+  &.fade-to-black {
+    background-color: black;
+  }
+}
+
+.home-values {
+  &__images {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 50% 50%;
+
+    // img {
+    //   width: 80%;
+    //   margin-bottom: $within-element-margin-bottom;
+
+    //   &:nth-child(1) {
+    //     grid-column: 1;
+    //     grid-row: 1/2;
+    //   }
+
+    //   &:nth-child(2) {
+    //     grid-column: 2;
+    //     grid-row: 2/2;
+    //   }
+
+    //   &:nth-child(3) {
+    //     grid-column: 1;
+    //     grid-row: 3/3;
+    //   }
+    // }
+  }
+}
 .home-container--animated {
   opacity: 1;
 }
@@ -171,11 +228,7 @@ export default {
 .home__banner {
 }
 
-.home-video {
-  width: 100vw;
-  height: 60vh;
-  background: black;
-}
+//
 
 .hidden {
   display: none;
@@ -189,7 +242,23 @@ export default {
   top: 50%;
   transform: translate(0, -50%);
   overflow-x: hidden;
-  transition: display 1s;
+  transition: all 0.7s ease-out;
+
+  @include mq($from: tablet, $until: laptop) {
+    top: 30%;
+  }
+
+  @include mq($from: laptop) {
+    top: 50%;
+  }
+  // @include mq($from: wide) {
+  //   padding-bottom: 100rem;
+  // }
+
+  &.fade-to-black {
+    background-color: black;
+    color: white;
+  }
 
   .home-bottom {
     padding-bottom: 130rem;
@@ -206,13 +275,43 @@ export default {
     margin-left: 10%;
   }
 
-  &__add {
+  &__shape-1 {
     position: absolute;
     top: 15vh;
     right: 10px;
     padding: 10px 30px;
     opacity: 0.4;
     font-size: 3rem;
+  }
+
+  &__shape-2 {
+    position: absolute;
+    top: 60vh;
+
+    @include mq($from: laptop) {
+      top: 68vh;
+    }
+  }
+
+  &__mascote {
+    position: absolute;
+    top: 60vh;
+    right: 40vw;
+
+    @include mq($from: tablet) {
+      top: 35vw;
+      right: 20vw;
+    }
+  }
+
+  &__background {
+    @include mq($from: tablet) {
+      text-align: center;
+
+      img {
+        width: 500px;
+      }
+    }
   }
 }
 
@@ -231,15 +330,39 @@ export default {
     text-transform: uppercase;
     margin-bottom: 10px;
     top: 10vh;
+
+    @include mq($from: mobile, $until: largeMobile) {
+      font-size: $small-title;
+    }
+
+    @include mq($from: laptop, $until: wide) {
+      font-size: 6rem;
+    }
   }
 
   &__text {
-    margin-top: 100px;
+    margin-top: $within-element-margin-bottom;
     text-align: left;
     font-weight: 400;
     font-size: 2.5rem;
-    margin-bottom: 100px;
+    margin-bottom: $within-element-margin-bottom;
     top: 20vh;
+
+    @include mq($from: mobile, $until: largeMobile) {
+      font-size: 2rem;
+    }
+
+    @include mq($from: mobile, $until: tablet) {
+      width: 80vw;
+    }
+
+    @include mq($from: tablet) {
+      width: 50vw;
+    }
+
+    @include mq($from: laptop) {
+      font-size: 4.5rem;
+    }
   }
 
   &__overlay-2 {
@@ -315,7 +438,7 @@ export default {
     }
 
     &:hover {
-      color: $pink;
+      color: black;
       cursor: crosshair;
     }
 
