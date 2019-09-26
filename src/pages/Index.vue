@@ -17,7 +17,7 @@
       </div>
       <div class="home-header__overlay-2" :class="{hidden: !homePageClosed}"></div>
       <div class="home-container" :class="{hidden: homePageClosed}">
-        <div class="home-container__wrapper section home__banner">
+        <div class="block section home__banner">
           <div class="home-container__shape-1">
             <i class="fa fa-plus"></i>
           </div>
@@ -25,10 +25,12 @@
             <h1 class="home-header__title" :class="{revealText: !homePageClosed}">
               <span>Ollsum Agency</span>
             </h1>
-            <div class="home-header__text" :class="{revealText: !homePageClosed}">
+            <div class="home-header__text within-section" :class="{revealText: !homePageClosed}">
               <span>
-                We are digital & creative superheroes
-                send from the future to help your company achieve its goals
+                We are
+                digital & creative
+                <span class="text-red">superheroes</span>
+                sent from the future to help your company achieve its goals.
               </span>
             </div>
             <div class="home-container__shape-2">
@@ -42,9 +44,67 @@
             <img src="https://i.imgur.com/IhtDB7k.png" alt="background" />
           </div>
         </div>
-        <div class="home-video">
-          <img src="https://i.imgur.com/SHnSWQe.jpg" alt width="500" />
+        <appInfoBlock></appInfoBlock>
+        <div class="section">
+          <appTestimonial
+            :name=" testimonialRipleys.name"
+            :text=" testimonialRipleys.text"
+            :company=" testimonialRipleys.company"
+            :img=" testimonialRipleys.img"
+            :backgroundColor=" testimonialRipleys.backgroundColor"
+            :primaryColor=" testimonialRipleys.primaryColor"
+            :secondaryColor=" testimonialRipleys.secondaryColor"
+            :iconColor=" testimonialRipleys.iconColor"
+          ></appTestimonial>
         </div>
+        <div class="section">
+          <appIconBlock
+            :sectionTitle="homeIcons.sectionTitle"
+            :titleOne="homeIcons.titleOne"
+            :imgOne="homeIcons.imgOne"
+            :textOne="homeIcons.textOne"
+            :titleTwo="homeIcons.titleTwo"
+            :imgTwo="homeIcons.imgTwo"
+            :textTwo="homeIcons.textTwo"
+            :titleThree="homeIcons.titleThree"
+            :imgThree="homeIcons.imgThree"
+            :textThree="homeIcons.textThree"
+            :titleFour="homeIcons.titleFour"
+            :imgFour="homeIcons.imgFour"
+            :textFour="homeIcons.textFour"
+          ></appIconBlock>
+        </div>
+        <appVideo></appVideo>
+        <appinfoBlockLarge
+          :title="homeProjectSection.title"
+          :subTitle="homeProjectSection.subTitle"
+          :text="homeProjectSection.text"
+          :imgOne="homeProjectSection.imgOne"
+          :imgTwo="homeProjectSection.imgTwo"
+          :imgThree="homeProjectSection.imgThree"
+          :imgFour="homeProjectSection.imgFour"
+          :imgOneText="homeProjectSection.imgOneText"
+          :imgTwoText="homeProjectSection.imgTwoText"
+          :imgThreeText="homeProjectSection.imgThreeText"
+          :imgFourText="homeProjectSection.imgFourText"
+          :backgroundColor="homeProjectSection.backgroundColor"
+          :color="homeProjectSection.color"
+        ></appinfoBlockLarge>
+        <div class="section">
+          <appTestimonial
+            :name="testimonialCanon.name"
+            :text="testimonialCanon.text"
+            :company="testimonialCanon.company"
+            :img="testimonialCanon.img"
+            :backgroundColor="testimonialCanon.backgroundColor"
+            :primaryColor="testimonialCanon.primaryColor"
+            :secondaryColor="testimonialCanon.secondaryColor"
+            :iconColor="testimonialCanon.iconColor"
+          ></appTestimonial>
+        </div>
+        <!-- <div class="home-video">
+          <img src="https://i.imgur.com/SHnSWQe.jpg" alt width="500" />
+        </div>-->
         <!-- 
           <div class="section">
             <div class="home-values__images">
@@ -53,12 +113,12 @@
               <img src="https://i.imgur.com/rdWlkBq.jpg" alt="our_values" />
             </div>
         </div>-->
-
-        <div class="home-container__wrapper">
+        <!-- 
+        <div class="block">
           <ClientOnly>
             <appAbout :animationTime="animationTime" :delayTime="delayTime"></appAbout>
           </ClientOnly>
-        </div>
+        </div>-->
         <div class="home-bottom">
           <appFooter></appFooter>
         </div>
@@ -69,13 +129,25 @@
 
 <script>
 import { TweenMax } from "gsap";
-import About from "~/components/home/About";
+import About from "~/components/home/HomeAbout";
+import InfoBlock from "~/components/shared/InfoBlock";
+import Testimonial from "~/components/shared/Testimonial";
+import InfoBlockLarge from "~/components/shared/InfoBlockLarge";
+import IconBlock from "~/components/shared/IconBlock";
+
 import Footer from "~/components/shared/Footer";
+import Video from "~/components/home/HomeVideo";
+import { mapState } from "vuex";
 
 export default {
   components: {
     appAbout: About,
-    appFooter: Footer
+    appFooter: Footer,
+    appInfoBlock: InfoBlock,
+    appVideo: Video,
+    appTestimonial: Testimonial,
+    appinfoBlockLarge: InfoBlockLarge,
+    appIconBlock: IconBlock
   },
   data() {
     return {
@@ -158,20 +230,21 @@ export default {
       this.homePageClosed = false;
     },
     fadeToBlack() {
-      // const trigger = document.querySelector(".home-video");
-      // const scene = this.$scrollmagic
-      //   .scene({
-      //     triggerElement: trigger,
-      //     offset: -200
-      //     //   duration: 1
-      //   })
-      //   .setClassToggle(".home-container", "fade-to-black");
-      // this.$scrollmagic.addScene(scene);
-      // this.$scrollmagic.attachTo(this.$refs.scrollBox);
+      const trigger = document.querySelector(".home-video");
+      const scene = this.$scrollmagic
+        .scene({
+          triggerElement: trigger,
+          offset: -200
+          //   duration: 1
+        })
+        .setClassToggle(".home-container", "fade-to-black");
+      this.$scrollmagic.addScene(scene);
+      this.$scrollmagic.attachTo(this.$refs.scrollBox);
     }
   },
   mounted() {
     this.fadeToBlack();
+
     // this.tlMax1.to(".navigation__page-wrapper", 0.3, {
     //     top: "0%",
     //     ease: Expo.easeInOut,
@@ -179,7 +252,14 @@ export default {
 
     // this.tlMax1.staggerFrom(".navigation__item", 0.4, {x: -200, opacity: 0, ease:Expo.easeOut}, 0.3);
     // this.tlMax1.reverse();
-  }
+  },
+  computed: mapState({
+    // arrow functions can make the code very succinct!
+    homeProjectSection: state => state.infoBlockLarge.homeProjectSection,
+    testimonialRipleys: state => state.testimonials.ripleys,
+    testimonialCanon: state => state.testimonials.canon,
+    homeIcons: state => state.icons.homeIcons
+  })
 };
 </script>
 
@@ -239,7 +319,7 @@ export default {
   margin: 0 auto;
   // z-index: -1;
   position: absolute;
-  top: 50%;
+  top: 40%;
   transform: translate(0, -50%);
   overflow-x: hidden;
   transition: all 0.7s ease-out;
@@ -261,18 +341,14 @@ export default {
   }
 
   .home-bottom {
-    padding-bottom: 130rem;
+    padding-bottom: 200rem;
 
     @include mq($from: tablet) {
-      padding-bottom: 120rem;
+      padding-bottom: 200rem;
     }
     @include mq($from: wide) {
-      padding-bottom: 100rem;
+      padding-bottom: 200rem;
     }
-  }
-
-  &__wrapper {
-    margin-left: 10%;
   }
 
   &__shape-1 {
@@ -305,6 +381,10 @@ export default {
   }
 
   &__background {
+    img {
+      width: 300px;
+    }
+
     @include mq($from: tablet) {
       text-align: center;
 
@@ -332,11 +412,11 @@ export default {
     top: 10vh;
 
     @include mq($from: mobile, $until: largeMobile) {
-      font-size: $small-title;
+      font-size: $medium-title;
     }
 
     @include mq($from: laptop, $until: wide) {
-      font-size: 6rem;
+      font-size: 5rem;
     }
   }
 
@@ -361,7 +441,8 @@ export default {
     }
 
     @include mq($from: laptop) {
-      font-size: 4.5rem;
+      font-size: 4rem;
+      top: 25vh;
     }
   }
 

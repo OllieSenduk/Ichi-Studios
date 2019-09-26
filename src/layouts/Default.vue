@@ -19,6 +19,11 @@ export default {
   components: {
     Navigation,
     Footer
+  },
+  mounted() {
+    Vue.config.errorHandler = function(err, vm, info) {
+      console.log(`Error: ${err.toString()}\nInfo: ${info}`);
+    };
   }
 };
 </script>

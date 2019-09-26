@@ -27,7 +27,7 @@
                 <span>Ollsum Agency</span>
               </h1>
               <div class="home-header__text" :class="{revealText: !homePageClosed}">
-                <span>We are digital & creative superheroes send from the future to help your company’s goals align with your customer’s needs</span>
+                <span>We are digital & creative superheroes sent from the future to help your company’s goals align with your customer’s needs</span>
               </div>
             </div>
           </div>

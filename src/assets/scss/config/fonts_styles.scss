@@ -2,17 +2,59 @@
 $main-font: 'Poppins';
 
 $small-text: 1.7rem;
-$small-title: 3rem;
+$small-title: 2rem;
+$medium-title: 3rem;
 $large-title: 4rem;
+// $sub-header: 2.2rem
 $horizontal-large-title: 6rem;
 $thin-text: 400;
 $bold-text: 700;
+$line-height-large: 4rem;
+$line-height-small: 2.5rem;
+$line-height-medium: 3.5rem;
 // $mid-size;
 
+p {
+  line-height: 30px;
+  font-size: 1.5rem;
+  line-height: $line-height-medium;
+
+  @include mq($from: wide) {
+  }
+
+  @include mq($from: external) {
+    line-height: 40px;
+  }
+
+}
+
+
+.text-title {
+  text-transform: uppercase;
+  font-size: $small-title;
+}
+
+.sub-title-text {
+   font-size: $small-title;
+    line-height: $line-height-large;
+
+    @include mq($from: wide) {
+      font-size: $small-title;
+    }
+
+  @include mq($from: external) {
+      font-size: 3rem;
+  }
+}
+
+.text-center {
+  text-align: center !important;
+}
 .header {
   font-family: $main-font, sans-serif;
   font-size: $small-title;
 }
+
 .text-underline {
   background-repeat: no-repeat;
   background-position: 0 120%;

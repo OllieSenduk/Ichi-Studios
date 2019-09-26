@@ -2,7 +2,7 @@
   <Layout>
     <appPageStripes></appPageStripes>
     <section class="about">
-      <div class="page__wrapper">
+      <div class="element__wrapper">
         <div class="about__header">
           <div class="about__header__title">
             <h1>Who are we?</h1>
@@ -23,7 +23,7 @@
       </div>
 
       <div class="workflow">
-        <div class="page__wrapper">
+        <div class="element__wrapper">
           <appSteps v-for="step in steps" :title="step.title" :body="step.body" :img="step.img"></appSteps>
         </div>
       </div>

@@ -1,6 +1,6 @@
 <template>
   <section class="footer">
-    <div class="page__wrapper footer__inner">
+    <div class="element__wrapper footer__inner">
       <div class="footer__title">
         <h2>Coffee fuels brilliance!</h2>
         <p>
@@ -116,6 +116,7 @@
 
 <script>
 export default {
+  props: ["fixed"],
   components: {}
 };
 </script>

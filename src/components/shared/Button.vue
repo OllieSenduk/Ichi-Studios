@@ -1,62 +1,60 @@
 <template>
-    <div class="btn">
-        <a href="#" class="cta">
-            <span>{{text}}</span>
-            <svg width="13px" height="10px" viewBox="0 0 13 10">
-                <path d="M1,5 L11,5"></path>
-                <polyline points="8 1 12 5 8 9"></polyline>
-            </svg>
-        </a>
-    </div>
+  <div class="btn-relaxed">
+    <g-link :to="link" class="cta">
+      <span>{{text}}</span>
+      <svg width="13px" height="10px" viewBox="0 0 13 10">
+        <path d="M1,5 L11,5" />
+        <polyline points="8 1 12 5 8 9" />
+      </svg>
+    </g-link>
+  </div>
 </template>
 
 <script>
-    import { TimelineMax } from 'gsap'
-    import  { mapMutations } from 'vuex'
+import { TimelineMax } from "gsap";
+import { mapMutations } from "vuex";
 
-    export default {
-        props: {
-            text: {
-                type: String,
-            },
-            backgroundColor: {
-                type: String,
-                default: 'rgba(#FFAB9D,.5);'
-            },
-            color: {
-                type: String,
-                default: 'black'
-            }
-        },
-        data () {
-            return {
-            }
-        },
-        methods: {
-            btnClicked() {
-
-            }
-        },
-        computed: {
-            btnStyle() {
-                return {
-                    // "background-color": this.backgroundColor
-                }
-            }
-        },
-        mounted () {
-        }
-
+export default {
+  props: {
+    text: {
+      type: String
+    },
+    backgroundColor: {
+      type: String,
+      default: "rgba(#FFAB9D,.5);"
+    },
+    color: {
+      type: String,
+      default: "black"
+    },
+    link: {
+      type: String,
+      default: "/"
     }
+  },
+  data() {
+    return {};
+  },
+  methods: {
+    btnClicked() {}
+  },
+  computed: {
+    btnStyle() {
+      return {
+        // "background-color": this.backgroundColor
+      };
+    }
+  },
+  mounted() {}
+};
 </script>
 
 <style lang='scss' scoped>
-
 .cta {
   position: relative;
   margin: auto;
-  padding: 19px 22px;
-  transition: all .2s ease;
+  padding: 19px;
+  transition: all 0.2s ease;
   color: black;
   text-decoration: none;
   &:before {
@@ -66,19 +64,23 @@
     left: 0;
     display: block;
     border-radius: 28px;
-    background: rgba(#FFAB9D,.5);
+    background: rgba(#ffab9d, 0.5);
     width: 56px;
     height: 56px;
-    transition: all .3s ease;
+    transition: all 0.3s ease;
   }
   span {
     position: relative;
-    font-size: 16px;
+    font-size: $small-text;
     line-height: 18px;
     font-weight: 900;
-    letter-spacing: .25em;
+    letter-spacing: 0.25em;
     text-transform: uppercase;
     vertical-align: middle;
+
+    @include mq($from: mobile, $until: tablet) {
+      font-size: $small-text;
+    }
   }
   svg {
     position: relative;
@@ -87,66 +89,22 @@
     fill: none;
     stroke-linecap: round;
     stroke-linejoin: round;
-    stroke: #FFAB9D;
+    stroke: #ffab9d;
     stroke-width: 2;
     transform: translateX(-5px);
-    transition: all .3s ease;
+    transition: all 0.3s ease;
   }
   &:hover {
     &:before {
       width: 100%;
-      background: rgba(#FFAB9D,1);
+      background: rgba(#ffab9d, 1);
     }
   }
-    svg {
-      transform: translateX(0);
-    }
+  svg {
+    transform: translateX(0);
+  }
   &:active {
-    transform: scale(.96);
-    }
+    transform: scale(0.96);
+  }
 }
-
-    // .btn-primary {
-    //     display: block; 
-    //     padding: 24px 48px;
-    //     font-family: $main-font;
-    //     font-size: 1.2rem;
-    //     letter-spacing: 6px;
-    //     color: black;
-    //     border: 2px solid black;
-    //     text-transform: uppercase;
-    //     outline: none;
-    //     overflow: hidden;
-    //     background: none;
-    //     z-index: 1;
-    //     cursor: crosshair;
-    //     transition: 0.6s ease-out;
-    //     font-family: $main-font;
-    //     // position: absolute;
-    //     // top: 50%;
-    //     // left: 50%;
-    //     // transform: translate(-50%, -50%)
-
-    //      &:hover {
-    //         color: $black;
-    //         cursor: crosshair;
-    //     }
-
-    //     &:before {
-    //         content: "";
-    //         position: absolute;
-    //         background: $black;
-    //         bottom: 0;
-    //         left: 0;
-    //         right: 0;
-    //         top: 100%;
-    //         z-index: -1;
-    //         transition: top 0.6s ease-out;
-    //     }
-
-    //     &:hover:before {
-    //         top: 0;
-    //     }
-    // }
-
 </style>
