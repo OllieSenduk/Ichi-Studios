@@ -5,6 +5,8 @@
       <div class="element__wrapper">
         <div class="about__header">
           <div class="about__header__title">
+            <a @click="$router.go(-1)">back</a>
+            <a href="projects" v-scroll-to="'#ikea'">Scroll to #section-one</a>
             <h1>Who are we?</h1>
           </div>
           <div class="about__header__subtext">
@@ -22,7 +24,7 @@
         </div>
       </div>
 
-      <div class="workflow">
+      <div class="workflow" id="workflow">
         <div class="element__wrapper">
           <appSteps v-for="step in steps" :title="step.title" :body="step.body" :img="step.img"></appSteps>
         </div>

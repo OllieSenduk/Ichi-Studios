@@ -30,7 +30,8 @@
                 We are
                 digital & creative
                 <span class="text-red">superheroes</span>
-                sent from the future to help your company achieve its goals.
+                sent from the future to help your
+                <span class="text-red">brand</span> stick out.
               </span>
             </div>
             <div class="home-container__shape-2">

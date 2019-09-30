@@ -21,29 +21,38 @@
 export default {
   data() {
     return {
-      videoComponentOpen: false
+      videoComponentOpen: false,
+      backgroundGifs: [
+        "http://giphygifs.s3.amazonaws.com/media/K9b2WiPZi0ZjO/giphy.gif",
+        "https://i.imgur.com/gg8wQrw.gif"
+      ]
     };
   },
   methods: {
     showVideo() {
-      console.log("Hi");
-      // Use sweetalert2
+      const context = this;
+      if (window.innerWidth > 800) {
+        context.createSwal(700, 500);
+      } else {
+        context.createSwal(400, 200);
+      }
+    },
+    createSwal: function(width, height) {
       this.$swal({
         title: "Ollsum The Trailer",
-        width: "400px",
-        height: "400px",
+        width: width + 50,
+        height: height + 50,
         customClass: "swal__video-container",
         padding: "3em",
         background: "black",
         showCloseButton: true,
 
         backdrop: `
-    rgba(0,0,123,0.4)
-    url("http://giphygifs.s3.amazonaws.com/media/K9b2WiPZi0ZjO/giphy.gif")
-    10% 96%
-  `,
-        html:
-          '<iframe width="300px" height="300px" src="//www.youtube.com/embed/KVTJKm3qsnw?wmode=transparent&amp;iv_load_policy=3&amp;autoplay=1" frameborder="0"  allow="autoplay" allowfullscreen></iframe>'
+      rgba(0,0,123,0.4)
+      url("${this.backgroundGif}")
+      10% 96%
+    `,
+        html: `<iframe src="https://player.vimeo.com/video/342845069" width="${width}" height="${height}" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>`
       });
     },
     playVideo: function() {
@@ -56,6 +65,11 @@ export default {
   computed: {
     player() {
       return this.$refs.plyr.player;
+    },
+    backgroundGif() {
+      return this.backgroundGifs[
+        Math.floor(Math.random() * this.backgroundGifs.length)
+      ];
     }
   }
 };

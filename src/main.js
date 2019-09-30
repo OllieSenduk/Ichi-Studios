@@ -20,7 +20,6 @@ export default function (Vue, { router, head, isClient, appOptions }) {
     var VueScrollTo = require('vue-scrollto');
 
     Vue.use(VueScrollTo)
-
   }
   Vue.use(VueSweetalert2);
 
@@ -107,6 +106,43 @@ export default function (Vue, { router, head, isClient, appOptions }) {
           textFour: "Showcasing your brand, product or vision through captivating videos.",
         }
       },
+      projects: {
+        ikea: {
+          pageNum: 0,
+          identifier: "ikea",
+          title: "IKEA",
+          imgLeft: "https://i.imgur.com/aIsAVTR.jpg",
+          imgRight: "https://i.imgur.com/zGKi8MQ.png",
+          url: "/ikea",
+          text: "The Wonderful Everyday",
+          categories: ["Tech", "Development", "Project Management"],
+          background: `radial-gradient(#2B3760, #0B1023)`,
+          hidden: false
+        },
+        creativos: {
+          pageNum: 1,
+          identifier: "creativos_de_la_noche",
+          title: "Creativos de la Noche",
+          imgLeft: "https://i.imgur.com/ieEjiHi.jpg",
+          imgRight: "https://i.imgur.com/AG1ezvi.jpg",
+          url: "/creativos-de-la-noche",
+          text: "Campaign for Creativity",
+          categories: ["Event", "Production", "Photography", "Film"],
+          background: `radial-gradient(#4E3022, #161616)`,
+          hidden: true
+        },
+        // lawspot: {
+        //   pageNum: 2,
+        //   id: "lawspot",
+        //   imgLeft: 
+        // },
+        // ticketMaster: {
+
+        // },
+        // automaatSpace: {
+        //   pageNum:
+        // }
+      }
     },
     getters: {
       navStatus: state => {
