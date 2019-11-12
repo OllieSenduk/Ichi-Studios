@@ -166,23 +166,29 @@ export default {
     } else {
       context.shownProjects = context.projects;
     }
-
-    window.addEventListener("wheel", this.throttle(this.updateSlideNum, 1500));
-    window.addEventListener(
-      "touchmove",
-      this.throttle(this.updateSlideNum, 1500)
-    );
+    if (process.browser) {
+      window.addEventListener(
+        "wheel",
+        this.throttle(this.updateSlideNum, 1500)
+      );
+      window.addEventListener(
+        "touchmove",
+        this.throttle(this.updateSlideNum, 1500)
+      );
+    }
   },
   mounted() {},
   destroyed() {
-    window.removeEventListener(
-      "wheel",
-      this.throttle(this.updateSlideNum, 1500)
-    );
-    window.removeEventListener(
-      "touch",
-      this.throttle(this.updateSlideNum, 1500)
-    );
+    if (process.browser) {
+      window.removeEventListener(
+        "wheel",
+        this.throttle(this.updateSlideNum, 1500)
+      );
+      window.removeEventListener(
+        "touch",
+        this.throttle(this.updateSlideNum, 1500)
+      );
+    }
   }
 };
 </script>

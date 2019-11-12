@@ -1,5 +1,6 @@
 <template>
   <section
+    v-if="project"
     class="project-details page-wrapper"
     :class="{ remove_page: navStatus }"
   >
@@ -10,6 +11,7 @@
       <div class="project-details__container">
         <div class="project-details__header within-section">
           <div class="project-details__title">
+            <h1 class="text-title">{{ project.title }}</h1>
             <h2 class="text-smooth-yellow">{{ project.subTitle }}</h2>
           </div>
           <div class="project-details__image-container">

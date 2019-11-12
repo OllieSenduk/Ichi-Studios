@@ -6,8 +6,6 @@ import App from "~/components/App";
 import Vuex from "vuex";
 import VueMq from "vue-mq";
 import responsive from "vue-responsive";
-import VueSweetalert2 from "vue-sweetalert2";
-import Swiper from "swiper";
 
 // require styles
 import "swiper/css/swiper.css";
@@ -21,12 +19,14 @@ export default function(Vue, { router, head, isClient, appOptions }) {
     const VueScrollmagic = require("vue-scrollmagic").default;
     Vue.use(VueScrollmagic);
     var VueScrollTo = require("vue-scrollto");
-
+    var VueSweetAlert2 = require("vue-sweetalert2");
+    var Swiper = require("swiper");
+    Vue.use(Swiper);
     Vue.use(VueScrollTo);
 
     Vue.use(responsive);
+    Vue.use(VueSweetAlert2);
   }
-  Vue.use(VueSweetalert2);
 
   appOptions.render = h => h(App);
   Vue.component("layout", DefaultLayout);

@@ -1,32 +1,48 @@
 <template>
-  <section class="within-section projects">
-    <div class="swiper-container loading">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide" style="background-image:url(https://i.imgur.com/WADhtbB.jpg)">
-          <img src="https://i.imgur.com/WADhtbB.jpg" class="entity-img" />
-          <div class="content">
-            <p
-              class="title"
-              data-swiper-parallax="-30%"
-              data-swiper-parallax-scale=".7"
-            >Shaun Matthews</p>
+  <clientOnly>
+    <section class="within-section projects">
+      <div class="swiper-container loading">
+        <div class="swiper-wrapper">
+          <div
+            class="swiper-slide"
+            style="background-image:url(https://i.imgur.com/WADhtbB.jpg)"
+          >
+            <img src="https://i.imgur.com/WADhtbB.jpg" class="entity-img" />
+            <div class="content">
+              <p
+                class="title"
+                data-swiper-parallax="-30%"
+                data-swiper-parallax-scale=".7"
+              >
+                Shaun Matthews
+              </p>
+            </div>
+          </div>
+          <div
+            class="swiper-slide"
+            style="background-image:url(https://i.imgur.com/tQHcj8X.png)"
+          >
+            <img src="https://i.imgur.com/tQHcj8X.png" class="entity-img" />
+            <div class="content">
+              <p
+                class="title"
+                data-swiper-parallax="-30%"
+                data-swiper-parallax-scale=".7"
+              >
+                Jobdex
+              </p>
+            </div>
           </div>
         </div>
-        <div class="swiper-slide" style="background-image:url(https://i.imgur.com/tQHcj8X.png)">
-          <img src="https://i.imgur.com/tQHcj8X.png" class="entity-img" />
-          <div class="content">
-            <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">Jobdex</p>
-          </div>
-        </div>
-      </div>
 
-      <!-- If we need pagination -->
-      <div class="swiper-pagination"></div>
-      <!-- If we need navigation buttons -->
-      <div class="swiper-button-prev swiper-button-white"></div>
-      <div class="swiper-button-next swiper-button-white"></div>
-    </div>
-  </section>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev swiper-button-white"></div>
+        <div class="swiper-button-next swiper-button-white"></div>
+      </div>
+    </section>
+  </clientOnly>
 </template>
 
 <script>
@@ -91,7 +107,7 @@ export default {
 };
 </script>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 %transition_all_03s {
   transition: all 0.3s ease;
 }
