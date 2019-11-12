@@ -6,7 +6,7 @@
         <div class="project__small-title">{{ title }}</div>
         <div class="project__description">{{ text }}</div>
       </div>
-      <div class="project__hero" @click="goToProject">
+      <div class="project__hero">
         <img
           class="project__hero__image-left"
           :src="imgLeft"
