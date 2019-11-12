@@ -45,29 +45,29 @@ export default {
   computed: {
     ...mapState(["navOpen"]),
     ...mapGetters(["navStatus"])
-  },
-  methods: {
-    goToProject() {
-      this.$router.push({ path: `/projects/${this.identifier}` });
-    }
-  },
-  created() {},
-  mounted() {
-    document.addEventListener("beforeunload", this.goToProject, false);
-  },
-  beforeDestroy() {
-    document.removeEventListener("beforeunload", this.goToProject);
-  },
-  watch: {
-    navOpen(newVal, oldVal) {}
   }
+  // methods: {
+  //   goToProject() {
+  //     this.$router.push({ path: `/projects/${this.identifier}` });
+  //   }
+  // }
+  // created() {},
+  // mounted() {
+  //   document.addEventListener("beforeunload", this.goToProject, false);
+  // },
+  // beforeDestroy() {
+  //   document.removeEventListener("beforeunload", this.goToProject);
+  // },
+  // watch: {
+  //   navOpen(newVal, oldVal) {}
+  // }
 };
 </script>
 
 <style lang="scss" scoped>
-// .z-indexUp {
-//   z-index: 100;
-// }
+.z-indexUp {
+  z-index: 100;
+}
 .project {
   font-family: $main-font;
   font-weight: $thin-text;
