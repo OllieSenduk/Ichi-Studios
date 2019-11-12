@@ -110,9 +110,7 @@ export default {
       tl.set(nextLeft, { clearProps: "all" }).set(nextRight, {
         clearProps: "all"
       });
-      this.shownProjects.forEach(p => {
-        console.log(`${p.title} & ${p.identifier}`);
-      });
+      this.shownProjects.forEach(p => {});
       let classes = document.querySelectorAll(".project__hero__image-left");
       classes.forEach(c => {
         c.classList.remove("z-indexUp");
@@ -149,33 +147,33 @@ export default {
     }
   },
   created() {
-    const identifier = this.$router.currentRoute.hash;
-    let selectedProjectIndex;
+    // const identifier = this.$router.currentRoute.hash;
+    // let selectedProjectIndex;
     const context = this;
 
-    if (identifier !== "") {
-      selectedProjectIndex = this.projects.findIndex(project => {
-        return project.identifier == identifier.substr(1);
-      });
+    // if (identifier !== "") {
+    //   selectedProjectIndex = this.projects.findIndex(project => {
+    //     return project.identifier == identifier.substr(1);
+    //   });
 
-      if (selectedProjectIndex !== undefined) {
-        context.projects.forEach((project, index) => {
-          if (selectedProjectIndex == index) {
-            project.hidden = false;
-          } else {
-            project.hidden = true;
-          }
-        });
-        var arr = context.projects;
-        var new_start = selectedProjectIndex;
-        var itemCount = arr.length;
-        var first_part = arr.slice(new_start, itemCount);
-        var second_part = arr.slice(0, new_start);
-        context.shownProjects = first_part.concat(second_part);
-      }
-    } else {
-      context.shownProjects = context.projects;
-    }
+    //   if (selectedProjectIndex !== undefined) {
+    //     context.projects.forEach((project, index) => {
+    //       if (selectedProjectIndex == index) {
+    //         project.hidden = false;
+    //       } else {
+    //         project.hidden = true;
+    //       }
+    //     });
+    //     var arr = context.projects;
+    //     var new_start = selectedProjectIndex;
+    //     var itemCount = arr.length;
+    //     var first_part = arr.slice(new_start, itemCount);
+    //     var second_part = arr.slice(0, new_start);
+    //     context.shownProjects = first_part.concat(second_part);
+    //   }
+    // } else {
+    context.shownProjects = context.projects;
+    // }
   },
   mounted() {
     window.addEventListener("wheel", this.throttle(this.updateSlideNum, 1500));
@@ -190,7 +188,7 @@ export default {
       this.throttle(this.updateSlideNum, 1500)
     );
     window.removeEventListener(
-      "touch",
+      "touchmove",
       this.throttle(this.updateSlideNum, 1500)
     );
   }
