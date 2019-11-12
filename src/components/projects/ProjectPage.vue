@@ -53,10 +53,10 @@ export default {
   },
   created() {},
   mounted() {
-    document.addEventListener("backbutton", this.goToProject, false);
+    document.addEventListener("beforeunload", this.goToProject, false);
   },
   beforeDestroy() {
-    document.removeEventListener("backbutton", this.goToProject);
+    document.removeEventListener("beforeunload", this.goToProject);
   },
   watch: {
     navOpen(newVal, oldVal) {}

@@ -38,7 +38,8 @@ export default {
       pageNum: 0,
       actualProject: "",
       shownProjects: [],
-      counter: 0
+      counter: 0,
+      initialTouch: null
     };
   },
   computed: mapState({
@@ -76,17 +77,17 @@ export default {
       const nextText = nextPage.$el.querySelector(".project__details");
 
       const tl = new TimelineMax({
-        autoRemoveChildren: true,
-        onStart: function() {
-          slides.forEach(slide => {
-            slide.style.pointerEvents = "none";
-          });
-        },
-        onComplete: function() {
-          slides.forEach(slide => {
-            slide.style.pointerEvents = "all";
-          });
-        }
+        autoRemoveChildren: true
+        // onStart: function() {
+        //   pages.forEach(slide => {
+        //     slide.style.pointerEvents = "none";
+        //   });
+        // },
+        // onComplete: function() {
+        //   pages.forEach(slide => {
+        //     slide.style.pointerEvents = "all";
+        //   });
+        // }
       });
       tl.fromTo(currentLeft, 0.3, { y: "-10%" }, { y: "-100%" });
       tl.fromTo(currentRight, 0.3, { y: "10%" }, { y: "-100%" }, "-=0.2")
@@ -120,17 +121,34 @@ export default {
     updateSlideNum(e) {
       if (this.pageNum === this.shownProjects.length - 1 && e.deltaY > 0) {
         this.pageNum = 0;
-        console.log("end of the que");
       } else if (this.pageNum === 0 && e.deltaY < 0) {
         this.pageNum = this.shownProjects.length - 1;
-        console.log("Starting point going back up to the last of the");
       } else if (e.deltaY > 0) {
         this.pageNum += 1;
-        console.log("Regular up");
       } else if (e.deltaY < 0) {
         this.pageNum -= 1;
-        console.log("regular down");
       }
+      this.updateSlide();
+    },
+    updateSlideNumMobile(e) {
+      const swipe = this.initialTouch - e.changedTouches[0].pageY;
+      let direction;
+      swipe > 0 ? (direction = "up") : (direction = "down");
+
+      if (
+        this.pageNum === this.shownProjects.length - 1 &&
+        direction === "up"
+      ) {
+        this.pageNum = 0;
+      } else if (this.pageNum === 0 && direction === "down") {
+        this.pageNum = this.shownProjects.length - 1;
+      } else if (direction === "up") {
+        this.pageNum += 1;
+      } else if (direction === "down") {
+        this.pageNum -= 1;
+      }
+      // swipe >
+      // direction < 0 ?
       this.updateSlide();
     },
     throttle(func, limit) {
@@ -147,39 +165,52 @@ export default {
     }
   },
   created() {
-    // const identifier = this.$router.currentRoute.hash;
-    // let selectedProjectIndex;
+    const identifier = this.$router.currentRoute.hash;
+    let selectedProjectIndex;
     const context = this;
 
-    // if (identifier !== "") {
-    //   selectedProjectIndex = this.projects.findIndex(project => {
-    //     return project.identifier == identifier.substr(1);
-    //   });
+    if (identifier !== "") {
+      selectedProjectIndex = this.projects.findIndex(project => {
+        return project.identifier == identifier.substr(1);
+      });
 
-    //   if (selectedProjectIndex !== undefined) {
-    //     context.projects.forEach((project, index) => {
-    //       if (selectedProjectIndex == index) {
-    //         project.hidden = false;
-    //       } else {
-    //         project.hidden = true;
-    //       }
-    //     });
-    //     var arr = context.projects;
-    //     var new_start = selectedProjectIndex;
-    //     var itemCount = arr.length;
-    //     var first_part = arr.slice(new_start, itemCount);
-    //     var second_part = arr.slice(0, new_start);
-    //     context.shownProjects = first_part.concat(second_part);
-    //   }
-    // } else {
-    context.shownProjects = context.projects;
-    // }
+      if (selectedProjectIndex !== undefined) {
+        context.projects.forEach((project, index) => {
+          if (selectedProjectIndex == index) {
+            project.hidden = false;
+          } else {
+            project.hidden = true;
+          }
+        });
+        var arr = context.projects;
+        var new_start = selectedProjectIndex;
+        var itemCount = arr.length;
+        var first_part = arr.slice(new_start, itemCount);
+        var second_part = arr.slice(0, new_start);
+        context.shownProjects = first_part.concat(second_part);
+      }
+    } else {
+      context.shownProjects = context.projects;
+    }
   },
   mounted() {
     window.addEventListener("wheel", this.throttle(this.updateSlideNum, 1500));
+    // window.addEventListener(
+    //   "touchmove",
+    //   function() {
+    //     e.preventDefault();
+    //     this.updateSlideNum(e);
+    //   },
+    //   { passive: false }
+    // );
     window.addEventListener(
-      "touchmove",
-      this.throttle(this.updateSlideNum, 1500)
+      "touchstart",
+      e => (this.initialTouch = e.touches[0].clientY)
+    );
+    window.addEventListener(
+      "touchend",
+      this.throttle(this.updateSlideNumMobile, 1500),
+      { passive: false }
     );
   },
   destroyed() {
