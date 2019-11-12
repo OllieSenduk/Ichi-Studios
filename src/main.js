@@ -5,10 +5,9 @@ import DefaultLayout from "~/layouts/Default.vue";
 import App from "~/components/App";
 import Vuex from "vuex";
 import VueMq from "vue-mq";
-import responsive from "vue-responsive";
 
 // require styles
-import "swiper/css/swiper.css";
+// import "swiper/css/swiper.css";
 
 // If you don't need the styles, do not connect
 import "sweetalert2/dist/sweetalert2.min.css";
@@ -16,13 +15,14 @@ import "sweetalert2/dist/sweetalert2.min.css";
 export default function(Vue, { router, head, isClient, appOptions }) {
   Vue.use(Vuex);
   if (process.isClient) {
-    const VueScrollmagic = require("vue-scrollmagic").default;
+    var VueScrollmagic = require("vue-scrollmagic").default;
     Vue.use(VueScrollmagic);
     var VueScrollTo = require("vue-scrollto");
     var VueSweetAlert2 = require("vue-sweetalert2");
     var Swiper = require("swiper");
     Vue.use(Swiper);
     Vue.use(VueScrollTo);
+    var responsive = require("vue-responsive");
 
     Vue.use(responsive);
     Vue.use(VueSweetAlert2);

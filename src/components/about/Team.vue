@@ -1,8 +1,15 @@
 <template>
   <div class="team__wrapper">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <div
-      :class="['outer-container', isSelected ? 'container-selected':'', isReady ? 'container-ready':'']"
+      :class="[
+        'outer-container',
+        isSelected ? 'container-selected' : '',
+        isReady ? 'container-ready' : ''
+      ]"
       id="app"
     >
       <div class="team-container">
@@ -10,14 +17,23 @@
         <div class="project-list" :class="$mq">
           <div
             class="project"
-            v-for="(project,index) in projects"
-            @click="selectproject(index,$event)"
+            v-for="(project, index) in projects"
+            @click="selectproject(index, $event)"
             :class="$mq"
           >
-            <img class="project-img" :src="project.photo" :ref="project.id" :class="$mq" />
+            <img
+              class="project-img"
+              :src="project.photo"
+              :ref="project.id"
+              :class="$mq"
+            />
             <div class="project-details">
-              <h2 class="project-title">{{project.name}}</h2>
-              <span v-for="category in project.categories" class="project-desc">{{ category }}</span>
+              <h2 class="project-title">{{ project.name }}</h2>
+              <span
+                v-for="category in project.categories"
+                class="project-desc"
+                >{{ category }}</span
+              >
               <p class="project-more">Read more!</p>
             </div>
           </div>
@@ -33,17 +49,21 @@
           <div class="team-detail-right">
             <div class="team-detail-bio">
               <div class="team-detail-header">
-                <h2 class="project-title">{{selectedprojectData.name}}</h2>
-                <p class="project-desc">{{selectedprojectData.title}}</p>
+                <h2 class="project-title">{{ selectedprojectData.name }}</h2>
+                <p class="project-desc">{{ selectedprojectData.title }}</p>
                 <div class="social"></div>
               </div>
-              <div class="team-detail-bio-content" v-html="selectedprojectData.bio"></div>
+              <div
+                class="team-detail-bio-content"
+                v-html="selectedprojectData.bio"
+              ></div>
 
               <a
                 :href="selectedprojectData.social.projectLink"
                 target="_blank"
                 v-if="selectedprojectData.social.projectLink"
-              >Visit Website</a>
+                >Visit Website</a
+              >
             </div>
           </div>
         </div>
@@ -53,7 +73,9 @@
 </template>
 
 <script>
-var VueScrollTo = require("vue-scrollto");
+if (process.client) {
+  var VueScrollTo = require("vue-scrollto");
+}
 export default {
   components: {},
   data() {
@@ -192,7 +214,7 @@ export default {
 };
 </script>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 .large-header {
   background-color: black;
   min-height: 20vh;
