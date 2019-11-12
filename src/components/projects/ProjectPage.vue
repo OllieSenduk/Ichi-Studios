@@ -6,7 +6,7 @@
         <div class="project__small-title">{{ title }}</div>
         <div class="project__description">{{ text }}</div>
       </div>
-      <div class="project__hero">
+      <div class="project__hero" @click="goToProject">
         <img
           class="project__hero__image-left"
           :src="imgLeft"
@@ -52,12 +52,12 @@ export default {
     }
   },
   created() {},
-  // mounted() {
-  //   document.addEventListener("beforeunload", this.goToProject, false);
-  // },
-  // beforeDestroy() {
-  //   document.removeEventListener("beforeunload", this.goToProject);
-  // },
+  mounted() {
+    document.addEventListener("beforeunload", this.goToProject, false);
+  },
+  beforeDestroy() {
+    document.removeEventListener("beforeunload", this.goToProject);
+  },
   watch: {
     navOpen(newVal, oldVal) {}
   }

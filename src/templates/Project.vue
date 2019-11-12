@@ -151,7 +151,10 @@ export default {
     }
   },
   mounted() {
-    // this.identifier = this.$route.params.identifier;
+    document.addEventListener("beforeunload", this.goToProject, false);
+  },
+  beforeDestroy() {
+    document.removeEventListener("beforeunload", this.goToProject);
   }
 };
 </script>

@@ -176,30 +176,23 @@ export default {
     } else {
       context.shownProjects = context.projects;
     }
-    if (process.browser) {
-      window.addEventListener(
-        "wheel",
-        this.throttle(this.updateSlideNum, 1500)
-      );
-      window.addEventListener(
-        "touchmove",
-        preventBehavior,
-        this.throttle(this.updateSlideNum, 1500)
-      );
-    }
   },
-  mounted() {},
+  mounted() {
+    window.addEventListener("wheel", this.throttle(this.updateSlideNum, 1500));
+    window.addEventListener(
+      "touchmove",
+      this.throttle(this.updateSlideNum, 1500)
+    );
+  },
   destroyed() {
-    if (process.browser) {
-      window.removeEventListener(
-        "wheel",
-        this.throttle(this.updateSlideNum, 1500)
-      );
-      window.removeEventListener(
-        "touch",
-        this.throttle(this.updateSlideNum, 1500)
-      );
-    }
+    window.removeEventListener(
+      "wheel",
+      this.throttle(this.updateSlideNum, 1500)
+    );
+    window.removeEventListener(
+      "touch",
+      this.throttle(this.updateSlideNum, 1500)
+    );
   }
 };
 </script>
