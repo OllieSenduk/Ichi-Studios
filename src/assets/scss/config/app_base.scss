@@ -25,30 +25,59 @@ body {
   margin: 0px;
 }
 
+a {
+  text-decoration: none;
+}
+
 .section {
   margin-bottom: $section-margin-bottom;
   margin-top: $element-margin-bottom;
+}
+
+.page-wrapper {
+  padding-top: $section-margin-bottom;
 }
 
 .within-section {
   margin-bottom: $within-element-margin-bottom;
 }
 
+.within-section-large {
+  padding-bottom: $section-margin-bottom;
+
+  @include mq($until: largeMobile) {
+    padding-bottom: $within-element-margin-bottom;
+  }
+}
 
 .element__wrapper {
   padding-left: 10vw;
-    padding-top: 10vh;
-    width: 80%;
-    padding-right: 10vw;
+  padding-top: 10vh;
+  width: 80%;
+  padding-right: 10vw;
 }
 
 .block {
-    margin-left: 10%;
-    margin-right: 10%;
-  }
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.padding-block {
+  padding-left: 10%;
+  padding-right: 10%;
+}
 
 .first-element {
   padding-top: 10px;
+}
+
+.flex-reverse {
+  flex-direction: row-reverse;
+}
+
+.text-block__rule {
+  margin-bottom: 20px;
+  width: 100px;
 }
 
 .page-stripes {
@@ -94,10 +123,55 @@ body {
 }
 
 .dark-yellow-background {
-  background-color: $dark-yellow
+  background-color: $dark-yellow;
 }
 
 .hidden {
   display: none !important;
 }
 
+.skewed-img-left {
+  transform: skewX(10deg) !important;
+}
+
+.btn {
+  display: block;
+  padding: 24px 48px;
+  font-family: $main-font;
+  font-size: 1.2rem;
+  letter-spacing: 6px;
+  color: $white;
+  border: 2px solid $white;
+  text-transform: uppercase;
+  outline: none;
+  overflow: hidden;
+  background: none;
+  z-index: 1;
+  cursor: crosshair;
+  transition: 0.6s ease-out;
+
+  &--small {
+    padding: 15px 23px;
+  }
+
+  &:hover {
+    color: black;
+    cursor: crosshair;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    background: $white;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 100%;
+    z-index: -1;
+    transition: top 0.6s ease-out;
+  }
+
+  &:hover:before {
+    top: 0;
+  }
+}

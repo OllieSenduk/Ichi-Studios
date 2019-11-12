@@ -3,22 +3,35 @@
     <div class="info-block__wrapper within-section">
       <div class="first-element">
         <div class="info-block__images">
-          <img src="https://i.imgur.com/07Pc9JM.jpg" alt="design" />
-          <img src="https://i.imgur.com/rdWlkBq.jpg" alt="coding" />
+          <img src="https://i.imgur.com/TrXW61P.png" alt="startup" />
+          <img
+            src="https://images.pexels.com/photos/247791/pexels-photo-247791.png?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+            alt="startup"
+            v-responsive.sm.xs.md
+          />
         </div>
       </div>
       <div class="info-block__text">
         <div class="text-title within-section">
-          <h2>Who are Ollsum?</h2>
+          <h2>
+            Where
+            <span class="text-red">love</span> for technology & Business come
+            together
+          </h2>
         </div>
-        <div class="info-block__sub-title sub-title-text text-grey within-section">
-          We are a collective of hand-picked professionals from all over the world with a wide array of skills ranging from
-          tech to design and from video to marketing.
+        <div
+          class="info-block__sub-title sub-title-text text-grey within-section"
+        >
+          We combine our technical skills with creative thinking and a
+          result-driven mentality to make sure that we deliver not just optimal
+          code, but also keep your business goals in mind.
         </div>
         <div class="info-block__body within-section">
           <p>
-            We combine our skills with creative thinking and a result-driven mentality to
-            look at every case individually and pick the best approach to realize your companies' goals & ambitions.
+            What sets us apart is that we're all passionate about technology &
+            innovation, but all have an entrepeneurial background. This results
+            in us striving to craft works of art that result in true fans,
+            conversions and engagement.
           </p>
         </div>
       </div>
@@ -65,11 +78,12 @@ import Button from "~/components/shared/Button";
 export default {
   components: {
     appBtn: Button
-  }
+  },
+  computed: {}
 };
 </script>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 .info-block {
   &__wrapper {
     @include mq($until: wide) {
@@ -114,7 +128,6 @@ export default {
 
       img {
         width: 50%;
-        height: 350px;
 
         &:first-child {
           margin-right: $element-margin-bottom;
@@ -127,7 +140,7 @@ export default {
       // flex-direction: column;
 
       img {
-        width: 45%;
+        width: 70%;
         height: 350px;
       }
     }

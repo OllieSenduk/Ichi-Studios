@@ -20,11 +20,7 @@ export default {
     Navigation,
     Footer
   },
-  mounted() {
-    Vue.config.errorHandler = function(err, vm, info) {
-      console.log(`Error: ${err.toString()}\nInfo: ${info}`);
-    };
-  }
+  mounted() {}
 };
 </script>
 
@@ -60,8 +56,8 @@ body {
 }
 
 .layout {
-  position: relative;
-  min-height: 100vh;
+  // position: relative;
+  // min-height: 100vh;
 
   // &__content {
   //   padding-bottom: 8rem;

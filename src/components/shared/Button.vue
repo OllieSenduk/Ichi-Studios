@@ -1,6 +1,6 @@
 <template>
   <div class="btn-relaxed">
-    <g-link :to="link" class="cta">
+    <g-link :to="link" class="cta" :style="{color: color}">
       <span>{{text}}</span>
       <svg width="13px" height="10px" viewBox="0 0 13 10">
         <path d="M1,5 L11,5" />

@@ -32,7 +32,7 @@
           <img :src="imgThree" alt="ollsum" />
       </div>-->
     </div>
-    <div class="info-block--large__images-container within-section block">
+    <!-- <div class="info-block--large__images-container within-section block">
       <div
         class="info-block--large__image-container within-section text-center info-block--large__image-block section"
       >
@@ -57,7 +57,7 @@
         <p>{{imgFourText}}</p>
         <img :src="imgFour" alt="project" />
       </div>
-    </div>
+    </div>-->
     <div
       class="info-block--large__image-container within-section info-block--large__image-block section block"
     >

@@ -1,4 +1,3 @@
-
 $main-font: 'Poppins';
 
 $small-text: 1.7rem;
@@ -25,9 +24,7 @@ p {
   @include mq($from: external) {
     line-height: 40px;
   }
-
 }
-
 
 .text-title {
   text-transform: uppercase;
@@ -35,15 +32,15 @@ p {
 }
 
 .sub-title-text {
-   font-size: $small-title;
-    line-height: $line-height-large;
+  font-size: $small-title;
+  line-height: $line-height-large;
 
-    @include mq($from: wide) {
-      font-size: $small-title;
-    }
+  @include mq($from: wide) {
+    font-size: $small-title;
+  }
 
   @include mq($from: external) {
-      font-size: 3rem;
+    font-size: 3rem;
   }
 }
 
@@ -63,13 +60,20 @@ p {
   text-decoration: none;
 }
 
+.text-fade {
+  color: #666666;
+}
+
+.text-smooth-yellow {
+  color: $smooth-yellow;
+}
+
 .text-red {
   color: $red;
 }
 .text-white {
   color: white;
 }
-
 
 .text-pink {
   color: $pink;
@@ -88,7 +92,7 @@ p {
 }
 
 .text-grey {
-  color: $text-grey
+  color: $text-grey;
 }
 
 .text-underline-yellow {
@@ -96,12 +100,23 @@ p {
 }
 
 .text-underline-azur {
-  background-image: linear-gradient(to right, rgba(114, 204, 188,0.5), rgba(114, 204, 188, 0.5));
+  background-image: linear-gradient(
+    to right,
+    rgba(114, 204, 188, 0.5),
+    rgba(114, 204, 188, 0.5)
+  );
 }
 .text-underline-dark-blue {
-  background-image: linear-gradient(to right, rgba(0, 73, 118, 0.5), rgba(0, 73, 118, 0.5));
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 73, 118, 0.5),
+    rgba(0, 73, 118, 0.5)
+  );
 }
 .text-underline-light-blue {
-  background-image: linear-gradient(to right, rgba(86, 127, 248, 0.5), rgba(86, 127, 248, 0.5));
+  background-image: linear-gradient(
+    to right,
+    rgba(86, 127, 248, 0.5),
+    rgba(86, 127, 248, 0.5)
+  );
 }
-

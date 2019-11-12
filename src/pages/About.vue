@@ -2,33 +2,33 @@
   <Layout>
     <appPageStripes></appPageStripes>
     <section class="about">
-      <div class="element__wrapper">
-        <div class="about__header">
-          <div class="about__header__title">
-            <a @click="$router.go(-1)">back</a>
-            <a href="projects" v-scroll-to="'#ikea'">Scroll to #section-one</a>
-            <h1>Who are we?</h1>
-          </div>
-          <div class="about__header__subtext">
-            <p>
-              We could fill this page up with a bunch of buzzwords, but truthfully, we're just
-              a bunch of skilled & outlandish youngsters that love their craft.
-              <!-- Today we
-              help companies reach their users by building awesome campaigns and technical solutions.-->
-            </p>
-          </div>
-          <div class="about__header__images">
-            <img src="https://i.imgur.com/rdWlkBq.jpg" alt="founder" />
-            <img src="https://i.imgur.com/U7G6Hsn.jpg?1" alt="founder" />
-          </div>
-        </div>
-      </div>
+      <appPageHeader title="About Us"></appPageHeader>
+      <div :class="{hidden: isActive}">
+        <appTextBlock
+          :title="aboutTitle"
+          :subTitle="aboutSubTitle"
+          :description="aboutDescription"
+          :background="aboutBackground"
+          :aboutColor="color"
+        ></appTextBlock>
+        <appValues></appValues>
 
-      <div class="workflow" id="workflow">
-        <div class="element__wrapper">
-          <appSteps v-for="step in steps" :title="step.title" :body="step.body" :img="step.img"></appSteps>
+        <appTextBlock
+          :title="howTitle"
+          :subTitle="howSubTitle"
+          :description="howDescription"
+          :background="howBackground"
+          :color="aboutColor"
+        ></appTextBlock>
+      </div>
+      <div class="text-block padding-block within-section" :class="{hidden: isActive}">
+        <div class="text-block__title-wrapper page-wrapper within-section">
+          <hr class="text-block__rule" />
+          <h2>Core Team</h2>
         </div>
       </div>
+      <appTeam @togglePage="togglePage"></appTeam>
+      <appFooter class="footer--about"></appFooter>
     </section>
   </Layout>
 </template>
@@ -36,38 +36,66 @@
 <script>
 import Stripes from "~/components/shared/Stripes";
 import Steps from "~/components/about/Steps";
+import PageHeader from "~/components/shared/PageHeader";
+import TextBlock from "~/components/shared/TextBlock";
+import Team from "~/components/about/Team";
+import Values from "~/components/about/Values";
+import Footer from "~/components/shared/FooterMain";
 
 export default {
   components: {
     appPageStripes: Stripes,
-    appSteps: Steps
+    appSteps: Steps,
+    appPageHeader: PageHeader,
+    appTextBlock: TextBlock,
+    appTeam: Team,
+    appFooter: Footer,
+    appValues: Values
   },
   metaInfo: {
     title: "About us"
   },
   data() {
     return {
+      isActive: false,
+      aboutTitle: "Who are we?",
+      aboutSubTitle: "Creatives with a passion for code",
+      aboutDescription:
+        "We are a group of handpicked developers from all over the world with a passion for crafting beautifully desinged websites & applications. As we want to make sure to deliver the full package, we invest a lot of time to stay up-to-date with all the latest know-how in design, SEO, data-handeling & digital innovations. Our love for code doesn't stop at the agency, as we also actively try to give back to the community by teaching at renowned coding bootcamps (combined we have taught 600+ students) and partaking in hackathons",
+      aboutBackground: "white",
+      aboutColor: "black",
+      howTitle: "How we execute?",
+      howSubTitle: "Design. Create. Reflect. Adjust.",
+      howDescription:
+        "We draw upon logic, imagination, intuition and systematic reasoning to find solutions and serve your customers. By working in agile sprints, we make sure that we never get ahead of ourselves and keep on testing our assumptions, both on the code side, but also on your customer's needs and wishes.",
+      howBackground: "black",
+      aboutColor: "white",
       steps: [
-        {
-          title: "Professionally Passionate",
-          body:
-            "Ollsum consists of creatives, but we understand business. We strive to craft works of art that result in true fans, conversions and engagement.",
-          img: require("~/assets/images/icons/discovery.svg")
-        },
-        {
-          title: "Design Thinking",
-          body:
-            "We draw upon logic, imagination, intuition and systematic reasoning to find solutions, always with your user in mind.",
-          img: require("~/assets/images/icons/design_thinking.svg")
-        },
-        {
-          title: "Getting things done",
-          body:
-            "Being entrepeneurs ourselves, we understand the importance of efficiency, quality control and speed.Together with you we define what a win looks like and how we’ll structure the steps to get there. We split the journey up into iterations where we can test, reflect, improve and adjust.",
-          img: require("~/assets/images/icons/getting_things_done.svg")
-        }
+        // {
+        //   title: "Professionally Passionate",
+        //   body:
+        //     "Ollsum consists of creatives, but we understand business. We strive to craft works of art that result in true fans, conversions and engagement.",
+        //   img: require("~/assets/images/icons/discovery.svg")
+        // },
+        // {
+        //   title: "Design Thinking",
+        //   body:
+        //     "We draw upon logic, imagination, intuition and systematic reasoning to find solutions, always with your user in mind.",
+        //   img: require("~/assets/images/icons/design_thinking.svg")
+        // },
+        // {
+        //   title: "Getting things done",
+        //   body:
+        //     "Being entrepeneurs ourselves, we understand the importance of efficiency, quality control and speed.Together with you we define what a win looks like and how we’ll structure the steps to get there. We split the journey up into iterations where we can test, reflect, improve and adjust.",
+        //   img: require("~/assets/images/icons/getting_things_done.svg")
+        // }
       ]
     };
+  },
+  methods: {
+    togglePage(value) {
+      this.isActive = value;
+    }
   }
 };
 </script>
@@ -87,6 +115,28 @@ export default {
         margin: 20px 0px 20px 0px;
       }
     }
+  }
+}
+
+.footer--about {
+  @include mq($from: laptop) {
+    margin-top: 90vh;
+  }
+
+  @include mq($from: mobile) {
+    margin-top: 900px;
+  }
+
+  @include mq($from: largeMobile) {
+    margin-top: 900px;
+  }
+
+  @include mq($from: tablet) {
+    margin-top: 120vh;
+  }
+
+  @include mq($from: wide) {
+    margin-top: 100vh;
   }
 }
 </style>

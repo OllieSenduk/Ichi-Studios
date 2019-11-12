@@ -5,12 +5,16 @@
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
-module.exports = function (api) {
+module.exports = function(api) {
   api.loadSource(({ addContentType }) => {
     // Use the Data Store API here: https://gridsome.org/docs/data-store-api
-  })
+  });
 
   api.createPages(({ createPage }) => {
+    createPage({
+      path: "/projects/:identifier",
+      component: "./src/templates/Project.vue"
+    });
     // Use the Pages API here: https://gridsome.org/docs/pages-api
-  })
-}
+  });
+};

@@ -10,6 +10,7 @@
 export default {
   mounted() {
     console.log(TweenMax);
+    const context = this;
     TweenMax.from(".page-stripes__one", this.animationTime * 1.2, {
       height: 0,
       delay: context.delayTime * 2.2,

@@ -129,15 +129,15 @@ $footer-margin-bottom-wide: 60px;
   //   position: absolute;
   background: black;
   color: white;
-  position: absolute;
-  bottom: 0;
   width: 100%;
-  padding-bottom: 40px;
+  padding-bottom: 30px;
 
   @include mq($from: tablet) {
+    height: 130rem;
   }
 
   @include mq($from: wide) {
+    height: 100rem;
   }
 
   &__title {
@@ -197,6 +197,7 @@ $footer-margin-bottom-wide: 60px;
 
   .footer__social {
     margin-bottom: $footer-margin-bottom;
+    width: 100vw;
 
     @include mq($from: wide) {
       margin-bottom: $footer-margin-bottom-wide;
@@ -208,11 +209,14 @@ $footer-margin-bottom-wide: 60px;
   .social-buttons {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     margin-top: -10px;
 
     &__button {
       margin: 10px 5px 0;
+    }
+
+    @include mq($from: wide) {
+      justify-content: center;
     }
   }
 
@@ -322,7 +326,6 @@ $footer-margin-bottom-wide: 60px;
         margin-top: $footer-margin-bottom;
       }
       .city__wrapper {
-        padding-bottom: $footer-margin-bottom;
       }
     }
   }

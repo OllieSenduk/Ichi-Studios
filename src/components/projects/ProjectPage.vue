@@ -1,26 +1,24 @@
 <template>
-  <section class="project__wrapper">
-    <div class="project" :class="{project__hidden: hidden}">
-      <div class="project__title">{{title}}</div>
+  <section class="project__wrapper" :id="identifier">
+    <div class="project" :class="{ project__hidden: hidden }">
+      <div class="project__title">{{ title }}</div>
       <div class="project__details">
-        <div class="project__small-title">{{title}}</div>
-        <div class="project__description">{{text}}</div>
+        <div class="project__small-title">{{ title }}</div>
+        <div class="project__description">{{ text }}</div>
       </div>
-      <div class="project__hero">
-        <a href>
-          <img
-            class="project__hero__image-left"
-            :src="imgLeft"
-            :alt="title"
-            :class="{ project__hero__disappear: navStatus }"
-          />
-          <img
-            class="project__hero__image-right"
-            :src="imgRight"
-            :alt="title"
-            :class="{ project__hero__disappear: navStatus }"
-          />
-        </a>
+      <div class="project__hero" @click="goToProject">
+        <img
+          class="project__hero__image-left"
+          :src="imgLeft"
+          :alt="title"
+          :class="{ project__hero__disappear: navStatus }"
+        />
+        <img
+          class="project__hero__image-right"
+          :src="imgRight"
+          :alt="title"
+          :class="{ project__hero__disappear: navStatus }"
+        />
       </div>
     </div>
   </section>
@@ -31,7 +29,7 @@ import { mapState, mapGetters, mapMutations } from "vuex";
 
 export default {
   props: [
-    "id",
+    "identifier",
     "title",
     "imgRight",
     "imgLeft",
@@ -48,53 +46,28 @@ export default {
     ...mapState(["navOpen"]),
     ...mapGetters(["navStatus"])
   },
-  // methods: {
-  // changeTitleSize() {
-  //     const context = this
-  //     this.$nextTick(() => {
-  //         const titles = document.querySelectorAll('.project__title')
-  //         titles.forEach(function(title) {
-  //             console.log(context.title.length)
-  //             if (context.title.length >= 12) {
-  //                 title.style.fontSize = `calc(3vw + 6vh + -4vmin)`
-  //             }
-  //             if (context.title.length < 12 ) {
-  //                 title.style.fontSize = `calc(4vw + 8vh + -4vmin)`
-  //             }
-
-  // if context.title.length {
-  //     title.style.fontSize = `calc(3vw + 12vh + -4vmin)`
-
-  // }
-  //     })
-  //  })
-
-  //    titles.forEach(
-  //     function(currentValue, currentIndex, listObj) {
-  //         console.log(currentValue + ', ' + currentIndex + ', ' + this);
-  //     },
-  //     'myThisArg'
-  //     );
-  //     }
+  methods: {
+    goToProject() {
+      this.$router.push({ path: `/projects/${this.identifier}` });
+    }
+  },
+  created() {},
+  // mounted() {
+  //   document.addEventListener("beforeunload", this.goToProject, false);
   // },
-  // created() {
-  //     if (window.innerWidth > 740) {
-  //             this.changeTitleSize()
-  //      }
+  // beforeDestroy() {
+  //   document.removeEventListener("beforeunload", this.goToProject);
   // },
-  // this.$store.watch(
-  //     (state, getters) => getters.navStatus,
-  //     (updated, old) => {
-  //         console.log(old)
-  //     }
-  // )
   watch: {
     navOpen(newVal, oldVal) {}
   }
 };
 </script>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
+.z-indexUp {
+  z-index: 100;
+}
 .project {
   font-family: $main-font;
   font-weight: $thin-text;
@@ -116,6 +89,11 @@ export default {
     width: 100%;
     opacity: 0;
     pointer-events: none;
+  }
+
+  &__categories {
+    grid-column: 3/4;
+    grid-row: 2/3;
   }
 
   &__hero {

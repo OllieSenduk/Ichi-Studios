@@ -1,5 +1,5 @@
 <template>
-  <section class="home-header">
+  <section class="home-header" :class="{ remove_page: navStatus }">
     <div class="page-stripes">
       <div class="page-stripes__one"></div>
       <div class="page-stripes__two"></div>
@@ -23,16 +23,10 @@
           </div>
           <div class="home-header__intro-text">
             <h1 class="home-header__title" :class="{revealText: !homePageClosed}">
-              <span>Ollsum Agency</span>
+              <span>Ollsum</span>
             </h1>
             <div class="home-header__text within-section" :class="{revealText: !homePageClosed}">
-              <span>
-                We are
-                digital & creative
-                <span class="text-red">superheroes</span>
-                sent from the future to help your
-                <span class="text-red">brand</span> stick out.
-              </span>
+              <span>We combine well-written code, clean design & an entrepeneurial mindset to deliver digital beauty.</span>
             </div>
             <div class="home-container__shape-2">
               <img src="https://i.imgur.com/9he5plI.png" alt="shapes" />
@@ -135,10 +129,11 @@ import InfoBlock from "~/components/shared/InfoBlock";
 import Testimonial from "~/components/shared/Testimonial";
 import InfoBlockLarge from "~/components/shared/InfoBlockLarge";
 import IconBlock from "~/components/shared/IconBlock";
+import Values from "~/components/about/Values";
 
 import Footer from "~/components/shared/Footer";
 import Video from "~/components/home/HomeVideo";
-import { mapState } from "vuex";
+import { mapState, mapGetters, mapMutations } from "vuex";
 
 export default {
   components: {
@@ -148,7 +143,8 @@ export default {
     appVideo: Video,
     appTestimonial: Testimonial,
     appinfoBlockLarge: InfoBlockLarge,
-    appIconBlock: IconBlock
+    appIconBlock: IconBlock,
+    appValues: Values
   },
   data() {
     return {
@@ -255,11 +251,12 @@ export default {
     // this.tlMax1.reverse();
   },
   computed: mapState({
-    // arrow functions can make the code very succinct!
     homeProjectSection: state => state.infoBlockLarge.homeProjectSection,
     testimonialRipleys: state => state.testimonials.ripleys,
     testimonialCanon: state => state.testimonials.canon,
-    homeIcons: state => state.icons.homeIcons
+    homeIcons: state => state.icons.homeIcons,
+    ...mapState(["navOpen", "projectOpen"]),
+    ...mapGetters(["navStatus", "projectOpenStatus"])
   })
 };
 </script>

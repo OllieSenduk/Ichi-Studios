@@ -5,7 +5,7 @@
     <div class="parallax">
       <div class="video__body" @click="showVideo">
         <img src="https://i.imgur.com/tSo2pzd.png" alt="play" @click="openVideo" />
-        <div class="video__text">Check out what we're all about!</div>
+        <div class="video__text">Our latest event!</div>
       </div>
     </div>
 
@@ -39,7 +39,7 @@ export default {
     },
     createSwal: function(width, height) {
       this.$swal({
-        title: "Ollsum The Trailer",
+        title: "Our Event",
         width: width + 50,
         height: height + 50,
         customClass: "swal__video-container",

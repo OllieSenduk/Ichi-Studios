@@ -1,13 +1,12 @@
-
 $mq-breakpoints: (
-    mobile:  320px,
-    largeMobile: 400px,
-    tablet:  740px,
-    laptop:  980px,
-    wide:    1300px,
-    external: 1600px
+  mobile: 320px,
+  largeMobile: 400px,
+  tablet: 740px,
+  laptop: 980px,
+  wide: 1300px,
+  external: 1600px
 );
 
-$mq-show-breakpoints: (mobile, tablet, laptop, wide);
+$mq-show-breakpoints: (mobile, largeMobile, tablet, laptop, wide);
 
-@import "node_modules/sass-mq/mq"
+@import 'node_modules/sass-mq/mq';
