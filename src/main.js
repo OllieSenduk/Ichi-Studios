@@ -197,67 +197,67 @@ export default function(Vue, { router, head, isClient, appOptions }) {
           hidden: true,
           visit: true,
           linkProject: "https://www.lawspot.nl/"
-        },
-        {
-          pageNum: 2,
-          identifier: "jobdex",
-          title: "Job Dex",
-          information: {
-            client: "Job Dex",
-            categories: ["startup", "strategy", "development"]
-          },
-          subTitle: "Find the right hospitality talent.",
-          problem:
-            "The hospitality industry needs more qualified flexible workers.",
-          summary:
-            "The platform for freelancers looking for work in the hospitality industry.",
-          solution:
-            "Marketplace for freelance hospitality workers which manages the scheduling of employees with the current staff and adds freelancers from the marketplace where needed.",
-          homeImg: {
-            imgLeft: "https://i.imgur.com/e6jQfAI.png",
-            imgRight: "https://i.imgur.com/u9HlAhe.png"
-          },
-          hasVideo: false,
-          images: {
-            imgHeader: "https://i.imgur.com/tQHcj8X.png",
-            imgOne: "https://i.imgur.com/RasM3Du.png"
-          },
-          url: "/jobdesk",
-          homeText: "Working in the hospitality industry.",
-          background: `radial-gradient(#2B3760, #0B1023)`,
-          hidden: true,
-          visit: false
-        },
-        {
-          pageNum: 3,
-          identifier: "crypto-trading-bot",
-          title: "Automaat Space",
-          information: {
-            client: "Home Grown",
-            categories: ["algorithm", "data analysis", "tech"]
-          },
-          subTitle: "Seamless Trading",
-          problem:
-            "Traditional day-trading suffers from a multitude of problems. For one, Human beings need sleep. Secondly, the human is full of biases when it comes to trading.",
-          summary:
-            "Automating our trades in the volatile cryptocurrency market.",
-          solution:
-            "The first step was to create a program that decides on the best trading strategies through data it collects from multiple api's. The next step will be to add self-learning algorithms to increase the likelihood of the algorithms making the right calls. Automaat.space is still in beta, but has proven to be able to be increasingly profitable in multiple market scenario’s. We show a little sneak peak here:.",
-          homeImg: {
-            imgLeft: "https://i.imgur.com/3lYIFWs.png",
-            imgRight: "https://i.imgur.com/enHVYgi.png"
-          },
-          hasVideo: false,
-          images: {
-            imgHeader: "https://i.imgur.com/CJ3yaq3.png"
-          },
-          url: "/crypto-trading-bot",
-          homeText: "Seamless Trading.",
-          background: `radial-gradient(#2B3760, #0B1023)`,
-          hidden: true,
-          visit: true,
-          linkProject: "http://automaat-space.herokuapp.com/"
         }
+        // {
+        //   pageNum: 2,
+        //   identifier: "jobdex",
+        //   title: "Job Dex",
+        //   information: {
+        //     client: "Job Dex",
+        //     categories: ["startup", "strategy", "development"]
+        //   },
+        //   subTitle: "Find the right hospitality talent.",
+        //   problem:
+        //     "The hospitality industry needs more qualified flexible workers.",
+        //   summary:
+        //     "The platform for freelancers looking for work in the hospitality industry.",
+        //   solution:
+        //     "Marketplace for freelance hospitality workers which manages the scheduling of employees with the current staff and adds freelancers from the marketplace where needed.",
+        //   homeImg: {
+        //     imgLeft: "https://i.imgur.com/e6jQfAI.png",
+        //     imgRight: "https://i.imgur.com/u9HlAhe.png"
+        //   },
+        //   hasVideo: false,
+        //   images: {
+        //     imgHeader: "https://i.imgur.com/tQHcj8X.png",
+        //     imgOne: "https://i.imgur.com/RasM3Du.png"
+        //   },
+        //   url: "/jobdesk",
+        //   homeText: "Working in the hospitality industry.",
+        //   background: `radial-gradient(#2B3760, #0B1023)`,
+        //   hidden: true,
+        //   visit: false
+        // },
+        // {
+        //   pageNum: 3,
+        //   identifier: "crypto-trading-bot",
+        //   title: "Automaat Space",
+        //   information: {
+        //     client: "Home Grown",
+        //     categories: ["algorithm", "data analysis", "tech"]
+        //   },
+        //   subTitle: "Seamless Trading",
+        //   problem:
+        //     "Traditional day-trading suffers from a multitude of problems. For one, Human beings need sleep. Secondly, the human is full of biases when it comes to trading.",
+        //   summary:
+        //     "Automating our trades in the volatile cryptocurrency market.",
+        //   solution:
+        //     "The first step was to create a program that decides on the best trading strategies through data it collects from multiple api's. The next step will be to add self-learning algorithms to increase the likelihood of the algorithms making the right calls. Automaat.space is still in beta, but has proven to be able to be increasingly profitable in multiple market scenario’s. We show a little sneak peak here:.",
+        //   homeImg: {
+        //     imgLeft: "https://i.imgur.com/3lYIFWs.png",
+        //     imgRight: "https://i.imgur.com/enHVYgi.png"
+        //   },
+        //   hasVideo: false,
+        //   images: {
+        //     imgHeader: "https://i.imgur.com/CJ3yaq3.png"
+        //   },
+        //   url: "/crypto-trading-bot",
+        //   homeText: "Seamless Trading.",
+        //   background: `radial-gradient(#2B3760, #0B1023)`,
+        //   hidden: true,
+        //   visit: true,
+        //   linkProject: "http://automaat-space.herokuapp.com/"
+        // }
         // creativos: {
         //   pageNum: 1,
         //   identifier: "creativos_de_la_noche",
