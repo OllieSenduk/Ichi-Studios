@@ -65,9 +65,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.z-indexUp {
-  z-index: 100;
-}
+// .z-indexUp {
+//   z-index: 100;
+// }
 .project {
   font-family: $main-font;
   font-weight: $thin-text;
