@@ -76,7 +76,17 @@ export default {
       const nextText = nextPage.$el.querySelector(".project__details");
 
       const tl = new TimelineMax({
-        autoRemoveChildren: true
+        autoRemoveChildren: true,
+        onStart: function() {
+          slides.forEach(slide => {
+            slide.style.pointerEvents = "none";
+          });
+        },
+        onComplete: function() {
+          slides.forEach(slide => {
+            slide.style.pointerEvents = "all";
+          });
+        }
       });
       tl.fromTo(currentLeft, 0.3, { y: "-10%" }, { y: "-100%" });
       tl.fromTo(currentRight, 0.3, { y: "10%" }, { y: "-100%" }, "-=0.2")
