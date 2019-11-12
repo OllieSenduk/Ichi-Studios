@@ -64,7 +64,10 @@
               <div class="project-details__block__answer within-section">
                 <p>{{ project.solution }}</p>
               </div>
-              <div class="project-details__visit" v-if="project.visit">
+              <div
+                class="project-details__visit within-section"
+                v-if="project.visit"
+              >
                 <a :href="project.linkProject" target="_blank">
                   <p class="text-smooth-yellow">Visit the project!</p>
                 </a>

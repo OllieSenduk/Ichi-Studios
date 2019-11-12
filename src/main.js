@@ -149,8 +149,8 @@ export default function(Vue, { router, head, isClient, appOptions }) {
           solution:
             "We helped supervise the creation of 5 new technical MVP's from design phase to code. This served as a way to both get the IKEA staff up to speed on how to develop these type of projects, as well as have them built out potential new products IKEA could start implementing either for internal use, or to integrate within the existing customer-facing IKEA app. At the end of the sprints, the finished projects were presented to the management teams.Amongst the projects was a customer-facing application that could tell you if the current IKEA products in your shopping basket would fit inside the back of your car and a project management solution that could be used internally.",
           homeImg: {
-            imgLeft: "https://i.imgur.com/RasM3Du.png",
-            imgRight: "https://i.imgur.com/RasM3Du.png"
+            imgLeft: "https://i.imgur.com/Ap049M0.png",
+            imgRight: "https://i.imgur.com/jea1Puk.png"
           },
           hasVideo: false,
           video: "",
@@ -249,13 +249,14 @@ export default function(Vue, { router, head, isClient, appOptions }) {
           },
           hasVideo: false,
           images: {
-            imgHeader: "https://i.imgur.com/0u9Sl7U.png"
+            imgHeader: "https://i.imgur.com/CJ3yaq3.png"
           },
           url: "/crypto-trading-bot",
           homeText: "Seamless Trading.",
           background: `radial-gradient(#2B3760, #0B1023)`,
           hidden: true,
-          visit: false
+          visit: true,
+          linkProject: "http://automaat-space.herokuapp.com/"
         }
         // creativos: {
         //   pageNum: 1,

@@ -173,6 +173,7 @@ export default {
       );
       window.addEventListener(
         "touchmove",
+        preventBehavior,
         this.throttle(this.updateSlideNum, 1500)
       );
     }
