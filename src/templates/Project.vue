@@ -202,15 +202,15 @@ export default {
 
   &__image {
     width: 100%;
+    text-align: center;
     @include mq($from: laptop) {
-      text-align: center;
     }
 
     img {
-      width: 100%;
+      width: 50%;
 
       @include mq($from: laptop) {
-        width: 50%;
+        width: 25%;
       }
     }
   }
