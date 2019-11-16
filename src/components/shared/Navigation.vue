@@ -42,7 +42,7 @@ import { mapMutations } from "vuex";
 export default {
   data() {
     return {
-      tlMax1: new TimelineMax({ paused: true }),
+      tlMax1: new TimelineMax({}),
       navOpen: false
     };
   },
@@ -150,6 +150,7 @@ export default {
     margin-bottom: 20px;
     display: flex;
     transform: rotate(-10deg) skew(-10deg, 0);
+    -webkit-transform: rotate(-10deg) skew(-10deg, 0);
 
     p {
       font-size: 1.5rem;

@@ -7,6 +7,4 @@ $mq-breakpoints: (
   external: 1600px
 );
 
-$mq-show-breakpoints: (mobile, largeMobile, tablet, laptop, wide);
-
-@import 'node_modules/sass-mq/mq';
+@import "node_modules/sass-mq/mq";
