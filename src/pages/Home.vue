@@ -14,7 +14,7 @@
             </span>
           </h1>
           <div class="revealText home-header__text">
-            <span>We combine well-written code, clean design & an entrepeneurial mindset to deliver digital beauty.</span>
+            <span>We combine well-written code, clean design & an entrepreneurial mindset to deliver digital beauty.</span>
           </div>
           <div class="home-container__shape-2">
             <img src="https://i.imgur.com/9he5plI.png" alt="shapes" />

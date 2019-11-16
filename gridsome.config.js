@@ -3,16 +3,15 @@
 
 // Changes here requires a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
-const path = require('path')
+const path = require("path");
 
-function addStyleResource (rule) {
-  rule.use('style-resource')
-    .loader('style-resources-loader')
+function addStyleResource(rule) {
+  rule
+    .use("style-resource")
+    .loader("style-resources-loader")
     .options({
-      patterns: [
-        path.resolve(__dirname, './src/assets/scss/app.scss'),
-      ],
-    })
+      patterns: [path.resolve(__dirname, "./src/assets/scss/app.scss")]
+    });
 }
 
 module.exports = {
@@ -40,13 +39,16 @@ module.exports = {
   // },
 
   chainWebpack: config => {
-    const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
-    types.forEach(type => addStyleResource(config.module.rule('scss').oneOf(type)))
+    const types = ["vue-modules", "vue", "normal-modules", "normal"];
+    types.forEach(type =>
+      addStyleResource(config.module.rule("scss").oneOf(type))
+    );
   },
-  siteUrl: 'https://www.ollsum.com',
-  siteDescription: 'Ollsum is an international collective of creative & digital heroes',
-  plugins: [],
-}
+  siteUrl: "https://www.ollsum.com",
+  siteDescription:
+    "We combine well-written code, clean design & an entrepreneurial mindset to deliver digital beauty.",
+  plugins: []
+};
 
 // module.exports = {
 //   chainWebpack: config => {
