@@ -1,12 +1,9 @@
 <template>
-  <section
-    v-if="project"
-    class="project-details page-wrapper"
-    :class="{ remove_page: navStatus }"
-  >
+  <section v-if="project" class="project-details page-wrapper" :class="{ remove_page: navStatus }">
     <div class="project-details__wrapper">
-      <div class="project-details__close" @click="returnToProjects">
-        <i class="fa fa-times" aria-hidden="true"></i>
+      <div class="close-page close-page--text" @click="returnToProjects">
+        <b v-responsive="['hidden-all','md', 'lg', 'xl']">BACK</b>
+        <i class="fa fa-times" aria-hidden="true" v-responsive="['hidden-all','xs','sm']"></i>
       </div>
       <div class="project-details__container">
         <div class="project-details__header within-section">
@@ -24,9 +21,7 @@
           </div>
           <div class="project-detail__body">
             <div class="project-details__block block">
-              <div
-                class="project-detail__block__question text-smooth-yellow within-section"
-              >
+              <div class="project-detail__block__question text-smooth-yellow within-section">
                 <p>Problem</p>
               </div>
               <div class="project-detail__block__answer within-section">
@@ -36,9 +31,7 @@
 
             <div class="project-details__summary-container within-section">
               <div class="project-details__summary-wrapper within-section">
-                <div
-                  class="project-details__summary-wrapper__title text-smooth-yellow"
-                >
+                <div class="project-details__summary-wrapper__title text-smooth-yellow">
                   <p>Categories</p>
                 </div>
                 <ul v-for="category in project.information.categories">
@@ -48,26 +41,18 @@
                 </ul>
               </div>
             </div>
-            <div
-              class="project-details__image within-section"
-              v-if="project.images.imgOne"
-            >
+            <div class="project-details__image within-section" v-if="project.images.imgOne">
               <img :src="project.images.imgOne" alt="project image" />
             </div>
 
             <div class="project-details__block block">
-              <div
-                class="project-detail__block__question text-smooth-yellow within-section"
-              >
+              <div class="project-detail__block__question text-smooth-yellow within-section">
                 <p>Solution</p>
               </div>
               <div class="project-details__block__answer within-section">
                 <p>{{ project.solution }}</p>
               </div>
-              <div
-                class="project-details__visit within-section"
-                v-if="project.visit"
-              >
+              <div class="project-details__visit within-section" v-if="project.visit">
                 <a :href="project.linkProject" target="_blank">
                   <p class="text-smooth-yellow">Visit the project!</p>
                 </a>
@@ -75,10 +60,7 @@
             </div>
           </div>
         </div>
-        <div
-          class="project-details__video within-section"
-          v-if="project.hasVideo"
-        >
+        <div class="project-details__video within-section" v-if="project.hasVideo">
           <div class="project-details__video-wrapper">
             <div class="embed-container">
               <iframe
@@ -91,11 +73,7 @@
         </div>
         <div class="project-details__images" v-if="project.images.imgTwo">
           <div class="project-details__image">
-            <img
-              :src="project.images.imgTwo"
-              class="skewed-img-left"
-              alt="project image"
-            />
+            <img :src="project.images.imgTwo" class="skewed-img-left" alt="project image" />
           </div>
         </div>
       </div>
@@ -161,21 +139,8 @@ export default {
 
 <style lang="scss" scoped>
 .project-details {
-  background: #1b1b1b;
   color: white;
-
-  &__close {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    font-size: 20px;
-    cursor: pointer;
-    @include mq($from: laptop) {
-      top: 25px;
-      left: 25px;
-      font-size: 35px;
-    }
-  }
+  background: radial-gradient(rgb(177, 139, 179), rgba(11, 16, 35, 1));
 
   &__container {
   }
@@ -272,7 +237,7 @@ export default {
   }
 
   &__summary-wrapper {
-    background: darkslategrey;
+    background: black;
     padding: 20px 20px 20px 20px;
     float: right;
     width: 80vw;

@@ -1,9 +1,6 @@
 <template>
   <div class="team__wrapper">
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <div
       :class="[
         'outer-container',
@@ -12,8 +9,7 @@
       ]"
       id="app"
     >
-      <div class="team-container">
-        <div class="header"></div>
+      <div class="team-container within-section">
         <div class="project-list" :class="$mq">
           <div
             class="project"
@@ -21,19 +17,10 @@
             @click="selectproject(index, $event)"
             :class="$mq"
           >
-            <img
-              class="project-img"
-              :src="project.photo"
-              :ref="project.id"
-              :class="$mq"
-            />
+            <img class="project-img" :src="project.photo" :ref="project.id" :class="$mq" />
             <div class="project-details">
               <h2 class="project-title">{{ project.name }}</h2>
-              <span
-                v-for="category in project.categories"
-                class="project-desc"
-                >{{ category }}</span
-              >
+              <span v-for="category in project.categories" class="project-desc">{{ category }}</span>
               <p class="project-more">Read more!</p>
             </div>
           </div>
@@ -53,17 +40,13 @@
                 <p class="project-desc">{{ selectedprojectData.title }}</p>
                 <div class="social"></div>
               </div>
-              <div
-                class="team-detail-bio-content"
-                v-html="selectedprojectData.bio"
-              ></div>
+              <div class="team-detail-bio-content" v-html="selectedprojectData.bio"></div>
 
               <a
                 :href="selectedprojectData.social.projectLink"
                 target="_blank"
                 v-if="selectedprojectData.social.projectLink"
-                >Visit Website</a
-              >
+              >Visit Website</a>
             </div>
           </div>
         </div>
@@ -73,9 +56,8 @@
 </template>
 
 <script>
-if (process.client) {
-  var VueScrollTo = require("vue-scrollto");
-}
+var VueScrollTo = require("vue-scrollto");
+
 export default {
   components: {},
   data() {
@@ -85,7 +67,7 @@ export default {
           id: "#selectorOne",
           name: "Oliver Senduk",
           photo: "https://i.imgur.com/r2NdPI9.jpg",
-          categories: ["Head of Strategy"],
+          categories: ["Chief Executive Officer"],
           bio:
             "<p> Oliver is a software engineer with a focus on creating strategies & roadmaps to launch & grow new ideas and products. Besides programming he is also a mentor for the participants in the world's biggest Blockchain & AI hackathon <i>Oddesy </i>.</p>",
           social: {
@@ -107,7 +89,7 @@ export default {
           id: "#selectorThree",
           name: "Leon Houwelingen",
           photo: "https://i.imgur.com/4mNSsxW.jpg",
-          categories: ["Head of new business Asia"],
+          categories: ["Chief Sales Officer"],
           bio:
             "<p>Leon has amassed a solid leadership record in the business and charity arenas. He has steered several companies through challenging phases to deliver results that position them for sustainable business growth.</p>",
           social: {
@@ -156,7 +138,7 @@ export default {
 
         this.selectedprojectData = this.projects[index];
         window.setTimeout(() => {
-          this.inlineStyles = `width:${this.selectedproject.offsetWidth}px;height:100vh;left:${this.selectedproject.offsetLeft}px;top:${this.selectedproject.offsetTop}px;position:fixed`;
+          this.inlineStyles = `width:${this.selectedproject.offsetWidth}px;height:100vh;left:${this.selectedproject.offsetLeft}px;position:fixed`;
           this.selectedproject.setAttribute("style", this.inlineStyles);
         }, 400);
         window.setTimeout(() => {
@@ -194,6 +176,7 @@ export default {
   },
   displayList: function() {},
   mounted() {
+    console.log(VueScrollTo);
     var self = this;
     const passedElement = this.$route.hash;
 
@@ -248,7 +231,7 @@ export default {
 .team-container {
   padding: 0 30px;
   box-sizing: border-box;
-  max-width: 1400px;
+  max-width: 85vw;
   width: 100%;
   margin: auto;
   display: flex;
@@ -301,7 +284,7 @@ export default {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 
   &.external {
-    width: 70%;
+    width: 90%;
     margin-bottom: 10vh;
   }
 
@@ -565,15 +548,15 @@ export default {
 }
 
 .project:nth-child(odd) {
-  &.laptop {
-    margin-top: -60px;
-  }
-  &.wide {
-    margin-top: -60px;
-  }
-  &.external {
-    margin-top: -60px;
-  }
+  // &.laptop {
+  //   margin-top: 60px;
+  // }
+  // &.wide {
+  //   margin-top: 60px;
+  // }
+  // &.external {
+  //   margin-top: 60px;
+  // }
 }
 
 .project:nth-child(odd) {

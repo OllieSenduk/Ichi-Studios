@@ -12,23 +12,22 @@
           <li class="navigation__item header">Navigation</li>
           <li class="navigation__item header">
             <p>01</p>
-            <a class="navigation__link" href="#">Home</a>
+            <a class="navigation__link" href="/home" @click="openNavigation">Home</a>
           </li>
           <li class="navigation__item header">
             <p>02</p>
-            <a class="navigation__link" href="#">Our Story</a>
+            <a class="navigation__link" href="/about" @click="openNavigation">About</a>
           </li>
           <li class="navigation__item header">
             <p>03</p>
-            <a class="navigation__link" href="#">Work</a>
+            <a class="navigation__link" href="/projects" @click="openNavigation">Projects</a>
           </li>
           <li class="navigation__item header">
             <p>04</p>
-            <a class="navigation__link" href="#">Services</a>
-          </li>
-          <li class="navigation__item header">
-            <p>05</p>
-            <a class="navigation__link" href="#">Contact</a>
+            <a class="navigation__link" href="#">
+              Blog
+              <span>(Coming Soon)</span>
+            </a>
           </li>
         </ul>
       </div>
@@ -49,12 +48,11 @@ export default {
   },
   methods: {
     openNavigation: function() {
+      this.tlMax1.reversed(!this.tlMax1.reversed());
+      this.$store.dispatch("updateNavStatus");
       if (this.navOpen === false) {
         this.navOpen = true;
       }
-      this.tlMax1.reversed(!this.tlMax1.reversed());
-      this.$store.dispatch("updateNavStatus");
-      console.log(this.navOpen);
     }
   },
   mounted() {
@@ -159,6 +157,10 @@ export default {
       margin-right: 21px;
       color: pink;
       padding-top: 20px;
+    }
+
+    span {
+      font-size: 1rem;
     }
 
     @include mq(tablet) {

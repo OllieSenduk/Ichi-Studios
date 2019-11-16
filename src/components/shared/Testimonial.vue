@@ -1,5 +1,5 @@
 <template>
-  <section class="testimonial section first-element" :style="{background: backgroundColor}">
+  <section class="testimonial section first-element block" :style="{background: backgroundColor}">
     <div class="testimonial__container" :style="{color: primaryColor}">
       <div class="testimonial__image">
         <img :src="img" alt="company" />

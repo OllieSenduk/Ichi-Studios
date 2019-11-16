@@ -1,5 +1,6 @@
 <template>
-  <section class="within-section projects">
+  <section class="within-section projects" :class="{ remove_page: navStatus }">
+    <appPageHeader title="Projects"></appPageHeader>
     <div class="swiper-container loading">
       <div class="swiper-wrapper">
         <div
@@ -23,17 +24,22 @@
       <!-- If we need pagination -->
       <div class="swiper-pagination"></div>
       <!-- If we need navigation buttons -->
-      <div class="swiper-button-prev swiper-button-white"></div>
-      <div class="swiper-button-next swiper-button-white"></div>
+      <div class="swiper-button-prev swiper-button"></div>
+      <div class="swiper-button-next swiper-button"></div>
     </div>
   </section>
 </template>
 
 <script>
+import PageHeader from "~/components/shared/PageHeader";
+
 import Swiper from "swiper";
 import { mapState, mapGetters, mapMutations } from "vuex";
 
 export default {
+  components: {
+    appPageHeader: PageHeader
+  },
   data() {
     return {
       current: 0,
@@ -44,6 +50,14 @@ export default {
     goToProject(e) {
       const identifier = e.target.id;
       this.$router.push({ path: `/projects/${identifier}` });
+    },
+    checkForInitialSlide() {
+      const identifier = this.$router.currentRoute.hash;
+      if (identifier) {
+        return this.projects.findIndex(
+          project => project.identifier === identifier.substr(1)
+        );
+      }
     }
   },
   mounted() {
@@ -87,12 +101,18 @@ export default {
           }
         }
       };
+    const initialSlideIndex = this.checkForInitialSlide();
+    if (initialSlideIndex) {
+      options.initialSlide = initialSlideIndex;
+    }
     var mySwiper = new Swiper(sliderSelector, options);
     // Initialize slider
     mySwiper.init();
   },
   computed: mapState({
-    projects: state => state.projects
+    projects: state => state.projects,
+    ...mapState(["navOpen"]),
+    ...mapGetters(["navStatus"])
   })
 };
 </script>
@@ -107,10 +127,10 @@ export default {
 }
 .swiper-container {
   width: 100%;
-  height: 100vh;
+  height: 90vh;
   transition: opacity 0.6s ease;
   &.swiper-container-coverflow {
-    padding-top: 10%;
+    padding-top: 15vh;
   }
   &.loading {
     opacity: 0;
@@ -128,10 +148,11 @@ export default {
 .swiper-wrapper {
 }
 .swiper-slide {
-  background-position: bottom;
+  background-position: center;
   background-size: cover;
   height: 50vh !important;
   box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
   &::after {
     content: "";
     background-image: inherit;
@@ -183,6 +204,12 @@ export default {
   visibility: hidden;
   @extend %transition_all_03s;
 }
+
+.swiper-button {
+  color: $red;
+  width: 100px;
+  height: 75%;
+}
 .swiper-button-prev {
   transform: translateX(50px);
 }
@@ -191,6 +218,21 @@ export default {
 }
 .swiper-container-horizontal {
   > .swiper-pagination-bullets {
+    // @include mq($from: laptop) {
+    //   padding-top: 20vh;
+    // }
+
+    @include mq($from: mobile) {
+      bottom: 10%;
+    }
+
+    // @include mq($from: tablet) {
+    //   bottom: 10vh;
+    // }
+
+    // @include mq($from: wide) {
+    //   padding-top: 15vh;
+    // }
     .swiper-pagination-bullet {
       margin: 0 9px;
       position: relative;
@@ -239,9 +281,6 @@ export default {
 @media (max-width: 1023px) {
   .swiper-container {
     height: 90vh;
-    &.swiper-container-coverflow {
-      padding-top: 20vh;
-    }
   }
 }
 </style>

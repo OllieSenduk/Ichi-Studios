@@ -1,15 +1,14 @@
 <template>
   <div class="page-stripes">
-    <div class="page-stripes__one"></div>
-    <div class="page-stripes__two"></div>
-    <div class="page-stripes__three"></div>
+    <div class="page-stripes__one page-stripes__stripe"></div>
+    <div class="page-stripes__two page-stripes__stripe"></div>
+    <div class="page-stripes__three page-stripes__stripe"></div>
   </div>
 </template>
 
 <script>
 export default {
   mounted() {
-    console.log(TweenMax);
     const context = this;
     TweenMax.from(".page-stripes__one", this.animationTime * 1.2, {
       height: 0,
@@ -17,7 +16,7 @@ export default {
       ease: Power2.easeInOut
     });
     TweenMax.to(".page-stripes__one", this.animationTime * 1.2, {
-      height: "100%",
+      height: 0,
       delay: context.delayTime * 2.4,
       ease: Power2.easeInOut
     });
@@ -37,7 +36,10 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-.stripes {
+.page-stripes {
+  &__stripe {
+    z-index: -1;
+  }
   &__one {
     position: fixed;
     width: 1px;
@@ -49,9 +51,10 @@ export default {
   &__two {
     position: fixed;
     width: 1px;
-    height: 40%;
+    height: 90%;
     background: rgba(0, 0, 0, 0.2);
     left: 50%;
+    top: -50%;
   }
 
   &__three {

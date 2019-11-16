@@ -1,6 +1,6 @@
 <template>
   <section class="info-block block section">
-    <div class="info-block__wrapper within-section">
+    <div class="info-block__wrapper within-section-large">
       <div class="first-element">
         <div class="info-block__images">
           <img src="https://i.imgur.com/TrXW61P.png" alt="startup" />
@@ -19,9 +19,7 @@
             together
           </h2>
         </div>
-        <div
-          class="info-block__sub-title sub-title-text text-grey within-section"
-        >
+        <div class="info-block__sub-title sub-title-text text-grey within-section">
           We combine our technical skills with creative thinking and a
           result-driven mentality to make sure that we deliver not just optimal
           code, but also keep your business goals in mind.
@@ -140,8 +138,8 @@ export default {
       // flex-direction: column;
 
       img {
-        width: 70%;
-        height: 350px;
+        width: 80%;
+        height: 400px;
       }
     }
   }
@@ -152,9 +150,6 @@ export default {
   }
 
   &__cta {
-    @include mq($until: wide) {
-      margin-top: $element-margin-bottom;
-    }
   }
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <appPageStripes></appPageStripes>
-    <section class="about">
+    <section class="about" :class="{ remove_page: navStatus }">
       <appPageHeader title="About Us"></appPageHeader>
       <div :class="{hidden: isActive}">
         <appTextBlock
@@ -11,7 +11,9 @@
           :background="aboutBackground"
           :aboutColor="color"
         ></appTextBlock>
-        <appValues></appValues>
+        <div class="guide-down">
+          <i class="fa fa-arrow-down"></i>
+        </div>
 
         <appTextBlock
           :title="howTitle"
@@ -22,13 +24,13 @@
         ></appTextBlock>
       </div>
       <div class="text-block padding-block within-section" :class="{hidden: isActive}">
-        <div class="text-block__title-wrapper page-wrapper within-section">
+        <div class="text-block__title-wrapper page-wrapper within-section-large">
           <hr class="text-block__rule" />
           <h2>Core Team</h2>
         </div>
       </div>
       <appTeam @togglePage="togglePage"></appTeam>
-      <appFooter class="footer--about"></appFooter>
+      <appFooter :class="{hidden: isActive}" class="footer--about"></appFooter>
     </section>
   </Layout>
 </template>
@@ -41,6 +43,8 @@ import TextBlock from "~/components/shared/TextBlock";
 import Team from "~/components/about/Team";
 import Values from "~/components/about/Values";
 import Footer from "~/components/shared/FooterMain";
+import { mapState, mapGetters, mapMutations } from "vuex";
+var VueScrollTo = require("vue-scrollto");
 
 export default {
   components: {
@@ -61,7 +65,7 @@ export default {
       aboutTitle: "Who are we?",
       aboutSubTitle: "Creatives with a passion for code",
       aboutDescription:
-        "We are a group of handpicked developers from all over the world with a passion for crafting beautifully desinged websites & applications. As we want to make sure to deliver the full package, we invest a lot of time to stay up-to-date with all the latest know-how in design, SEO, data-handeling & digital innovations. Our love for code doesn't stop at the agency, as we also actively try to give back to the community by teaching at renowned coding bootcamps (combined we have taught 600+ students) and partaking in hackathons",
+        "We are a global group of senior developers & designers from all over the world with a passion for crafting beautifully designed websites & applications. As we want to make sure to deliver the full package, we invest a lot of time to stay up-to-date with all the latest know-how in design, SEO, data-handling & digital innovations. Our love for code doesn't stop at the agency, as we also actively try to give back to the community by teaching at renowned coding bootcamps (combined we have taught 600+ students) and partaking in hackathons",
       aboutBackground: "white",
       aboutColor: "black",
       howTitle: "How we execute?",
@@ -69,34 +73,18 @@ export default {
       howDescription:
         "We draw upon logic, imagination, intuition and systematic reasoning to find solutions and serve your customers. By working in agile sprints, we make sure that we never get ahead of ourselves and keep on testing our assumptions, both on the code side, but also on your customer's needs and wishes.",
       howBackground: "black",
-      aboutColor: "white",
-      steps: [
-        // {
-        //   title: "Professionally Passionate",
-        //   body:
-        //     "Ollsum consists of creatives, but we understand business. We strive to craft works of art that result in true fans, conversions and engagement.",
-        //   img: require("~/assets/images/icons/discovery.svg")
-        // },
-        // {
-        //   title: "Design Thinking",
-        //   body:
-        //     "We draw upon logic, imagination, intuition and systematic reasoning to find solutions, always with your user in mind.",
-        //   img: require("~/assets/images/icons/design_thinking.svg")
-        // },
-        // {
-        //   title: "Getting things done",
-        //   body:
-        //     "Being entrepeneurs ourselves, we understand the importance of efficiency, quality control and speed.Together with you we define what a win looks like and how we’ll structure the steps to get there. We split the journey up into iterations where we can test, reflect, improve and adjust.",
-        //   img: require("~/assets/images/icons/getting_things_done.svg")
-        // }
-      ]
+      aboutColor: "white"
     };
   },
   methods: {
     togglePage(value) {
       this.isActive = value;
     }
-  }
+  },
+  computed: mapState({
+    ...mapState(["navOpen"]),
+    ...mapGetters(["navStatus"])
+  })
 };
 </script>
 
@@ -136,7 +124,7 @@ export default {
   }
 
   @include mq($from: wide) {
-    margin-top: 100vh;
+    margin-top: 90vh;
   }
 }
 </style>

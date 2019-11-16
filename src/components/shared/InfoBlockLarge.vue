@@ -1,7 +1,7 @@
 <template>
   <div class="info-block--large section">
     <div class="info-block--large__wrapper first-element block">
-      <div class="info-block--large__text-container">
+      <div class="info-block--large__text-container within-section">
         <div class="text-title within-section">
           <h2>{{title}}</h2>
         </div>
@@ -61,7 +61,7 @@
     <div
       class="info-block--large__image-container within-section info-block--large__image-block section block"
     >
-      <appBtn text="See our work!" link="/about/"></appBtn>
+      <appBtn text="See our work!" link="/projects"></appBtn>
     </div>
   </div>
 </template>

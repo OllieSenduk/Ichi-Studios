@@ -16,7 +16,7 @@
         </div>
       </div>
       <div class="home-header__overlay-2" :class="{hidden: !homePageClosed}"></div>
-      <div class="home-container" :class="{hidden: homePageClosed}">
+      <!-- <div class="home-container" :class="{hidden: homePageClosed}">
         <div class="block section home__banner">
           <div class="home-container__shape-1">
             <i class="fa fa-plus"></i>
@@ -53,8 +53,8 @@
             :primaryColor=" testimonialRipleys.primaryColor"
             :secondaryColor=" testimonialRipleys.secondaryColor"
             :iconColor=" testimonialRipleys.iconColor"
-          ></appTestimonial>-->
-        </div>
+      ></appTestimonial>-->
+      <!-- </div>
         <div class="section">
           <appIconBlock
             :sectionTitle="homeIcons.sectionTitle"
@@ -71,9 +71,9 @@
             :imgFour="homeIcons.imgFour"
             :textFour="homeIcons.textFour"
           ></appIconBlock>
-        </div>
-        <!-- <appVideo></appVideo> -->
-        <appinfoBlockLarge
+      </div>-->
+      <!-- <appVideo></appVideo> -->
+      <!-- <appinfoBlockLarge
           :title="homeProjectSection.title"
           :subTitle="homeProjectSection.subTitle"
           :text="homeProjectSection.text"
@@ -99,28 +99,27 @@
             :secondaryColor="testimonialCanon.secondaryColor"
             :iconColor="testimonialCanon.iconColor"
           ></appTestimonial>
-        </div>
-        <!-- <div class="home-video">
+      </div>-->
+      <!-- <div class="home-video">
           <img src="https://i.imgur.com/SHnSWQe.jpg" alt width="500" />
-        </div>-->
-        <!-- 
+      </div>-->
+      <!-- 
           <div class="section">
             <div class="home-values__images">
               <img src="https://i.imgur.com/SHnSWQe.jpg" alt="our_values" />
               <img src="https://i.imgur.com/07Pc9JM.jpg" alt="our_values" />
               <img src="https://i.imgur.com/rdWlkBq.jpg" alt="our_values" />
             </div>
-        </div>-->
-        <!-- 
+      </div>-->
+      <!-- 
         <div class="block">
           <ClientOnly>
             <appAbout :animationTime="animationTime" :delayTime="delayTime"></appAbout>
           </ClientOnly>
-        </div>-->
-        <div class="home-bottom">
+      </div>-->
+      <!-- <div class="home-bottom">
           <appFooter></appFooter>
-        </div>
-      </div>
+      </div>-->
     </div>
   </section>
 </template>
@@ -227,7 +226,7 @@ export default {
       //  this.tlMax1.reversed(!this.tlMax1.reversed());
     },
     completedIntro() {
-      this.homePageClosed = false;
+      this.$router.push({ path: "/home" });
     },
     fadeToBlack() {
       const trigger = document.querySelector(".home-video");
@@ -264,7 +263,7 @@ export default {
 };
 </script>
 
-<style lang='scss'>
+<style lang='scss' scoped>
 .home-video {
   transition: all 0.7s ease-out;
   // background-color: black;

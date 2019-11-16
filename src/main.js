@@ -5,7 +5,6 @@ import DefaultLayout from "~/layouts/Default.vue";
 import App from "~/components/App";
 import Vuex from "vuex";
 import VueMq from "vue-mq";
-import VueScrollTo from "vue-scrollto";
 import VueSweetAlert2 from "vue-sweetalert2";
 import responsive from "vue-responsive";
 
@@ -21,7 +20,6 @@ export default function(Vue, { router, head, isClient, appOptions }) {
   }
 
   Vue.use(responsive);
-  Vue.use(VueScrollTo);
   Vue.use(VueSweetAlert2);
 
   appOptions.render = h => h(App);
@@ -65,7 +63,7 @@ export default function(Vue, { router, head, isClient, appOptions }) {
         ripleys: {
           name: "Jules de Blecourt - Head of Business Development Ripley's",
           text:
-            "They understand what it means to run campaigns in todays world. Their creativity and ability to execute is amazing.",
+            "Result-driven go-getters. They helped us with some of our online campaigns and their ability to execute was amazing!",
           company: "Ripley's Believe it Or Not",
           img: "https://i.imgur.com/vfdqpSy.png",
           backgroundColor: "black",
@@ -73,11 +71,23 @@ export default function(Vue, { router, head, isClient, appOptions }) {
           secondaryColor: "#F4F4F1",
           iconColor: "#F33766"
         },
-        canon: {
-          name: "Rob Thomas - Marketing Director Canon Europe",
-          text: "A progressive style of cinematography and project marketing.",
-          company: "Canon",
-          img: "https://i.imgur.com/dPNv7nY.png",
+        lewagon: {
+          name: "Ellyn Bouscasse - Manager Le Wagon Barcelona",
+          text:
+            "Experts when it comes to anything code or design related, we're very happy to have them!",
+          company: "Le Wagon",
+          img: "https://i.imgur.com/AIczI1C.png",
+          backgroundColor: "#89A7A7",
+          primaryColor: "white",
+          secondaryColor: "#F4F4F1",
+          iconColor: "#F33766"
+        },
+        google: {
+          name: "Joscha Koepke - Global Product Lead Google",
+          text:
+            "Oliver was amazing. Always completely dedicated and had a great way of making complex situations simple. I loved his personal style and would recommend him to everybody!.",
+          company: "Google",
+          img: "https://i.imgur.com/dHbVhGg.png",
           backgroundColor: "lightsteelblue",
           primaryColor: "black",
           secondaryColor: "black"
@@ -245,7 +255,8 @@ export default function(Vue, { router, head, isClient, appOptions }) {
           },
           hasVideo: false,
           images: {
-            imgHeader: "https://i.imgur.com/CJ3yaq3.png"
+            imgHeader: "https://i.imgur.com/CJ3yaq3.png",
+            imgTwo: "https://i.imgur.com/0pIlgPZ.png"
           },
           url: "/crypto-trading-bot",
           homeText: "Seamless Trading.",
