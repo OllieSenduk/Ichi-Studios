@@ -70,7 +70,7 @@ export default {
       y: 6,
       rotation: -45,
       ease: Expo.easeInOut,
-      delay: -0.3
+      delay: 0.1
     });
 
     this.tlMax1.staggerFrom(
@@ -150,7 +150,6 @@ export default {
     margin-bottom: 20px;
     display: flex;
     transform: rotate(-10deg) skew(-10deg, 0);
-    -webkit-transform: rotate(-10deg) skew(-10deg, 0);
 
     p {
       font-size: 1.5rem;
