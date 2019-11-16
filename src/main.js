@@ -5,9 +5,12 @@ import DefaultLayout from "~/layouts/Default.vue";
 import App from "~/components/App";
 import Vuex from "vuex";
 import VueMq from "vue-mq";
+import VueScrollTo from "vue-scrollto";
+import VueSweetAlert2 from "vue-sweetalert2";
+import responsive from "vue-responsive";
 
 // require styles
-// import "swiper/css/swiper.css";
+import "swiper/css/swiper.css";
 
 // If you don't need the styles, do not connect
 import "sweetalert2/dist/sweetalert2.min.css";
@@ -15,18 +18,11 @@ import "sweetalert2/dist/sweetalert2.min.css";
 export default function(Vue, { router, head, isClient, appOptions }) {
   Vue.use(Vuex);
   if (process.isClient) {
-    var VueScrollmagic = require("vue-scrollmagic").default;
-    Vue.use(VueScrollmagic);
-    var VueScrollTo = require("vue-scrollto");
-    var VueSweetAlert2 = require("vue-sweetalert2");
-    var Swiper = require("swiper");
-    Vue.use(Swiper);
-    Vue.use(VueScrollTo);
-    var responsive = require("vue-responsive");
-
-    Vue.use(responsive);
-    Vue.use(VueSweetAlert2);
   }
+
+  Vue.use(responsive);
+  Vue.use(VueScrollTo);
+  Vue.use(VueSweetAlert2);
 
   appOptions.render = h => h(App);
   Vue.component("layout", DefaultLayout);
@@ -94,12 +90,12 @@ export default function(Vue, { router, head, isClient, appOptions }) {
             "To truly make an impact, we need to dig deep in not just your user’s demographic, but also their psychographic. This way we can decide on a road to success.",
           text:
             "Together we define what a win looks like and how we’ll structure the steps to get there. We split the journey up into iterations where we can test, reflect, improve and adjust. Through our systematic feedback loop we make sure that everything runs smoothly and that there are no sudden surprises.",
-          imgOne: "https://i.imgur.com/SHnSWQe.jpg",
+          imgOne: "https://i.imgur.com/QuZXwKH.gif",
           imgTwo:
             "https://thumbs.gfycat.com/BlackandwhiteAdmiredCoral-size_restricted.gif",
           imgThree: "https://i.imgur.com/3ClzCE0.png",
           imgFour: "https://i.imgur.com/0GCCR2h.gif",
-          imgOneText: "Music video shoot by Sam Smith",
+          imgOneText: "",
           imgTwoText: "Epic Mural by Munir de Vries",
           imgThreeText: "Crypto Currency Trading Algorithm",
           imgFourText: "5 awesome tech prototypes for IKEA",

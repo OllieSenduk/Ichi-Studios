@@ -1,249 +1,246 @@
 <template>
-  <section class="projects" :class="{ remove_page: navStatus }">
-    <appProjectPage
-      v-for="project in shownProjects"
-      :key="project.identifier"
-      :identifier="project.identifier"
-      :title="project.title"
-      :imgLeft="project.homeImg.imgLeft"
-      :imgRight="project.homeImg.imgRight"
-      :text="project.homeText"
-      :url="project.url"
-      :categories="project.information.categories"
-      :background="project.background"
-      :hidden="project.hidden"
-      :pageNum="project.pageNum"
-    ></appProjectPage>
-    <div v-if="projectOpen">
-      <appProjectDescription @clicked="closeProject"></appProjectDescription>
+  <section class="within-section projects">
+    <div class="swiper-container loading">
+      <div class="swiper-wrapper">
+        <div
+          class="swiper-slide"
+          :id="project.identifier"
+          :style="{ backgroundImage: `url(${project.images.imgHeader})`}"
+          v-for="project in projects"
+          @click="goToProject"
+        >
+          <img :src="project.images.imgHeader" class="entity-img" />
+          <div class="content">
+            <p
+              class="title"
+              data-swiper-parallax="-30%"
+              data-swiper-parallax-scale=".7"
+            >{{project.title}}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- If we need pagination -->
+      <div class="swiper-pagination"></div>
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-prev swiper-button-white"></div>
+      <div class="swiper-button-next swiper-button-white"></div>
     </div>
   </section>
 </template>
 
 <script>
-import ProjectPage from "~/components/projects/ProjectPage";
-import projectDescription from "~/components/projects/ProjectDescription";
-
+import Swiper from "swiper";
 import { mapState, mapGetters, mapMutations } from "vuex";
-import { TweenMax } from "gsap";
-import { TimelineMax } from "gsap";
 
 export default {
   data() {
     return {
-      numberOfPages: this.$children,
-      started: false,
-      scrollSlide: 0,
       current: 0,
-      pageNum: 0,
-      actualProject: "",
-      shownProjects: [],
-      counter: 0,
-      initialTouch: null
+      scrollSlide: 0
     };
   },
-  computed: mapState({
-    projects: state => state.projects,
-    ...mapState(["navOpen", "projectOpen"]),
-    ...mapGetters(["navStatus", "projectOpenStatus"])
-  }),
-  components: {
-    appProjectPage: ProjectPage,
-    appProjectDescription: projectDescription
-  },
   methods: {
-    updateSlide() {
-      const pages = this.$children;
-      const currentPage = this.$children[this.current];
-      const nextPage = this.$children[this.pageNum];
-      var context = this;
-
-      const pagesContainer = document.querySelector(".projects");
-      const currentPageContainer = currentPage.$el.querySelector(".project");
-      const nextPageContainer = nextPage.$el.querySelector(".project");
-      const currentLeft = currentPage.$el.querySelector(
-        ".project__hero__image-left"
-      );
-      const currentRight = currentPage.$el.querySelector(
-        ".project__hero__image-right"
-      );
-      const currentText = currentPage.$el.querySelector(".project__details");
-
-      const nextLeft = nextPage.$el.querySelector(".project__hero__image-left");
-      const nextRight = nextPage.$el.querySelector(
-        ".project__hero__image-right"
-      );
-
-      const nextText = nextPage.$el.querySelector(".project__details");
-
-      const tl = new TimelineMax({
-        autoRemoveChildren: true
-        // onStart: function() {
-        //   pages.forEach(slide => {
-        //     slide.style.pointerEvents = "none";
-        //   });
-        // },
-        // onComplete: function() {
-        //   pages.forEach(slide => {
-        //     slide.style.pointerEvents = "all";
-        //   });
-        // }
-      });
-      tl.fromTo(currentLeft, 0.3, { y: "-10%" }, { y: "-100%" });
-      tl.fromTo(currentRight, 0.3, { y: "10%" }, { y: "-100%" }, "-=0.2")
-        .to(pagesContainer, 0.3, {
-          backgroundImage: context.projects[context.pageNum].background
-        })
-        .fromTo(currentPageContainer, 0.3, { opacity: 1 }, { opacity: 0 })
-        .fromTo(
-          nextPageContainer,
-          0.3,
-          { opacity: 0, pointerEvents: "none" },
-          { opacity: 1, pointerEvents: "all" },
-          "-=0.6"
-        );
-      tl.fromTo(nextLeft, 0.3, { y: "-100%" }, { y: "-10%" }, "-=0.6")
-        .fromTo(nextRight, 0.3, { y: "-100%" }, { y: "10%" }, "-=0.8")
-        .fromTo(nextText, 0.3, { opacity: 0, y: 0 }, { opacity: 1, y: 0 });
-
-      this.current = this.pageNum;
-
-      tl.set(nextLeft, { clearProps: "all" }).set(nextRight, {
-        clearProps: "all"
-      });
-      this.shownProjects.forEach(p => {});
-      let classes = document.querySelectorAll(".project__hero__image-left");
-      classes.forEach(c => {
-        c.classList.remove("z-indexUp");
-      });
-      nextLeft.classList.add("z-indexUp");
-    },
-    updateSlideNum(e) {
-      if (this.pageNum === this.shownProjects.length - 1 && e.deltaY > 0) {
-        this.pageNum = 0;
-      } else if (this.pageNum === 0 && e.deltaY < 0) {
-        this.pageNum = this.shownProjects.length - 1;
-      } else if (e.deltaY > 0) {
-        this.pageNum += 1;
-      } else if (e.deltaY < 0) {
-        this.pageNum -= 1;
-      }
-      this.updateSlide();
-    },
-    updateSlideNumMobile(e) {
-      const swipe = this.initialTouch - e.changedTouches[0].pageY;
-      let direction;
-      swipe > 0 ? (direction = "up") : (direction = "down");
-
-      if (
-        this.pageNum === this.shownProjects.length - 1 &&
-        direction === "up"
-      ) {
-        this.pageNum = 0;
-      } else if (this.pageNum === 0 && direction === "down") {
-        this.pageNum = this.shownProjects.length - 1;
-      } else if (direction === "up") {
-        this.pageNum += 1;
-      } else if (direction === "down") {
-        this.pageNum -= 1;
-      }
-      // swipe >
-      // direction < 0 ?
-      this.updateSlide();
-    },
-    throttle(func, limit) {
-      let inThrottle;
-      return function() {
-        const args = arguments;
-        const context = this;
-        if (!inThrottle) {
-          func.apply(context, args);
-          inThrottle = true;
-          setTimeout(() => (inThrottle = false), limit);
-        }
-      };
-    }
-  },
-  created() {
-    const identifier = this.$router.currentRoute.hash;
-    let selectedProjectIndex;
-    const context = this;
-
-    if (identifier !== "") {
-      selectedProjectIndex = this.projects.findIndex(project => {
-        return project.identifier == identifier.substr(1);
-      });
-
-      if (selectedProjectIndex !== undefined) {
-        context.projects.forEach((project, index) => {
-          if (selectedProjectIndex == index) {
-            project.hidden = false;
-          } else {
-            project.hidden = true;
-          }
-        });
-        var arr = context.projects;
-        var new_start = selectedProjectIndex;
-        var itemCount = arr.length;
-        var first_part = arr.slice(new_start, itemCount);
-        var second_part = arr.slice(0, new_start);
-        context.shownProjects = first_part.concat(second_part);
-      }
-    } else {
-      context.shownProjects = context.projects;
+    goToProject(e) {
+      const identifier = e.target.id;
+      this.$router.push({ path: `/projects/${identifier}` });
     }
   },
   mounted() {
-    window.addEventListener("wheel", this.throttle(this.updateSlideNum, 1500));
-    // window.addEventListener(
-    //   "touchmove",
-    //   function() {
-    //     e.preventDefault();
-    //     this.updateSlideNum(e);
-    //   },
-    //   { passive: false }
-    // );
-    window.addEventListener(
-      "touchstart",
-      e => (this.initialTouch = e.touches[0].clientY)
-    );
-    window.addEventListener(
-      "touchend",
-      this.throttle(this.updateSlideNumMobile, 1500),
-      { passive: false }
-    );
+    // Params
+    var sliderSelector = ".swiper-container",
+      options = {
+        loop: true,
+        speed: 800,
+        slidesPerView: 1.5, // or 'auto'
+        spaceBetween: 20,
+        centeredSlides: true,
+        effect: "coverflow", // 'cube', 'fade', 'coverflow',
+        coverflowEffect: {
+          rotate: 50, // Slide rotate in degrees
+          stretch: 0, // Stretch space between slides (in px)
+          depth: 50, // Depth offset in px (slides translate in Z axis)
+          modifier: 1, // Effect multipler
+          slideShadows: true // Enables slides shadows
+        },
+        grabCursor: true,
+        parallax: true,
+        parallax: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev"
+        },
+        // breakpoints: {
+        //   600: {
+        //     slidesPerView: 2,
+        //     spaceBetween: 20
+        //   }
+        // },
+        // Events
+        on: {
+          imagesReady: function() {
+            this.el.classList.remove("loading");
+          }
+        }
+      };
+    var mySwiper = new Swiper(sliderSelector, options);
+    // Initialize slider
+    mySwiper.init();
   },
-  destroyed() {
-    window.removeEventListener(
-      "wheel",
-      this.throttle(this.updateSlideNum, 1500)
-    );
-    window.removeEventListener(
-      "touchmove",
-      this.throttle(this.updateSlideNum, 1500)
-    );
-  }
+  computed: mapState({
+    projects: state => state.projects
+  })
 };
 </script>
+
 <style lang="scss" scoped>
-.z-indexDown {
-  z-index: 1;
+%transition_all_03s {
+  transition: all 0.3s ease;
 }
-.projects {
-  overflow-x: hidden;
-  background: radial-gradient(rgb(177, 139, 179), rgba(11, 16, 35, 1));
-
-  &__slider {
+%backface_visibility_hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.swiper-container {
+  width: 100%;
+  height: 100vh;
+  transition: opacity 0.6s ease;
+  &.swiper-container-coverflow {
+    padding-top: 10%;
+  }
+  &.loading {
+    opacity: 0;
+    visibility: hidden;
+  }
+  &:hover {
+    .swiper-button-prev,
+    .swiper-button-next {
+      transform: translateX(0);
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+.swiper-wrapper {
+}
+.swiper-slide {
+  background-position: bottom;
+  background-size: cover;
+  height: 50vh !important;
+  box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.2);
+  &::after {
+    content: "";
+    background-image: inherit;
+    background-position: bottom;
+    background-size: cover;
+    transform: scaleY(-1);
+    width: inherit;
+    height: 40%;
     position: absolute;
-    right: 5%;
-    top: 50%;
-    transform: translateY(50%);
-
-    > div {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-bottom: 20px;
+    bottom: -41%;
+    opacity: 0.4;
+  }
+  &::before {
+    z-index: 1;
+    content: "";
+    width: inherit;
+    height: 42%;
+    position: absolute;
+    bottom: -42%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), #fff);
+  }
+  .slide-inner {
+  }
+  .entity-img {
+    display: none;
+  }
+  .content {
+    position: absolute;
+    top: -10%;
+    left: -20%;
+    width: 50%;
+    padding-left: 5%;
+    color: black;
+    .title {
+      font-size: 2.6em;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+    .caption {
+      display: block;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+  }
+}
+[class^="swiper-button-"] {
+  width: 44px;
+  opacity: 0;
+  visibility: hidden;
+  @extend %transition_all_03s;
+}
+.swiper-button-prev {
+  transform: translateX(50px);
+}
+.swiper-button-next {
+  transform: translateX(-50px);
+}
+.swiper-container-horizontal {
+  > .swiper-pagination-bullets {
+    .swiper-pagination-bullet {
+      margin: 0 9px;
+      position: relative;
+      width: 12px;
+      height: 12px;
+      background-color: #fff;
+      opacity: 0.4;
+      @extend %transition_all_03s;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 18px;
+        height: 18px;
+        transform: translate(-50%, -50%);
+        border: 0px solid #fff;
+        border-radius: 50%;
+        @extend %transition_all_03s;
+      }
+      &:hover,
+      &.swiper-pagination-bullet-active {
+        opacity: 1;
+      }
+      &.swiper-pagination-bullet-active {
+        &::before {
+          border-width: 1px;
+        }
+      }
+    }
+  }
+}
+// Mediaqueries
+@media (max-width: 1180px) {
+  .swiper-slide {
+    .content {
+      .title {
+        font-size: 25px;
+      }
+      .caption {
+        font-size: 12px;
+      }
+    }
+  }
+}
+@media (max-width: 1023px) {
+  .swiper-container {
+    height: 90vh;
+    &.swiper-container-coverflow {
+      padding-top: 20vh;
     }
   }
 }

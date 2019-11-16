@@ -23,7 +23,10 @@
           </div>
           <div class="home-header__intro-text">
             <h1 class="home-header__title" :class="{revealText: !homePageClosed}">
-              <span>Ollsum</span>
+              <span>
+                <img src="https://i.imgur.com/vI4dJR9.png" alt="mascote" style="width: 60px;" />
+                Ollsum
+              </span>
             </h1>
             <div class="home-header__text within-section" :class="{revealText: !homePageClosed}">
               <span>We combine well-written code, clean design & an entrepeneurial mindset to deliver digital beauty.</span>
@@ -41,7 +44,7 @@
         </div>
         <appInfoBlock></appInfoBlock>
         <div class="section">
-          <appTestimonial
+          <!-- <appTestimonial
             :name=" testimonialRipleys.name"
             :text=" testimonialRipleys.text"
             :company=" testimonialRipleys.company"
@@ -50,7 +53,7 @@
             :primaryColor=" testimonialRipleys.primaryColor"
             :secondaryColor=" testimonialRipleys.secondaryColor"
             :iconColor=" testimonialRipleys.iconColor"
-          ></appTestimonial>
+          ></appTestimonial>-->
         </div>
         <div class="section">
           <appIconBlock
@@ -69,7 +72,7 @@
             :textFour="homeIcons.textFour"
           ></appIconBlock>
         </div>
-        <appVideo></appVideo>
+        <!-- <appVideo></appVideo> -->
         <appinfoBlockLarge
           :title="homeProjectSection.title"
           :subTitle="homeProjectSection.subTitle"
