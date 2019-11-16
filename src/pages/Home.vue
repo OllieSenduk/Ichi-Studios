@@ -143,7 +143,29 @@ export default {
     };
   },
   methods: {},
-  mounted() {},
+  mounted() {
+    const context = this;
+    TweenMax.from(".home-container", this.animationTime * 1.2, {
+      delay: 0.3,
+      opacity: 0,
+      ease: Power2.easeInOut
+    });
+
+    TweenMax.from(".home-container__shape-1", this.animationTime * 1.2, {
+      delay: context.delayTime * 0.3,
+      opacity: 0,
+      x: 100,
+      rotation: 90,
+      ease: Expo.easeInOut
+    });
+
+    TweenMax.from(".home-container__mascote", this.animationTime * 1.6, {
+      delay: context.delayTime * 0.4,
+      x: 500,
+      rotation: 90,
+      ease: Expo.easeInOut
+    });
+  },
   computed: mapState({
     homeProjectSection: state => state.infoBlockLarge.homeProjectSection,
     testimonialRipleys: state => state.testimonials.ripleys,

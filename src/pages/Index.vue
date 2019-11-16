@@ -1,10 +1,5 @@
 <template>
   <section class="home-header" :class="{ remove_page: navStatus }">
-    <div class="page-stripes">
-      <div class="page-stripes__one"></div>
-      <div class="page-stripes__two"></div>
-      <div class="page-stripes__three"></div>
-    </div>
     <div class="home-header__container">
       <div class="home-header__overlay" :class="{hidden: !homePageClosed}">
         <p class="home-header__screen">
