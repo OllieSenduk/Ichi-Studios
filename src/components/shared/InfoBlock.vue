@@ -34,8 +34,9 @@
         </div>
       </div>
     </div>
-    <div class="info-block__cta within-section">
-      <appBtn text="More About Us" link="/about/"></appBtn>
+    <div class="info-block__cta within-section section block">
+      <appBlockBtn text="Read more about us!" link="/about"></appBlockBtn>
+      <!-- <appBtn text="More About Us" link="/about/"></appBtn> -->
     </div>
 
     <!-- <div class="information__block-with-images">
@@ -72,10 +73,12 @@
 
 <script>
 import Button from "~/components/shared/Button";
+import BlockButton from "~/components/shared/BlockButton";
 
 export default {
   components: {
-    appBtn: Button
+    appBtn: Button,
+    appBlockBtn: BlockButton
   },
   computed: {}
 };

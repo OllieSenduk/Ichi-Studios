@@ -3,11 +3,11 @@
     <div class="home-header__container">
       <div class="home-header__overlay" :class="{hidden: !homePageClosed}">
         <p class="home-header__screen">
-          OLLS
-          <span class="home-header__screen--pink">U</span>M
+          <span>P</span>
+          <span class="pink-text">I</span>XELS
         </p>
         <div class="home-header-intro">
-          <div class="btn home-header__btn" @click="fadeOutAbove">EXPLORE</div>
+          <div class="btn home-header__btn" @click="fadeOutAbove">OUR TALE</div>
         </div>
       </div>
       <div class="home-header__overlay-2" :class="{hidden: !homePageClosed}"></div>
@@ -480,7 +480,7 @@ export default {
       font-size: 30rem;
       top: 70%;
       left: 50%;
-      width: 100%;
+      transform: translateX(-50%);
       height: 0%;
     }
   }

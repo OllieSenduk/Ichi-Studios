@@ -1,11 +1,31 @@
 <template>
   <section class="block-btn__wrapper">
-    <div class="block-btn">See our Projects</div>
+    <g-link :to="link" class="block-btn-container">
+      <div class="block-btn">{{text}}</div>
+    </g-link>
   </section>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    text: {
+      type: String
+    },
+    backgroundColor: {
+      type: String,
+      default: "rgba(#FFAB9D,.5);"
+    },
+    color: {
+      type: String,
+      default: "black"
+    },
+    link: {
+      type: String,
+      default: "/"
+    }
+  }
+};
 </script>
 
 <style lang='scss' scoped>
@@ -16,7 +36,7 @@ export default {};
   font-size: 1.2rem;
   letter-spacing: 6px;
   color: black;
-  border: 2px solid black;
+  border: 1px solid grey;
   text-transform: uppercase;
   outline: none;
   overflow: hidden;
@@ -29,14 +49,26 @@ export default {};
   // left: 50%;
   transform: translate(0%, 0%);
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  line-height: 5rem;
 
   &--small {
     padding: 15px 23px;
   }
 
+  &__wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+  &__container {
+    min-width: 40vw;
+  }
+
   &:hover {
     color: white;
-    cursor: crosshair;
+    cursor: pointer;
   }
 
   &:before {

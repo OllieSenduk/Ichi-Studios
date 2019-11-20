@@ -61,7 +61,7 @@
     <div
       class="info-block--large__image-container within-section info-block--large__image-block section block"
     >
-      <appBtn text="See our work!" link="/projects"></appBtn>
+      <appBlockBtn text="See our work!" link="/projects"></appBlockBtn>
     </div>
   </div>
 </template>
@@ -92,7 +92,7 @@ export default {
     imgFourText: {}
   },
   components: {
-    appBlockButton: BlockButton,
+    appBlockBtn: BlockButton,
     appBtn: Button
   }
 };

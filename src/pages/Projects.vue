@@ -1,6 +1,7 @@
 <template>
   <section class="within-section projects" :class="{ remove_page: navStatus }">
     <appPageHeader title="Projects"></appPageHeader>
+    <div class="swiper-cta">Swipe or Select a Project</div>
     <div class="swiper-container loading">
       <div class="swiper-wrapper">
         <div
@@ -118,6 +119,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.swiper-cta {
+  position: absolute;
+  top: 20vh;
+  left: 50%;
+  transform: translateX(-50%);
+
+  @include mq($from: laptop) {
+    display: none;
+  }
+}
+
 %transition_all_03s {
   transition: all 0.3s ease;
 }
@@ -200,15 +212,13 @@ export default {
 }
 [class^="swiper-button-"] {
   width: 44px;
-  opacity: 0;
-  visibility: hidden;
   @extend %transition_all_03s;
 }
 
 .swiper-button {
   color: $red;
   width: 100px;
-  height: 75%;
+  height: 50%;
 }
 .swiper-button-prev {
   transform: translateX(50px);

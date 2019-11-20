@@ -61,11 +61,11 @@ export default {
     content: "";
     position: absolute;
     top: 0;
-    left: 0;
+    left: -15px;
     display: block;
     border-radius: 28px;
-    background: rgba(#ffab9d, 0.5);
-    width: 56px;
+    width: 100%;
+    background: rgba(#ffab9d, 1);
     height: 56px;
     transition: all 0.3s ease;
   }
@@ -96,8 +96,8 @@ export default {
   }
   &:hover {
     &:before {
-      width: 100%;
-      background: rgba(#ffab9d, 1);
+      background: rgba(#ffab9d, 0.5);
+      width: 56px;
     }
   }
   svg {
