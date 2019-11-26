@@ -15,16 +15,16 @@ function addStyleResource(rule) {
 }
 
 module.exports = {
-  css: {
-    loaderOptions: {
-      scss: {
-        // options here will be passed to sass-loader
-      },
-      less: {
-        // options here will be passed to less-loader
-      }
-    }
-  },
+  // css: {
+  //   loaderOptions: {
+  //     scss: {
+  //       // options here will be passed to sass-loader
+  //     },
+  //     less: {
+  //       // options here will be passed to less-loader
+  //     }
+  //   }
+  // },
   // chainWebpack: config => {
   //   config.module
   //     .rule('postcss')

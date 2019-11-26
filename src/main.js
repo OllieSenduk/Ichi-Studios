@@ -8,6 +8,11 @@ import VueMq from "vue-mq";
 import VueSweetAlert2 from "vue-sweetalert2";
 import responsive from "vue-responsive";
 
+import BootstrapVue from 'bootstrap-vue'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+
+
 // require styles
 import "swiper/css/swiper.css";
 
@@ -18,6 +23,8 @@ export default function(Vue, { router, head, isClient, appOptions }) {
   Vue.use(Vuex);
   if (process.isClient) {
   }
+  Vue.use(BootstrapVue)
+
 
   Vue.use(responsive);
   Vue.use(VueSweetAlert2);

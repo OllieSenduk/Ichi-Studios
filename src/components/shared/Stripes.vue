@@ -41,7 +41,7 @@ export default {
     z-index: -1;
   }
   &__one {
-    position: fixed;
+    position: absolute;
     width: 1px;
     height: 60%;
     background: rgba(0, 0, 0, 0.2);
@@ -49,7 +49,7 @@ export default {
   }
 
   &__two {
-    position: fixed;
+    position: absolute;
     width: 1px;
     height: 90%;
     background: rgba(0, 0, 0, 0.2);
@@ -60,9 +60,11 @@ export default {
   &__three {
     position: fixed;
     width: 1px;
-    height: 100%;
+    height: 90%;
     background: rgba(0, 0, 0, 0.2);
     left: 75%;
+    top: -50%;
+
   }
 }
 </style>
