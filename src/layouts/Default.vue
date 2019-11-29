@@ -5,7 +5,8 @@
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <!-- <div class="layout__content"> -->
-    <Navigation />
+    <!-- <Navigation /> -->
+    <Nav />
     <router-view />
     <!-- </div> -->
   </div>
@@ -13,11 +14,13 @@
 
 <script>
 import Navigation from "~/components/shared/Navigation";
+import Nav from "~/components/shared/Nav";
 import Footer from "~/components/shared/Footer";
 
 export default {
   components: {
     Navigation,
+    Nav,
     Footer
   },
   mounted() {}

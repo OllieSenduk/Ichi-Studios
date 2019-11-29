@@ -7,6 +7,7 @@
         <div class="home-container__shape-1">
           <i class="fa fa-plus"></i>
         </div>
+
         <div class="home-header__intro-text">
           <h1 class="revealText home-header__title">
             <span>
@@ -27,7 +28,9 @@
           <img src="https://i.imgur.com/IhtDB7k.png" alt="background" />
         </div>
       </div>
-      <appInfoBlock></appInfoBlock>
+      <appSumList />
+
+      <!-- <appInfoBlock></appInfoBlock> -->
       <!-- <div class="section"> -->
       <!-- <appTestimonial
             :name=" testimonialRipleys.name"
@@ -55,8 +58,10 @@
         :imgFour="homeIcons.imgFour"
         :textFour="homeIcons.textFour"
       ></appIconBlock>
+      <appParallaxBlock></appParallaxBlock>
+
       <!-- <appVideo></appVideo> -->
-      <appinfoBlockLarge
+      <!-- <appinfoBlockLarge
         :title="homeProjectSection.title"
         :subTitle="homeProjectSection.subTitle"
         :text="homeProjectSection.text"
@@ -70,7 +75,7 @@
         :imgFourText="homeProjectSection.imgFourText"
         :backgroundColor="homeProjectSection.backgroundColor"
         :color="homeProjectSection.color"
-      ></appinfoBlockLarge>
+      ></appinfoBlockLarge>-->
       <appTestimonial
         :name="testimonialGoogle.name"
         :text="testimonialGoogle.text"
@@ -115,6 +120,8 @@ import InfoBlockLarge from "~/components/shared/InfoBlockLarge";
 import IconBlock from "~/components/shared/IconBlock";
 import Values from "~/components/about/Values";
 import Stripes from "~/components/shared/Stripes";
+import ParallaxBlock from "~/components/shared/ParallaxBlock";
+import SumList from "~/components/shared/SumList";
 
 import Footer from "~/components/shared/FooterMain";
 import Video from "~/components/home/HomeVideo";
@@ -130,7 +137,9 @@ export default {
     appinfoBlockLarge: InfoBlockLarge,
     appIconBlock: IconBlock,
     appValues: Values,
-    appStripes: Stripes
+    appStripes: Stripes,
+    appSumList: SumList,
+    appParallaxBlock: ParallaxBlock
   },
   data() {
     return {
@@ -505,6 +514,60 @@ export default {
   }
   100% {
     opacity: 1;
+  }
+}
+
+/*! CSS Used from: https://www.christopher-ware.com/wp-content/cache/minify/83a3d.css ; media=all */
+@media all {
+  svg:not(:root) {
+    overflow: hidden;
+  }
+  *,
+  *:after,
+  *:before {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    -o-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  ::-webkit-input-placeholder {
+    color: #ccc;
+  }
+  ::-moz-placeholder {
+    color: #ccc;
+  }
+  :-ms-input-placeholder {
+    color: #ccc;
+  }
+  .deco-shape2 {
+    position: absolute;
+    top: 2320px;
+    right: 40px;
+    width: 440px;
+  }
+  @media (max-width: 1600px) {
+    .deco-shape2 {
+      top: 2480px;
+      right: 0px;
+    }
+  }
+  @media (max-width: 1250px) {
+    .deco-shape2 {
+      top: 3260px;
+      right: 100px;
+    }
+  }
+  @media (max-width: 660px) {
+    .deco-shape2 {
+      top: 2970px;
+      right: -320px;
+    }
   }
 }
 </style>
