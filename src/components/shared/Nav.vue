@@ -35,17 +35,18 @@ export default {
     handleNav() {
       let body = document.querySelector("body");
       let menu = document.querySelector(".menu-icon");
+      let menuPage = document.querySelector(".nav");
       let menuItems = document.querySelectorAll(".nav__list-item");
 
-      // this.$store.dispatch("updateNavStatus");
-      // if (this.navOpen === false) {
-      //   this.navOpen = true;
-      // }
-
       if (body.classList.contains("nav-active")) {
-        console.log("JEEE");
         body.classList.remove("nav-active");
-      } else body.classList.add("nav-active");
+        setTimeout(() => {
+          menuPage.style.zIndex = 0
+        }, 1000)
+      } else {
+        body.classList.add("nav-active");
+        menuPage.style.zIndex = 800
+      }
     }
   },
   mounted() {}
@@ -100,7 +101,6 @@ body {
   $font--size--calc: calc(3vw + 10px);
   $transition--easing: cubic-bezier(0.77, 0, 0.175, 1);
   position: fixed;
-  z-index: 800;
   &:before,
   &:after {
     content: "";
@@ -189,6 +189,7 @@ body.nav-active {
   }
   .nav {
     visibility: visible;
+
     &:before,
     &:after {
       transform: translateX(0%) translateY(0%);

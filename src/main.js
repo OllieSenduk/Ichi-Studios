@@ -143,7 +143,7 @@ export default function(Vue, { router, head, isClient, appOptions }) {
       },
       projects: [
         {
-          pageNum: 0,
+          pageNum: 1,
           identifier: "ikea",
           title: "IKEA",
           information: {
@@ -168,7 +168,7 @@ export default function(Vue, { router, head, isClient, appOptions }) {
           hasVideo: false,
           video: "",
           images: {
-            imgHeader: "https://i.imgur.com/6DGc2zw.png",
+            imgHeader: "https://i.imgur.com/oRTWW3W.jpg",
             imgOne: "https://i.imgur.com/QuZXwKH.gif",
             imgTwo: "https://i.imgur.com/O6XItd1.png"
           },

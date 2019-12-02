@@ -9,7 +9,6 @@
           :id="project.identifier"
           :style="{ backgroundImage: `url(${project.images.imgHeader})`}"
           v-for="project in projects"
-          @click="goToProject"
         >
           <img :src="project.images.imgHeader" class="entity-img" />
           <div class="content">
@@ -49,6 +48,7 @@ export default {
   },
   methods: {
     goToProject(e) {
+      console.log(this.projects)
       const identifier = e.target.id;
       this.$router.push({ path: `/projects/${identifier}` });
     },
