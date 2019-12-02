@@ -14,109 +14,101 @@ $line-height-medium: 3.5rem;
 // $mid-size;
 
 p {
-  line-height: 30px;
-  font-size: 1.5rem;
-  line-height: $line-height-medium;
+	line-height: 30px;
+	font-size: 2rem;
+	line-height: $line-height-medium;
 
-  @include mq($from: wide) {
-  }
+	@include mq($from: wide) {
+	}
 
-  @include mq($from: external) {
-    line-height: 40px;
-  }
+	@include mq($from: external) {
+		line-height: 40px;
+	}
 }
 
 .text-title {
-  text-transform: uppercase;
-  font-size: $small-title;
+	text-transform: uppercase;
+	font-size: $small-title;
 }
 
 .sub-title-text {
-  font-size: $small-title;
-  line-height: $line-height-large;
+	font-size: $small-title;
+	line-height: $line-height-large;
 
-  @include mq($from: wide) {
-    font-size: $small-title;
-  }
+	@include mq($from: wide) {
+		font-size: $small-title;
+	}
 
-  @include mq($from: external) {
-    font-size: 3rem;
-  }
+	@include mq($from: external) {
+		font-size: 3rem;
+	}
 }
 
 .text-center {
-  text-align: center !important;
+	text-align: center !important;
 }
 .header {
-  font-family: $main-font, sans-serif;
-  font-size: $small-title;
+	font-family: $main-font, sans-serif;
+	font-size: $medium-title;
 }
 
 .text-underline {
-  background-repeat: no-repeat;
-  background-position: 0 120%;
-  background-size: 80% 50%;
-  color: initial;
-  text-decoration: none;
+	background-repeat: no-repeat;
+	background-position: 0 120%;
+	background-size: 80% 50%;
+	color: initial;
+	text-decoration: none;
 }
 
 .text-fade {
-  color: #666666;
+	color: #666666;
 }
 
 .text-smooth-yellow {
-  color: $smooth-yellow;
+	color: $smooth-yellow;
 }
 
 .text-red {
-  color: $red;
+	color: $red;
 }
 .text-white {
-  color: white;
+	color: white;
 }
 
 .text-pink {
-  color: $pink;
+	color: $pink;
 }
 .text-yellow {
-  color: $dark-yellow;
+	color: $dark-yellow;
 }
 .text-azur {
-  color: $azur;
+	color: $azur;
 }
 .text-dark-blue {
-  color: $dark-blue;
+	color: $dark-blue;
 }
 .text-light-blue {
-  color: $light-blue;
+	color: $light-blue;
 }
 
 .text-grey {
-  color: $text-grey;
+	color: $text-grey;
+}
+
+.text-blue {
+	color: $blue;
 }
 
 .text-underline-yellow {
-  background-image: linear-gradient(to right, $light-yellow, $light-yellow);
+	background-image: linear-gradient(to right, $light-yellow, $light-yellow);
 }
 
 .text-underline-azur {
-  background-image: linear-gradient(
-    to right,
-    rgba(114, 204, 188, 0.5),
-    rgba(114, 204, 188, 0.5)
-  );
+	background-image: linear-gradient(to right, rgba(114, 204, 188, 0.5), rgba(114, 204, 188, 0.5));
 }
 .text-underline-dark-blue {
-  background-image: linear-gradient(
-    to right,
-    rgba(0, 73, 118, 0.5),
-    rgba(0, 73, 118, 0.5)
-  );
+	background-image: linear-gradient(to right, rgba(0, 73, 118, 0.5), rgba(0, 73, 118, 0.5));
 }
 .text-underline-light-blue {
-  background-image: linear-gradient(
-    to right,
-    rgba(86, 127, 248, 0.5),
-    rgba(86, 127, 248, 0.5)
-  );
+	background-image: linear-gradient(to right, rgba(86, 127, 248, 0.5), rgba(86, 127, 248, 0.5));
 }

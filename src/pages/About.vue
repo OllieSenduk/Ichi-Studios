@@ -1,6 +1,5 @@
 <template>
   <Layout>
-
     <appPageStripes></appPageStripes>
     <section class="about" :class="{ remove_page: navStatus }">
       <appPageHeader title="About Us"></appPageHeader>
@@ -24,7 +23,7 @@
           :color="aboutColor"
         ></appTextBlock>
       </div>
-          
+
       <div class="text-block padding-block within-section" :class="{hidden: isActive}">
         <div class="text-block__title-wrapper page-wrapper within-section-large">
           <hr class="text-block__rule" />
@@ -32,7 +31,7 @@
         </div>
       </div>
       <appTeam @togglePage="togglePage"></appTeam>
-      <appFooter :class="{hidden: isActive}" class="footer--about"></appFooter>
+      <appFooter :class="{hidden: isActive}"></appFooter>
     </section>
   </Layout>
 </template>
@@ -66,9 +65,9 @@ export default {
     return {
       isActive: false,
       aboutTitle: "Who are we?",
-      aboutSubTitle: "Creatives with a passion for code",
+      aboutSubTitle: "Creatives with a passion for code, design & products",
       aboutDescription:
-        "We are a global group of senior developers & designers from all over the world with a passion for crafting beautifully designed websites & applications. As we want to make sure to deliver the full package, we invest a lot of time to stay up-to-date with all the latest know-how in design, SEO, data-handling & digital innovations. Our love for code doesn't stop at the agency, as we also actively try to give back to the community by teaching at renowned coding bootcamps (combined we have taught 600+ students) and partaking in hackathons",
+        "We are a handpicked collection of senior developers & designers from all over the world with a passion for crafting beautifully designed websites & applications. As we want to make sure to deliver the full package, we invest a lot of time to stay up-to-date with all the latest know-how in design, SEO, data-handling & digital innovations. Our love for code doesn't stop at the agency, as we also actively try to give back to the community by teaching at renowned coding bootcamps (combined we have taught 600+ students) and partaking in hackathons like the world's largest blockchain & AI hackathon Odyssey.",
       aboutBackground: "white",
       aboutColor: "black",
       howTitle: "How we execute?",
@@ -130,6 +129,4 @@ export default {
     margin-top: 90vh;
   }
 }
-
-
 </style>

@@ -10,7 +10,7 @@
       id="app"
     >
       <div class="team-container within-section">
-        <div class="project-list" :class="$mq">
+        <div class="project-list">
           <div
             class="project"
             v-for="(project, index) in projects"
@@ -66,7 +66,7 @@ export default {
         {
           id: "#selectorOne",
           name: "Oliver Senduk",
-          photo: "https://i.imgur.com/r2NdPI9.jpg",
+          photo: "https://i.imgur.com/etZNUo1.jpg",
           categories: ["Chief Executive Officer"],
           bio:
             "<p> Oliver is a software engineer with a focus on creating strategies & roadmaps to launch & grow new ideas and products. Besides programming he is also a mentor for the participants in the world's biggest Blockchain & AI hackathon <i>Oddesy </i>.</p>",
@@ -88,7 +88,7 @@ export default {
         {
           id: "#selectorThree",
           name: "Leon Houwelingen",
-          photo: "https://i.imgur.com/4mNSsxW.jpg",
+          photo: "https://i.imgur.com/SH53mwI.png",
           categories: ["Chief Sales Officer"],
           bio:
             "<p>Leon has amassed a solid leadership record in the business and charity arenas. He has steered several companies through challenging phases to deliver results that position them for sustainable business growth.</p>",
@@ -206,7 +206,6 @@ export default {
   width: 100%;
   display: grid;
   align-items: center;
-  height: 100vh;
   transform: translate(0px, 0px);
 }
 .header {
@@ -241,73 +240,29 @@ export default {
 
 .project-list {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   flex-wrap: wrap;
   width: 100%;
   justify-content: space-between;
-  //   > div:nth-of-type(1) {
-  //   background-color: #ead8c2;
-  // }
 
-  // > div:nth-of-type(2) {
-  //   background-color: #4f8365;
-  // }
-
-  // > div:nth-of-type(3) {
-  //   background-color: #eca414;
-  // }
-
-  // > div:nth-of-type(4) {
-  //   background-color: #ead8c2;
-  // }
-
-  // > div:nth-of-type(5) {
-  //   background-color: #4f8365;
-  // }
-  // > div:nth-of-type(6) {
-  //   background-color: #eca414;;
-  // }
-  // > div:nth-of-type(7) {
-  //   background-color: #3a568c;
-  // }
-  // > div:nth-of-type(8) {
-  //   background-color: #ead8c2;
-  // }
-
-  // > div:not(:first-of-type) {
-  //   color: white;
-  // }
+  @include mq($from: laptop) {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .project {
   z-index: 500;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-
-  &.external {
-    width: 90%;
-    margin-bottom: 10vh;
-  }
-
-  &.laptop {
-    width: 70%;
-    margin-bottom: 10vh;
-  }
-
-  &.wide {
-    width: 70%;
-    margin-bottom: 10vh;
-  }
-  &.tablet {
-    width: calc(100% - 20px);
-  }
-  &.mobile {
-    width: 100%;
-    margin-bottom: 2em;
-  }
+  width: 100%;
+  margin-bottom: 70px;
   cursor: pointer;
   overflow: hidden;
   transition: 0.45s;
   position: relative;
+
+  @include mq($from: laptop) {
+    width: 70%;
+  }
 
   &-details {
     padding: 0 20px;
@@ -315,31 +270,16 @@ export default {
     transition: 0.3s;
     // background: $azur;
     color: white;
-
-    &.laptop {
-      width: 90%;
-    }
   }
 
   &-img {
     width: 100%;
-    &.laptop {
-      width: 100%;
-      height: 60vh;
-    }
-    &.wide {
-      width: 100%;
-      height: 60vh;
-    }
-    &.external {
-      width: 100%;
-      height: 60vh;
-    }
   }
   &-title {
     color: black;
     font-size: 2em;
     margin-bottom: 20px;
+    margin-top: 20px;
   }
   &-desc {
     margin-top: 20px;
@@ -361,27 +301,27 @@ export default {
   }
 
   &-list {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    justify-content: space-between;
-    &:hover {
-      .project {
-        opacity: 1;
-      }
-    }
-    &.laptop {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-    }
-    &.wide {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-    }
-    &.external {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-    }
+    // display: flex;
+    // flex-wrap: wrap;
+    // width: 100%;
+    // justify-content: space-between;
+    // &:hover {
+    //   .project {
+    //     opacity: 1;
+    //   }
+    // }
+    // &.laptop {
+    //   display: grid;
+    //   grid-template-columns: 1fr 1fr;
+    // }
+    // &.wide {
+    //   display: grid;
+    //   grid-template-columns: 1fr 1fr;
+    // }
+    // &.external {
+    //   display: grid;
+    //   grid-template-columns: 1fr 1fr;
+    // }
   }
   &:hover {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25), 0 30px 30px rgba(0, 0, 0, 0.22);
@@ -532,46 +472,8 @@ export default {
   }
 }
 
-.project {
-  &.tablet {
-    margin-bottom: 50px;
-  }
-}
-
-.project:nth-child(even) {
-  &.laptop {
-    img {
-      width: 100%;
-      height: 100vh;
-    }
-  }
-}
-
-.project:nth-child(odd) {
-  // &.laptop {
-  //   margin-top: 60px;
-  // }
-  // &.wide {
-  //   margin-top: 60px;
-  // }
-  // &.external {
-  //   margin-top: 60px;
-  // }
-}
-
-.project:nth-child(odd) {
-  &.laptop {
-    height: 90%;
-  }
-  &.wide {
-    height: 90%;
-  }
-  &.external {
-    height: 90%;
-  }
-}
-
 .container-ready {
+  height: 100vh;
   .team-detail {
     transition: 0.45s ease 0.3s;
     opacity: 1;
@@ -669,15 +571,8 @@ export default {
   .team-detail {
     width: calc(100% - 50px);
   }
-  .project {
-    width: calc(50% - 20px);
-  }
 }
 @media (max-width: 480px) {
-  .project {
-    width: 100%;
-    margin-bottom: 50px;
-  }
   .header {
     margin-top: 50px;
   }

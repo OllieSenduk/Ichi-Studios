@@ -1,7 +1,7 @@
 <template>
   <div class="btn-relaxed">
-    <g-link :to="link" class="cta" :style="{color: color}">
-      <span>{{text}}</span>
+    <g-link :to="link" class="cta">
+      <span :style="{color: color}">{{text}}</span>
       <svg width="13px" height="10px" viewBox="0 0 13 10">
         <path d="M1,5 L11,5" />
         <polyline points="8 1 12 5 8 9" />
@@ -13,7 +13,6 @@
 <script>
 import { TimelineMax } from "gsap";
 import { mapMutations } from "vuex";
-
 export default {
   props: {
     text: {
@@ -55,17 +54,17 @@ export default {
   margin: auto;
   padding: 19px;
   transition: all 0.2s ease;
-  color: black;
+  color: white !important;
   text-decoration: none;
   &:before {
     content: "";
     position: absolute;
     top: 0;
-    left: -15px;
+    left: 0;
     display: block;
     border-radius: 28px;
-    width: 100%;
-    background: rgba(#ffab9d, 1);
+    background: rgba($red, 0.5);
+    width: 56px;
     height: 56px;
     transition: all 0.3s ease;
   }
@@ -73,11 +72,9 @@ export default {
     position: relative;
     font-size: $small-text;
     line-height: 18px;
-    font-weight: 900;
     letter-spacing: 0.25em;
     text-transform: uppercase;
     vertical-align: middle;
-
     @include mq($from: mobile, $until: tablet) {
       font-size: $small-text;
     }
@@ -93,11 +90,15 @@ export default {
     stroke-width: 2;
     transform: translateX(-5px);
     transition: all 0.3s ease;
+
+    @include mq($until: tablet) {
+      display: none;
+    }
   }
   &:hover {
     &:before {
-      background: rgba(#ffab9d, 0.5);
-      width: 56px;
+      width: 100%;
+      background: rgba($red, 1);
     }
   }
   svg {

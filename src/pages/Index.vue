@@ -3,8 +3,9 @@
     <div class="home-header__container">
       <div class="home-header__overlay" :class="{hidden: !homePageClosed}">
         <p class="home-header__screen">
-          <span>P</span>
-          <span class="pink-text">I</span>XELS
+          <span></span>
+          <span class="text-pink">I</span>CHI
+          <br />
         </p>
         <div class="home-header-intro">
           <div class="btn home-header__btn" @click="fadeOutAbove">OUR TALE</div>

@@ -8,25 +8,23 @@
               class="reveal__background lazyload--el lazyload"
               style="background-image: url(https://images.pexels.com/photos/220421/pexels-photo-220421.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=2&w=500); opacity: 0.175;"
             ></figure>
-            <h3 class="in-view__child in-view__child--fadein">
-              Where
-              love for technology & Business come
-              together
+            <h3 class="within-section">
+              DESIGN
+              <span>&#183;</span>
+              CREATE
+              <span>&#183;</span>
+              REFLECT
+              <span>&#183;</span>
+              ADJUST
             </h3>
             <div class="reveal__copy indent">
-              <p
-                class="in-view__child in-view__child--fadein"
-              >A Global Network of Creative Professionals</p>
-              <h2>We combine our technical skills with creative thinking and a result-driven mentality to make sure that we deliver not just optimal code, but also keep your business goals in mind.What sets us apart is that we're all passionate about technology & innovation, but all have an entrepeneurial background. This results in us striving to craft works of art that result in true fans, conversions and engagement.</h2>
-              <div class="row">
-                <div class="col-12 col-md-6 in-view__child in-view__child--fadein">
-                  <h6 sub-head dashed dashed--reverse in-view__child>Our Manifesto</h6>
-                  <a
-                    class="sub-head dashed dashed--reverse in-view__child"
-                    href="/manifesto"
-                  >Read now</a>
-                </div>
-              </div>
+              <h4
+                class="within-section"
+              >We partner with companies that inspire us to build solutions for the future.</h4>
+              <p>By combining our technical skills with creative thinking and a result-driven mentality to make strive to not just deliver optimal code and intuitive design, but also keep your business goals in mind. What sets us apart is that we're all passionate about technology & innovation, but all have an entrepeneurial background. This results in us striving to craft works of art that result in true fans, conversions and engagement.</p>
+              <!-- <div class="row">
+                <appButton text="Check Our Projects" />
+              </div>-->
             </div>
           </div>
         </div>
@@ -36,10 +34,19 @@
 </template>
 
 <script>
-export default {};
+import Button from "~/components/shared/Button";
+
+export default {
+  components: {
+    appButton: Button
+  }
+};
 </script>
 
 <style lang="scss" scoped>
+h4 {
+  font-size: 2rem;
+}
 @media all {
   figure {
     display: block;
@@ -335,7 +342,6 @@ export default {};
   p {
     margin: 0 0 24px;
     padding: 0;
-    line-height: 60px;
   }
   a {
     color: #1ccad8;

@@ -9,10 +9,18 @@
     <div class="nav">
       <div class="nav__content">
         <ul class="nav__list">
-          <li class="nav__list-item">Home</li>
-          <li class="nav__list-item">About</li>
-          <li class="nav__list-item">Projects</li>
-          <li class="nav__list-item">Contact</li>
+          <li class="nav__list-item" @click="handleNav">
+            <g-link to="/home/">Home</g-link>
+          </li>
+          <li class="nav__list-item" @click="handleNav">
+            <g-link to="/about/">About</g-link>
+          </li>
+          <li class="nav__list-item" @click="handleNav">
+            <g-link to="/projects/">Projects</g-link>
+          </li>
+          <li class="nav__list-item" @click="handleNav">
+            <g-link to="/home#contact/">Contact</g-link>
+          </li>
         </ul>
       </div>
     </div>
@@ -29,14 +37,15 @@ export default {
       let menu = document.querySelector(".menu-icon");
       let menuItems = document.querySelectorAll(".nav__list-item");
 
-      //   this.$store.dispatch("updateNavStatus");
-      //   if (this.navOpen === false) {
-      //     this.navOpen = true;
-      //   }
+      // this.$store.dispatch("updateNavStatus");
+      // if (this.navOpen === false) {
+      //   this.navOpen = true;
+      // }
 
-      if (body.classList.contains("nav-active"))
+      if (body.classList.contains("nav-active")) {
+        console.log("JEEE");
         body.classList.remove("nav-active");
-      else body.classList.add("nav-active");
+      } else body.classList.add("nav-active");
     }
   },
   mounted() {}
@@ -60,7 +69,7 @@ body {
 
 //default state
 .menu-icon {
-  $size: 60px;
+  $size: 30px;
   height: $size;
   width: $size;
   position: fixed;
@@ -69,7 +78,7 @@ body {
   top: 30px;
   cursor: pointer;
   &__line {
-    height: 4px;
+    height: 2px;
     width: $size;
     display: block;
     background-color: $pink;
@@ -88,7 +97,7 @@ body {
 .nav {
   $width: 100vw;
   $height: 100vh;
-  $font--size--calc: calc(2vw + 10px);
+  $font--size--calc: calc(3vw + 10px);
   $transition--easing: cubic-bezier(0.77, 0, 0.175, 1);
   position: fixed;
   z-index: 800;
@@ -118,21 +127,28 @@ body {
     text-align: center;
     font-size: $font--size--calc;
     font-weight: 200;
-    cursor: pointer;
   }
   &__list {
     display: flex;
     justify-content: space-around;
+
+    @include mq($until: laptop) {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      height: 50vh;
+    }
   }
   &__list-item {
     position: relative;
     display: inline-block;
     transition-delay: $transition--length + s;
-    opacity: 0;
+    visibility: hidden;
     transform: translate(0%, 100%);
     transition: opacity 0.2s ease, transform 0.3s ease;
     margin-right: 25px;
     color: white;
+    cursor: default;
     &:before {
       content: "";
       position: absolute;
@@ -147,6 +163,10 @@ body {
     &:hover {
       &:before {
         width: 100%;
+
+        @include mq($until: laptop) {
+          width: 40px;
+        }
       }
     }
   }
@@ -180,14 +200,18 @@ body.nav-active {
       transition-delay: 0s;
     }
     &__list-item {
-      opacity: 1;
+      visibility: visible;
       transform: translateX(0%);
-      transition: opacity 0.3s ease, transform 0.3s ease, color 0.3s ease;
+      cursor: pointer;
+      transition: visibility 0.3s ease, transform 0.3s ease, color 0.3s ease;
       @for $i from 0 through $menu--items--count {
         &:nth-child(#{$i}) {
           transition-delay: $transition--length * $i / 8 + 0.5 + s;
         }
       }
+    }
+    a {
+      text-decoration: none;
     }
   }
 }

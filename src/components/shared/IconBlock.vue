@@ -18,11 +18,19 @@
         </div>
       </div>
     </div>
+    <div class="section within-section-large">
+      <appButton text="See Our Work" color="black" link="/projects" />
+    </div>
   </div>
 </template>
 
 <script>
+import Button from "~/components/shared/Button";
+
 export default {
+  components: {
+    appButton: Button
+  },
   props: [
     "sectionTitle",
     "titleOne",

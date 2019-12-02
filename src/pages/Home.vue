@@ -58,6 +58,9 @@
         :imgFour="homeIcons.imgFour"
         :textFour="homeIcons.textFour"
       ></appIconBlock>
+      <!-- <div class="section block">
+        <appButton text="See Our Work" color="black" link="/projects" />
+      </div>-->
       <appParallaxBlock></appParallaxBlock>
 
       <!-- <appVideo></appVideo> -->
@@ -122,6 +125,7 @@ import Values from "~/components/about/Values";
 import Stripes from "~/components/shared/Stripes";
 import ParallaxBlock from "~/components/shared/ParallaxBlock";
 import SumList from "~/components/shared/SumList";
+import Button from "~/components/shared/Button";
 
 import Footer from "~/components/shared/FooterMain";
 import Video from "~/components/home/HomeVideo";
@@ -139,6 +143,7 @@ export default {
     appValues: Values,
     appStripes: Stripes,
     appSumList: SumList,
+    appButton: Button,
     appParallaxBlock: ParallaxBlock
   },
   data() {

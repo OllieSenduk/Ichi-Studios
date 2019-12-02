@@ -4,7 +4,7 @@
     style="visibility: visible; animation-name: fadeIn;"
   >
     <div class="sum-list_container section block">
-      <div class="d-flex">
+      <div class="d-flex flex-column flex-md-row">
         <!-- feature box item-->
         <div
           class="feature-box-1 sm-margin-30px-bottom wow fadeInRight"
@@ -13,15 +13,16 @@
           <div class="margin-15px-bottom alt-font">
             <h3 class="char-value letter-spacing-minus-1 text-medium-gray font-weight-300">01.</h3>
             <span
-              class="text-large line-height-22 padding-20px-left sm-padding-15px w-100 d-table-cell align-middle text-pink"
+              class="text-large padding-20px-left sm-padding-15px w-100 d-table-cell align-middle text-pink"
             >
-              Creativity.
-              <br />Discover talent.
+              Global Team.
+              <br />Local Impact.
             </span>
           </div>
-          <p
-            class="width-90 lg-width-100 text-grey"
-          >Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since. Lorem Ipsum has been the industry.</p>
+          <p class="width-90 text-grey">
+            Ichi Studios operates all around the world. This enables us to
+            help shape solutions for both global brands, as well as local startups.
+          </p>
           <div
             class="separator-line-horrizontal-medium-light3 bg-deep-pink margin-5px-top float-left"
           ></div>
@@ -35,16 +36,14 @@
         >
           <div class="margin-15px-bottom alt-font">
             <h3 class="char-value letter-spacing-minus-1 text-medium-gray font-weight-300">02.</h3>
-            <span
-              class="text-large line-height-22 padding-20px-left w-100 d-table-cell align-middle text-azur"
-            >
-              Technology.
-              <br />Expert analysis.
+            <span class="text-large padding-20px-left w-100 d-table-cell align-middle text-pink">
+              Partnerships to
+              <br />drive innovation.
             </span>
           </div>
           <p
             class="width-90 lg-width-100 text-grey"
-          >Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since. Lorem Ipsum has been the industry.</p>
+          >We started Ichi Studios from our passion to partner with inspiring corporates & startups to combine our technological expertise with their industry know-how and create meaningful & innotive solutions.</p>
           <div
             class="separator-line-horrizontal-medium-light3 bg-deep-pink margin-5px-top float-left"
           ></div>
@@ -58,16 +57,16 @@
         >
           <div class="margin-15px-bottom alt-font">
             <h3 class="char-value letter-spacing-minus-1 text-medium-gray font-weight-300">03.</h3>
-            <span
-              class="text-large line-height-22 padding-20px-left w-100 d-table-cell align-middle text-red"
-            >
-              Discover.
-              <br />Explore work.
+            <span class="text-large padding-20px-left w-100 d-table-cell align-middle text-pink">
+              Agile Processes.
+              <br />Data Driven Results.
             </span>
           </div>
-          <p
-            class="width-90 lg-width-100 text-grey"
-          >Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since. Lorem Ipsum has been the industry.</p>
+          <p class="width-90 lg-width-100 text-grey">
+            We are a big believer in having the right processes in place to create a seamless experience & workflow.
+            This means short iterations, meaningful feedback loops & a lot of user validations.
+            .
+          </p>
           <div
             class="separator-line-horrizontal-medium-light3 bg-deep-pink margin-5px-top float-left"
           ></div>
@@ -75,11 +74,20 @@
         <!-- end feature box item-->
       </div>
     </div>
+    <div class="section block">
+      <appButton text="More about us!" link="/about" color="white" />
+    </div>
   </section>
 </template>
 
 <script>
-export default {};
+import Button from "~/components/shared/Button";
+
+export default {
+  components: {
+    appButton: Button
+  }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -272,8 +280,8 @@ h3 {
   line-height: 54px;
 }
 .text-large {
-  font-size: 18px;
-  line-height: 26px;
+  font-size: 3rem;
+  line-height: 40px;
 }
 .text-medium-gray {
   color: #939393;
@@ -294,7 +302,7 @@ h3 {
   background-color: #ff214f;
 }
 section {
-  padding: 130px 0;
+  padding: 60px 0;
   overflow: hidden;
 }
 .separator-line-horrizontal-medium-light3 {
@@ -317,6 +325,7 @@ section {
   width: 90%;
 }
 .feature-box-1 {
+  min-width: 33%;
   display: table;
 }
 .feature-box-1 .char-value {
@@ -377,6 +386,9 @@ section {
   }
   .sm-margin-30px-bottom {
     margin-bottom: 30px !important;
+  }
+  .sm-margin-60px-bottom {
+    margin-bottom: 60px !important;
   }
   .sm-padding-two-lr {
     padding-left: 2%;
