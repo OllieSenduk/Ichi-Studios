@@ -1,5 +1,5 @@
 <template>
-  <section class="within-section projects" :class="{ remove_page: navStatus }">
+<section class="within-section projects" :class="{ remove_page: navStatus }">
     <appPageHeader title="Projects"></appPageHeader>
     <div class="swiper-cta">Swipe or Select a Project</div>
     <div class="swiper-container loading">
@@ -9,6 +9,7 @@
           :id="project.identifier"
           :style="{ backgroundImage: `url(${project.images.imgHeader})`}"
           v-for="project in projects"
+          @click="goToProject"
         >
           <img :src="project.images.imgHeader" class="entity-img" />
           <div class="content">
@@ -43,14 +44,19 @@ export default {
   data() {
     return {
       current: 0,
-      scrollSlide: 0
+      scrollSlide: 0,
+      mySwiper: null
     };
   },
   methods: {
     goToProject(e) {
-      console.log(this.projects)
-      const identifier = e.target.id;
-      this.$router.push({ path: `/projects/${identifier}` });
+      if (e.target.classList.contains("swiper-slide-active")) {
+        const identifier = e.target.id;
+        this.$router.push({ path: `/projects/${identifier}` });
+      } else {
+        console.log(this.mySwiper)
+        this.mySwiper.slideNext()
+      }
     },
     checkForInitialSlide() {
       const identifier = this.$router.currentRoute.hash;
@@ -106,9 +112,9 @@ export default {
     if (initialSlideIndex) {
       options.initialSlide = initialSlideIndex;
     }
-    var mySwiper = new Swiper(sliderSelector, options);
+    this.mySwiper = new Swiper(sliderSelector, options);
     // Initialize slider
-    mySwiper.init();
+    this.mySwiper.init();
   },
   computed: mapState({
     projects: state => state.projects,
@@ -157,8 +163,7 @@ export default {
     }
   }
 }
-.swiper-wrapper {
-}
+
 .swiper-slide {
   background-position: center;
   background-size: cover;
@@ -218,14 +223,28 @@ export default {
 .swiper-button {
   color: $red;
   width: 100px;
-  height: 50%;
+  height: 100%;
 }
-.swiper-button-prev {
+
+.swiper-button-prev, .swiper-button-next {
+  top: 20vh;
+
+    &:active {
+   outline: none;
+  }
+
+  &:focus {
+      outline: none;
+  }
+
+}
+.swiper-button-previous {
   transform: translateX(50px);
 }
 .swiper-button-next {
   transform: translateX(-50px);
 }
+
 .swiper-container-horizontal {
   > .swiper-pagination-bullets {
     // @include mq($from: laptop) {
@@ -236,13 +255,6 @@ export default {
       bottom: 10%;
     }
 
-    // @include mq($from: tablet) {
-    //   bottom: 10vh;
-    // }
-
-    // @include mq($from: wide) {
-    //   padding-top: 15vh;
-    // }
     .swiper-pagination-bullet {
       margin: 0 9px;
       position: relative;
@@ -254,7 +266,7 @@ export default {
       &::before {
         content: "";
         position: absolute;
-        top: 50%;
+        top: 30%;
         left: 50%;
         width: 18px;
         height: 18px;

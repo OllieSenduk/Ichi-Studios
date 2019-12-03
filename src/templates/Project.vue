@@ -49,10 +49,10 @@
               <div class="project-detail__block__question text-smooth-yellow within-section">
                 <p>Solution</p>
               </div>
-              <div class="project-details__block__answer within-section">
+              <div class="project-details__block__answer within-section-large">
                 <p>{{ project.solution }}</p>
               </div>
-              <div class="project-details__visit within-section" v-if="project.visit">
+              <div class="project-details__visit within-section-large" v-if="project.visit">
                 <a :href="project.linkProject" target="_blank">
                   <p class="text-smooth-yellow">Visit the project!</p>
                 </a>
@@ -207,10 +207,10 @@ export default {
     }
 
     img {
-      width: 50%;
+      width: 80%;
 
       @include mq($from: laptop) {
-        width: 25%;
+        width: 40%;
       }
     }
   }

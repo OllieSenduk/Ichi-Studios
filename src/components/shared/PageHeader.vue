@@ -1,6 +1,6 @@
 <template>
   <div class="large-header" id="top">
-    <div class="close-page" @click="returnToHome">
+    <div class="close-page text-center" @click="returnToHome">
       <i class="fa fa-times close-page" aria-hidden="true"></i>
     </div>
     <h1 class="text-white text-center fadeText">{{title}}</h1>

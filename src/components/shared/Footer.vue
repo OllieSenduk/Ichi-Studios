@@ -4,7 +4,7 @@
       <div class="footer__title">
         <h2>Coffee fuels brilliance!</h2>
         <p>
-          So let's have one. Or a beer. Whatever floats your boat.
+          So let's have one.
           Give us a shout whether you have any questions, want start a project or just to say hi!
         </p>
       </div>

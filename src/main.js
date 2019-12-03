@@ -50,16 +50,6 @@ export default function(Vue, { router, head, isClient, appOptions }) {
     href: "https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap"
   });
 
-  // head.script.push({
-  //   src: 'https://unpkg.com/swiper/js/swiper.min.js',
-  //   body: true
-  // });
-
-  // head.link.push({
-  //   rel: 'stylesheet',
-  //   href: 'https://unpkg.com/swiper/css/swiper.min.css'
-  // });
-  // Swiper.use([Navigation, Keyboard, A11y]);
 
   // VUEX
   appOptions.store = new Vuex.Store({
@@ -79,11 +69,11 @@ export default function(Vue, { router, head, isClient, appOptions }) {
           iconColor: "#F33766"
         },
         lewagon: {
-          name: "Ellyn Bouscasse - Manager Le Wagon Barcelona",
+          name: "Abe Scholte - Tokenization Lead Odyssey 2018",
           text:
-            "Experts when it comes to anything code or design related, we're very happy to have them!",
-          company: "Le Wagon",
-          img: "https://i.imgur.com/AIczI1C.png",
+            "Having the guys from Ichi Studios both as mentors for the participants, as well as participating in our blockchain & Ai Hackathon was an amazing. It's not easy organizing a hackathon with over 1500 participants & 7 different tracks, but they were a great asset!",
+          company: "Odyssey",
+          img: "https://i.imgur.com/iectpdm.png",
           backgroundColor: "#89A7A7",
           primaryColor: "white",
           secondaryColor: "#F4F4F1",
@@ -143,6 +133,42 @@ export default function(Vue, { router, head, isClient, appOptions }) {
       },
       projects: [
         {
+          pageNum: 0,
+          identifier: "tablevibe",
+          title: "Table Vibe",
+          information: {
+            client: "Table Vibe",
+            categories: [
+              "technical delivery",
+              "startup",
+              "project management"
+            ]
+          },
+          subTitle: "Creating Amazing Restaurant Experiences",
+          problem:
+            "How can restaurants utilize customer feedback to create a better customer experience & grow their business.",
+          summary:
+            "Creating fun feedback forms for customers & utilizing that data to increase insights into restaurant customers.",
+          solution:
+            "We created a fun & playful customer-facing app where they can leave their feedback before they leave the restaurant. On the restaurant side we created a detailed dashboard where restaurant owners can filter the feedback based on venue, waiter, rating & time.",
+          // homeImg: {
+          //   imgLeft: "https://i.imgur.com/Ap049M0.png",
+          //   imgRight: "https://i.imgur.com/jea1Puk.png"
+          // },
+          hasVideo: false,
+          video: "",
+          images: {
+            imgHeader: "https://i.imgur.com/LguTCag.jpg",
+            imgOne: "https://i.imgur.com/JJZ1x0D.png",
+            // imgTwo: "https://i.imgur.com/O6XItd1.png"
+          },
+          url: "/ikea",
+          homeText: "The Wonderful Everyday",
+          background: `radial-gradient(#2B3760, #0B1023)`,
+          visit: false,
+          hidden: false
+        },
+        {
           pageNum: 1,
           identifier: "ikea",
           title: "IKEA",
@@ -161,14 +187,14 @@ export default function(Vue, { router, head, isClient, appOptions }) {
             "Creating 5 proof of concept applications that capture IKEA's values & goals.",
           solution:
             "We helped supervise the creation of 5 new technical MVP's from design phase to code. This served as a way to both get the IKEA staff up to speed on how to develop these type of projects, as well as have them built out potential new products IKEA could start implementing either for internal use, or to integrate within the existing customer-facing IKEA app. At the end of the sprints, the finished projects were presented to the management teams.Amongst the projects was a customer-facing application that could tell you if the current IKEA products in your shopping basket would fit inside the back of your car and a project management solution that could be used internally.",
-          homeImg: {
-            imgLeft: "https://i.imgur.com/Ap049M0.png",
-            imgRight: "https://i.imgur.com/jea1Puk.png"
-          },
+          // homeImg: {
+          //   imgLeft: "https://i.imgur.com/Ap049M0.png",
+          //   imgRight: "https://i.imgur.com/jea1Puk.png"
+          // },
           hasVideo: false,
           video: "",
           images: {
-            imgHeader: "https://i.imgur.com/oRTWW3W.jpg",
+            imgHeader: "https://i.imgur.com/YgJp0Pn.jpg",
             imgOne: "https://i.imgur.com/QuZXwKH.gif",
             imgTwo: "https://i.imgur.com/O6XItd1.png"
           },
@@ -179,7 +205,7 @@ export default function(Vue, { router, head, isClient, appOptions }) {
           hidden: false
         },
         {
-          pageNum: 1,
+          pageNum: 2,
           identifier: "lawspot",
           title: "LAWSPOT",
           information: {
@@ -193,16 +219,16 @@ export default function(Vue, { router, head, isClient, appOptions }) {
             "Help the everyday person find the legal support they deserve!",
           solution:
             "After doing an initial code audit, we created a road-map to add new features and improve upon existing ones. By working closely with the CEO of Lawspot, as well as their SEO specialist, we were able to quickly asses the existing pain points and built the solutions needed.",
-          homeImg: {
-            imgLeft: "https://i.imgur.com/aIsAVTR.jpg",
-            imgRight: "https://i.imgur.com/zGKi8MQ.png"
-          },
+          // homeImg: {
+          //   imgLeft: "https://i.imgur.com/aIsAVTR.jpg",
+          //   imgRight: "https://i.imgur.com/zGKi8MQ.png"
+          // },
           hasVideo: false,
           video: "",
           images: {
             imgHeader: "https://i.imgur.com/5zPCrJw.png",
             imgOne: "https://i.imgur.com/FQOIiZV.jpg",
-            imgTwo: "https://i.imgur.com/aa1ODAE.png"
+            // imgTwo: "https://i.imgur.com/aa1ODAE.png"
           },
           url: "/ikea",
           homeText: "Find the right legal counsel",
@@ -212,11 +238,11 @@ export default function(Vue, { router, head, isClient, appOptions }) {
           linkProject: "https://www.lawspot.nl/"
         },
         {
-          pageNum: 2,
+          pageNum: 3,
           identifier: "jobdex",
-          title: "Job Dex",
+          title: "Jobdex",
           information: {
-            client: "Job Dex",
+            client: "Jobdex",
             categories: ["startup", "strategy", "development"]
           },
           subTitle: "Find the right hospitality talent.",
@@ -226,10 +252,10 @@ export default function(Vue, { router, head, isClient, appOptions }) {
             "The platform for freelancers looking for work in the hospitality industry.",
           solution:
             "Marketplace for freelance hospitality workers which manages the scheduling of employees with the current staff and adds freelancers from the marketplace where needed.",
-          homeImg: {
-            imgLeft: "https://i.imgur.com/e6jQfAI.png",
-            imgRight: "https://i.imgur.com/u9HlAhe.png"
-          },
+          // homeImg: {
+          //   imgLeft: "https://i.imgur.com/e6jQfAI.png",
+          //   imgRight: "https://i.imgur.com/u9HlAhe.png"
+          // },
           hasVideo: false,
           images: {
             imgHeader: "https://i.imgur.com/tQHcj8X.png",
@@ -242,7 +268,7 @@ export default function(Vue, { router, head, isClient, appOptions }) {
           visit: false
         },
         {
-          pageNum: 3,
+          pageNum: 4,
           identifier: "crypto-trading-bot",
           title: "Automaat Space",
           information: {
@@ -256,14 +282,14 @@ export default function(Vue, { router, head, isClient, appOptions }) {
             "Automating our trades in the volatile cryptocurrency market.",
           solution:
             "The first step was to create a program that decides on the best trading strategies through data it collects from multiple api's. The next step will be to add self-learning algorithms to increase the likelihood of the algorithms making the right calls. Automaat.space is still in beta, but has proven to be able to be increasingly profitable in multiple market scenario’s. We show a little sneak peak here:.",
-          homeImg: {
-            imgLeft: "https://i.imgur.com/3lYIFWs.png",
-            imgRight: "https://i.imgur.com/enHVYgi.png"
-          },
+          // homeImg: {
+          //   imgLeft: "https://i.imgur.com/3lYIFWs.png",
+          //   imgRight: "https://i.imgur.com/enHVYgi.png"
+          // },
           hasVideo: false,
           images: {
             imgHeader: "https://i.imgur.com/CJ3yaq3.png",
-            imgTwo: "https://i.imgur.com/0pIlgPZ.png"
+            // imgTwo: "https://i.imgur.com/0pIlgPZ.png"
           },
           url: "/crypto-trading-bot",
           homeText: "Seamless Trading.",
@@ -271,6 +297,33 @@ export default function(Vue, { router, head, isClient, appOptions }) {
           hidden: true,
           visit: true,
           linkProject: "http://automaat-space.herokuapp.com/"
+        },
+        {
+          pageNum: 5,
+          identifier: "creativos-de-la-noce",
+          title: "Creativos de la Noche",
+          information: {
+            client: "Clubhaus Barcelona",
+            categories: ["Website", "Video", "Marketing"]
+          },
+          subTitle: "Bringing Creatives Together",
+          problem:
+            "Barcelona is full of amazing talent, but it's all very scattered. How can Clubhaus excude its values of being a safe-haven for creativity and creative talent.",
+          summary:
+            "An event to bring together creative Barcelona.",
+          solution:
+            "By creating a one-day mini-festival, we were able to showcase Clubhauses strongest attributes. We transformed the three rooms they have into different themes and combined live-art, speakers, music & food",
+          hasVideo: true,
+          images: {
+            imgHeader: "https://i.imgur.com/qj0OGQF.jpg",
+            imgTwo: "https://i.imgur.com/njqHLun.jpg"
+          },
+          url: "/creativos-de-la-noche",
+          homeText: "Creative Festival.",
+          background: `radial-gradient(#2B3760, #0B1023)`,
+          hidden: true,
+          visit: true,
+          linkProject: "http://www.ollsumevents.com/"
         }
         // creativos: {
         //   pageNum: 1,

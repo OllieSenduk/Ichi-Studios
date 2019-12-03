@@ -147,8 +147,10 @@ body {
     transform: translate(0%, 100%);
     transition: opacity 0.2s ease, transform 0.3s ease;
     margin-right: 25px;
-    color: white;
     cursor: default;
+    a {
+          color: white;
+    }
     &:before {
       content: "";
       position: absolute;

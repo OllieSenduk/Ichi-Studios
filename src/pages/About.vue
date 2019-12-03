@@ -67,7 +67,7 @@ export default {
       aboutTitle: "Who are we?",
       aboutSubTitle: "Creatives with a passion for code, design & products",
       aboutDescription:
-        "We are a handpicked collection of senior developers & designers from all over the world with a passion for crafting beautifully designed websites & applications. As we want to make sure to deliver the full package, we invest a lot of time to stay up-to-date with all the latest know-how in design, SEO, data-handling & digital innovations. Our love for code doesn't stop at the agency, as we also actively try to give back to the community by teaching at renowned coding bootcamps (combined we have taught 600+ students) and partaking in hackathons like the world's largest blockchain & AI hackathon Odyssey.",
+        "We are a handpicked collection of senior developers & designers from all over the world with a passion for crafting beautifully designed websites & applications. As we want to make sure to deliver the full package, we invest a lot of time to stay up-to-date with all the latest know-how in design, SEO, data-handling & digital innovations. Our love for code doesn't stop at the agency, as we also actively try to give back to the community by teaching at renowned coding bootcamps (combined we have taught 600+ students).",
       aboutBackground: "white",
       aboutColor: "black",
       howTitle: "How we execute?",

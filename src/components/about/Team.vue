@@ -138,7 +138,7 @@ export default {
 
         this.selectedprojectData = this.projects[index];
         window.setTimeout(() => {
-          this.inlineStyles = `width:${this.selectedproject.offsetWidth}px;height:100vh;left:${this.selectedproject.offsetLeft}px;position:fixed`;
+          this.inlineStyles = `width:${this.selectedproject.offsetWidth}px;height:90vh;left:${this.selectedproject.offsetLeft}px;position:fixed`;
           this.selectedproject.setAttribute("style", this.inlineStyles);
         }, 400);
         window.setTimeout(() => {
@@ -182,17 +182,10 @@ export default {
 
     if (passedElement !== "") {
       self.openProject(passedElement);
-      // console.log(self.$refs[element][0].click())
-      // console.log(self.$refs.element.$el.click())
-      // self.scrollFix(this.$route.hash)
+
     } else {
       VueScrollTo.scrollTo("#top", 700);
-      // self.scrollFix('#top')
     }
-    //     setTimeout(() => self.scrollFix('#' + self.$route.hash), 1)
-    // }
-    // console.log(this.$route.hash)
-    // setTimeout(() => self.scrollFix(self.$route.hash), 1)
   }
 };
 </script>
