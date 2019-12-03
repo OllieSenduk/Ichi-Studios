@@ -247,7 +247,7 @@ export default {
 
   &__screen {
     position: absolute;
-    top: 50%;
+    top: 70%;
     left: 30%;
     transform: translate(-50%, -50%);
     font-family: $main-font;

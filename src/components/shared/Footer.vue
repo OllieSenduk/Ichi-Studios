@@ -87,17 +87,6 @@
             </div>
             <div class="city__wrapper">
               <div class="address-info__city">
-                <p>The UK</p>
-              </div>
-              <div class="address-info__street">
-                <p>Somewhere</p>
-              </div>
-              <div class="address-info__">
-                <p>1073VH London</p>
-              </div>
-            </div>
-            <div class="city__wrapper">
-              <div class="address-info__city">
                 <p>Spain</p>
               </div>
               <div class="address-info__street">

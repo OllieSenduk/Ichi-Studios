@@ -131,6 +131,9 @@ import Footer from "~/components/shared/FooterMain";
 import Video from "~/components/home/HomeVideo";
 import { mapState, mapGetters, mapMutations } from "vuex";
 
+var VueScrollTo = require("vue-scrollto");  
+
+
 export default {
   components: {
     appAbout: About,
@@ -157,7 +160,12 @@ export default {
     };
   },
   methods: {},
+  created() {
+  },
   mounted() {
+    if (this.$route.hash === '#contact/') {
+      VueScrollTo.scrollTo("#contact", 500);
+    } 
     const context = this;
     TweenMax.from(".home-container", this.animationTime * 1.2, {
       delay: 0.3,
@@ -179,6 +187,7 @@ export default {
       rotation: 90,
       ease: Expo.easeInOut
     });
+    
   },
   computed: mapState({
     homeProjectSection: state => state.infoBlockLarge.homeProjectSection,

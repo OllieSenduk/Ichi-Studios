@@ -460,12 +460,12 @@ export default {
 
   &__screen {
     position: absolute;
-    top: 50%;
+    top: 70%;
     left: 30%;
     transform: translate(-50%, -50%);
     font-family: $main-font;
     color: #323232;
-    font-size: 15rem;
+    font-size: 20rem;
     font-weight: 800;
     writing-mode: vertical-rl;
     opacity: 0.6;
@@ -476,9 +476,13 @@ export default {
       animation: 1s appear ease-in;
     }
 
+    @include mq($from: tablet) {
+      font-size: 30rem;
+    }
+
     @include mq($from: wide) {
       writing-mode: horizontal-tb;
-      font-size: 30rem;
+      font-size: 40rem;
       top: 70%;
       left: 50%;
       transform: translateX(-50%);
