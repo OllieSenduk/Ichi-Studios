@@ -10,16 +10,16 @@
       </div>
       <div class="footer__body">
         <div class="footer__contact">
-          <form action class="form">
+          <form action class="form" action="https://formspree.io/ollie.senduk@gmail.com" method="POST" >
             <label for="name">
-              <input
+            </label>
+             <input
                 type="text"
                 value="Name"
                 onfocus="if (this.value=='Name') this.value='';"
                 onblur="if  (this.value=='') this.value='Name'"
                 class="form__input"
               />
-            </label>
             <label for="email"></label>
             <input
               type="text"
@@ -40,8 +40,8 @@
             <input type="submit" class="btn btn--small" />
           </form>
         </div>
-        <div class="footer__social">
-          <div class="social-buttons">
+        <!-- <div class="footer__social">
+          <div class="social-buttons"> -->
             <!-- <a
               href="#"
               class="social-buttons__button social-button social-button--facebook"
@@ -51,7 +51,7 @@
                 <i class="fa fa-facebook"></i>
               </span>
             </a> -->
-            <a
+            <!-- <a
               href="#"
               class="social-buttons__button social-button social-button--linkedin"
               aria-label="LinkedIn"
@@ -70,8 +70,8 @@
                 <i class="fa fa-instagram"></i>
               </span>
             </a>
-          </div>
-        </div>
+          </div> -->
+        <!-- </div> -->
         <div class="footer__location-information">
           <h2>Address</h2>
           <div class="footer__location-information__wrapper">
@@ -163,7 +163,8 @@ $footer-margin-bottom-wide: 60px;
     width: 100%;
     height: 49px;
     margin-bottom: 20px;
-    z-index: 100;
+    line-height: 0;
+    height: 60px;
   }
 
   .form__textarea {
@@ -175,6 +176,7 @@ $footer-margin-bottom-wide: 60px;
     background-color: #3b4148;
     margin-bottom: 20px;
     width: 100% !important;
+    z-index: 100;
   }
 
   input[type="submit"] {
