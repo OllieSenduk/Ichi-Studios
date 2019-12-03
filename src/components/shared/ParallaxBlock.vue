@@ -21,7 +21,7 @@
               <h4
                 class="within-section"
               >We partner with companies that inspire us to build solutions for the future.</h4>
-              <p>By combining our technical skills with creative thinking and a result-driven mentality to make strive to not just deliver optimal code and intuitive design, but also keep your business goals in mind. What sets us apart is that we're all passionate about technology & innovation, but all have an entrepeneurial background. This results in us striving to craft works of art that result in true fans, conversions and engagement.</p>
+              <p>By combining our technical skills with creative thinking and a result-driven mentality, we strive to not just deliver optimal code and intuitive design, but also keep your business goals in mind. What sets us apart is that we're all passionate about technology & innovation, but also have an entrepeneurial background. This results in us striving to craft works of art that result in true fans, conversions and engagement.</p>
               <!-- <div class="row">
                 <appButton text="Check Our Projects" />
               </div>-->

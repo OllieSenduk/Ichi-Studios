@@ -9,7 +9,7 @@
           <i class="fa fa-quote-left"></i>
         </div>
         <!-- <div class="testimonial__company header within-section">{{company}}</div> -->
-        <div class="testimonial__text sub-title-text within-section">{{text}}</div>
+        <div class="testimonial__text within-section"> <p>{{text}}</p> </div>
         <div class="testimonial__name" :style="{color: secondaryColor}">
           <p>{{name}}</p>
         </div>

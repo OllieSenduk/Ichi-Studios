@@ -71,7 +71,7 @@ export default function(Vue, { router, head, isClient, appOptions }) {
         lewagon: {
           name: "Abe Scholte - Tokenization Lead Odyssey 2018",
           text:
-            "Having the guys from Ichi Studios both as mentors for the participants, as well as participating in our blockchain & Ai Hackathon was an amazing. It's not easy organizing a hackathon with over 1500 participants & 7 different tracks, but they were a great asset!",
+            "Having the guys from Ichi Studios both as mentors for the participants, as well as participating in our blockchain & Ai Hackathon was amazing. It's not easy organizing a hackathon with over 1500 participants & 7 different tracks, but they were a great asset!",
           company: "Odyssey",
           img: "https://i.imgur.com/iectpdm.png",
           backgroundColor: "#89A7A7",
@@ -82,7 +82,7 @@ export default function(Vue, { router, head, isClient, appOptions }) {
         google: {
           name: "Joscha Koepke - Global Product Lead Google",
           text:
-            "Oliver was amazing. Always completely dedicated and had a great way of making complex situations simple. I loved his personal style and would recommend him to everybody!.",
+            "Oliver was amazing. Always completely dedicated and had a great way of making complex situations simple. I loved his personal style and would recommend him to everybody!",
           company: "Google",
           img: "https://i.imgur.com/dHbVhGg.png",
           backgroundColor: "lightsteelblue",
@@ -120,7 +120,7 @@ export default function(Vue, { router, head, isClient, appOptions }) {
           titleTwo: "Company Websites",
           imgTwo: "https://i.imgur.com/CWL4Ku2.png",
           textTwo:
-            "Create a beautiful website that shows your unique selling points & wows potential clients & users",
+            "Create a beautiful & intuitive website that shows your unique selling points, whilst impressing potential clients & users.",
           titleThree: "Startup Sprints",
           imgThree: "https://i.imgur.com/u6oloqI.png",
           textThree:

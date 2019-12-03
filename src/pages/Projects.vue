@@ -131,9 +131,9 @@ export default {
   left: 50%;
   transform: translateX(-50%);
 
-  @include mq($from: laptop) {
-    display: none;
-  }
+  // @include mq($from: laptop) {
+  //   display: none;
+  // }
 }
 
 %transition_all_03s {

@@ -5,7 +5,7 @@
         <h2>Coffee fuels brilliance!</h2>
         <p>
           So let's have one.
-          Give us a shout whether you have any questions, want start a project or just to say hi!
+          Whether you have any questions, want start a project or just to say hi, we'd love to hear from you!
         </p>
       </div>
       <div class="footer__body">
@@ -163,7 +163,7 @@ $footer-margin-bottom-wide: 60px;
     width: 100%;
     height: 49px;
     margin-bottom: 20px;
-    line-height: 0;
+    line-height: 10;
     height: 60px;
   }
 
@@ -177,6 +177,8 @@ $footer-margin-bottom-wide: 60px;
     margin-bottom: 20px;
     width: 100% !important;
     z-index: 100;
+        // line-height: 0;
+
   }
 
   input[type="submit"] {

@@ -27,7 +27,7 @@
         <div class="info-block__body within-section">
           <p>
             What sets us apart is that we're all passionate about technology &
-            innovation, but all have an entrepeneurial background. This results
+            innovation, but also have an entrepeneurial background. This results
             in us striving to craft works of art that result in true fans,
             conversions and engagement.
           </p>
