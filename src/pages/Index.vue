@@ -238,10 +238,12 @@ export default {
     }
   },
   created() {
-    let userAgent = window.navigator.userAgent;
+    if (process.isClient) {
+      let userAgent = window.navigator.userAgent;
 
-    if (userAgent.match(/iPad/i) || userAgent.match(/iPhone/i)) {
-      this.$router.push("home");
+      if (userAgent.match(/iPad/i) || userAgent.match(/iPhone/i)) {
+        this.$router.push("home");
+      }
     }
   },
   mounted() {},
