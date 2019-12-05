@@ -237,17 +237,14 @@ export default {
       this.$scrollmagic.attachTo(this.$refs.scrollBox);
     }
   },
-  mounted() {
-    this.fadeToBlack();
+  created() {
+    let userAgent = window.navigator.userAgent;
 
-    // this.tlMax1.to(".navigation__page-wrapper", 0.3, {
-    //     top: "0%",
-    //     ease: Expo.easeInOut,
-    // })
-
-    // this.tlMax1.staggerFrom(".navigation__item", 0.4, {x: -200, opacity: 0, ease:Expo.easeOut}, 0.3);
-    // this.tlMax1.reverse();
+    if (userAgent.match(/iPad/i) || userAgent.match(/iPhone/i)) {
+      this.$router.push("home");
+    }
   },
+  mounted() {},
   computed: mapState({
     homeProjectSection: state => state.infoBlockLarge.homeProjectSection,
     testimonialRipleys: state => state.testimonials.ripleys,
