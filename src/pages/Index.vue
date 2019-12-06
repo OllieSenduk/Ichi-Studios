@@ -8,7 +8,7 @@
           <br />
         </p>
         <div class="home-header-intro">
-          <div class="btn home-header__btn" @click="fadeOutAbove">OUR TALE</div>
+          <div class="btn home-header__btn" @click="fadeOutAbove">ENTER</div>
         </div>
       </div>
       <div class="home-header__overlay-2" :class="{hidden: !homePageClosed}"></div>
@@ -315,7 +315,6 @@ export default {
   // z-index: -1;
   position: absolute;
   top: 40%;
-  transform: translate(0, -50%);
   overflow-x: hidden;
   transition: all 0.7s ease-out;
 
@@ -459,16 +458,14 @@ export default {
 
   &__screen {
     position: absolute;
-    top: 70%;
+    top: 20%;
     left: 30%;
-    transform: translate(-50%, -50%);
     font-family: $main-font;
     color: #323232;
     font-size: 20rem;
     font-weight: 800;
     writing-mode: vertical-rl;
     opacity: 0.6;
-    height: 100%;
 
     &--pink {
       color: $pink;
