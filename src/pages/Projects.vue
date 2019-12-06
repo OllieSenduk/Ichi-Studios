@@ -1,5 +1,5 @@
 <template>
-<section class="within-section projects" :class="{ remove_page: navStatus }">
+  <section class="within-section projects" :class="{ remove_page: navStatus }">
     <appPageHeader title="Projects"></appPageHeader>
     <div class="swiper-cta">Swipe or Select a Project</div>
     <div class="swiper-container loading">
@@ -54,8 +54,8 @@ export default {
         const identifier = e.target.id;
         this.$router.push({ path: `/projects/${identifier}` });
       } else {
-        console.log(this.mySwiper)
-        this.mySwiper.slideNext()
+        console.log(this.mySwiper);
+        this.mySwiper.slideNext();
       }
     },
     checkForInitialSlide() {
@@ -224,25 +224,32 @@ export default {
   color: $red;
   width: 100px;
   height: 100%;
+
+  @include mq($until: laptop) {
+    width: 30px;
+  }
 }
 
-.swiper-button-prev, .swiper-button-next {
+.swiper-button-prev,
+.swiper-button-next {
   top: 20vh;
 
-    &:active {
-   outline: none;
+  &:active {
+    outline: none;
   }
 
   &:focus {
-      outline: none;
+    outline: none;
   }
+}
 
-}
-.swiper-button-previous {
-  transform: translateX(50px);
-}
-.swiper-button-next {
-  transform: translateX(-50px);
+@include mq($from: laptop) {
+  .swiper-button-previous {
+    transform: translateX(50px);
+  }
+  .swiper-button-next {
+    transform: translateX(-50px);
+  }
 }
 
 .swiper-container-horizontal {
