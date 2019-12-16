@@ -27,12 +27,6 @@ export default {
 };
 </script>
 
-<static-query>
-  query {
-    metaData {
-      siteName
-    }
-  }
 </static-query>
 
 <style lang="scss">

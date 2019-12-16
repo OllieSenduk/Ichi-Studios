@@ -33,13 +33,25 @@
 
 <script>
 import PageHeader from "~/components/shared/PageHeader";
-
 import Swiper from "swiper";
+
+import META_TAGS from "~/data/meta-tags.js";
+
 import { mapState, mapGetters, mapMutations } from "vuex";
 
 export default {
   components: {
     appPageHeader: PageHeader
+  },
+  metaInfo: {
+    title: META_TAGS.projects.title,
+    meta: [
+      {
+        key: "description",
+        name: "description",
+        content: META_TAGS.projects.description
+      }
+    ]
   },
   data() {
     return {

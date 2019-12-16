@@ -1,5 +1,5 @@
 <template>
-  <Layout>
+  <div>
     <appPageStripes></appPageStripes>
     <section class="about" :class="{ remove_page: navStatus }">
       <appPageHeader title="About Us"></appPageHeader>
@@ -9,7 +9,6 @@
           :subTitle="aboutSubTitle"
           :description="aboutDescription"
           :background="aboutBackground"
-          :aboutColor="color"
         ></appTextBlock>
         <div class="guide-down">
           <i class="fa fa-arrow-down"></i>
@@ -33,7 +32,7 @@
       <appTeam @togglePage="togglePage"></appTeam>
       <appFooter :class="{hidden: isActive}"></appFooter>
     </section>
-  </Layout>
+  </div>
 </template>
 
 
@@ -48,6 +47,8 @@ import Footer from "~/components/shared/FooterMain";
 import { mapState, mapGetters, mapMutations } from "vuex";
 var VueScrollTo = require("vue-scrollto");
 
+import META_TAGS from "~/data/meta-tags.js";
+
 export default {
   components: {
     appPageStripes: Stripes,
@@ -59,7 +60,14 @@ export default {
     appValues: Values
   },
   metaInfo: {
-    title: "About us"
+    title: META_TAGS.about.title,
+    meta: [
+      {
+        key: "description",
+        name: "description",
+        content: META_TAGS.about.description
+      }
+    ]
   },
   data() {
     return {

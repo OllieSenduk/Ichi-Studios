@@ -12,7 +12,7 @@
       </div>
       <div class="info-block--large__image-container within-section text-center">
         <p>{{imgOneText}}</p>
-        <img :src="imgOne" alt="ollsum" />
+        <img :src="imgOne" alt="Ichi Studios" />
       </div>
 
       <!-- <div class="info-block--large__images-container">
@@ -20,16 +20,16 @@
       </div>-->
       <!-- <div class="info-block--large__images-container text-center">
         <div class="info-block--large__image-container">
-          <img :src="imgOne" alt="ollsum" />
+          <img :src="imgOne" alt="Ichi Studios" />
           <p>Some Text</p>
       </div>-->
       <!-- <div class="info-block--large__image-container within-section">
           <p>{{imgTwoText}}</p>
-          <img :src="imgTwo" alt="ollsum" />
+          <img :src="imgTwo" alt="Ichi Studios" />
         </div>
         <div class="info-block--large__image-container">
           <p>{{imgThreeText}}</p>
-          <img :src="imgThree" alt="ollsum" />
+          <img :src="imgThree" alt="Ichi Studios" />
       </div>-->
     </div>
     <!-- <div class="info-block--large__images-container within-section block">

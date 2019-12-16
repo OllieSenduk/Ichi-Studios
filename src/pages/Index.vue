@@ -144,6 +144,9 @@ export default {
     appIconBlock: IconBlock,
     appValues: Values
   },
+  metaInfo: {
+    title: "Ichi Studios - Digital Development & Strategy"
+  },
   data() {
     return {
       homePageClosed: true,

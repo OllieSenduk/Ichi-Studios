@@ -126,13 +126,14 @@ import Stripes from "~/components/shared/Stripes";
 import ParallaxBlock from "~/components/shared/ParallaxBlock";
 import SumList from "~/components/shared/SumList";
 import Button from "~/components/shared/Button";
-
 import Footer from "~/components/shared/FooterMain";
 import Video from "~/components/home/HomeVideo";
+
+import META_TAGS from "~/data/meta-tags.js";
+
 import { mapState, mapGetters, mapMutations } from "vuex";
 
-var VueScrollTo = require("vue-scrollto");  
-
+var VueScrollTo = require("vue-scrollto");
 
 export default {
   components: {
@@ -149,23 +150,33 @@ export default {
     appButton: Button,
     appParallaxBlock: ParallaxBlock
   },
+  metaInfo: {
+    title: META_TAGS.home.title,
+    meta: [
+      {
+        key: "description",
+        name: "description",
+        content: META_TAGS.home.description
+      }
+    ]
+  },
   data() {
     return {
       homePageClosed: true,
       animationTime: 1,
-      delayTime: 1
+      delayTime: 1,
+      title: META_TAGS.home.title
 
       // navigationOpen: false,
       // tlMax1: new TimelineMax({paused: true})
     };
   },
   methods: {},
-  created() {
-  },
+  created() {},
   mounted() {
-    if (this.$route.hash === '#contact/') {
+    if (this.$route.hash === "#contact/") {
       VueScrollTo.scrollTo("#contact", 500);
-    } 
+    }
     const context = this;
     TweenMax.from(".home-container", this.animationTime * 1.2, {
       delay: 0.3,
@@ -187,7 +198,6 @@ export default {
       rotation: 90,
       ease: Expo.easeInOut
     });
-    
   },
   computed: mapState({
     homeProjectSection: state => state.infoBlockLarge.homeProjectSection,

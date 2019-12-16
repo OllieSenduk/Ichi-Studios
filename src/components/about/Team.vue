@@ -176,13 +176,11 @@ export default {
   },
   displayList: function() {},
   mounted() {
-    console.log(VueScrollTo);
     var self = this;
     const passedElement = this.$route.hash;
 
     if (passedElement !== "") {
       self.openProject(passedElement);
-
     } else {
       VueScrollTo.scrollTo("#top", 700);
     }

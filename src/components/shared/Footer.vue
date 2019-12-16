@@ -96,7 +96,7 @@
                 <p>08025 Barcelona</p>
               </div>
             </div>
-          </div>All rights reserved @Ollsum Agency 2019
+          </div>All rights reserved @Ichi Studios Agency 2019
         </div>
       </div>
     </div>

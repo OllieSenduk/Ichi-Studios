@@ -85,10 +85,21 @@
 <script>
 import Footer from "~/components/shared/FooterMain";
 import Button from "~/components/shared/Button";
+import META_TAGS from "~/data/meta-tags.js";
 
 import { mapState, mapGetters, mapMutations } from "vuex";
 
 export default {
+  metaInfo: {
+    title: META_TAGS.projects.title,
+    meta: [
+      {
+        key: "description",
+        name: "description",
+        content: META_TAGS.projects.description
+      }
+    ]
+  },
   data() {
     return {
       identifier: ""
