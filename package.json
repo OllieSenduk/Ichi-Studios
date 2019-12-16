@@ -1,5 +1,5 @@
 {
-	"name": "Ichi Studios",
+	"name": "Ichi-Studios",
 	"private": true,
 	"scripts": {
 		"build": "gridsome build",
