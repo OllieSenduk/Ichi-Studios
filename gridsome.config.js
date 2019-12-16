@@ -40,9 +40,6 @@ module.exports = {
 		types.forEach((type) => addStyleResource(config.module.rule('scss').oneOf(type)));
 	},
 	siteUrl: 'https://www.ichistudios.com',
-	siteName: 'Ichi Studios',
-	siteDescription:
-		'We combine well-written code, clean design & an entrepreneurial mindset to deliver digital beauty.',
 	plugins: []
 };
 
