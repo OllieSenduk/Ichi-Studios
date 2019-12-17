@@ -41,7 +41,7 @@ module.exports = {
 	},
 	siteUrl: 'https://www.ichistudios.com',
 	plugins: [],
-	titleTemplate: ''
+	titleTemplate: '%s'
 };
 
 // module.exports = {

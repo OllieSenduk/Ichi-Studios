@@ -1,4 +1,4 @@
-<template>
+\<template>
   <div class="layout">
     <link
       rel="stylesheet"
@@ -22,6 +22,9 @@ export default {
     Navigation,
     Nav,
     Footer
+  },
+  metaInfo: {
+    titleTemplate: "%s"
   },
   mounted() {}
 };
