@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <section v-if="animationOn">
-      <appPageTransition :link="transitionAnimationLink"></appPageTransition>
+      <appPageTransition :link="transitionAnimationLink" :speed="animationSpeed"></appPageTransition>
     </section>
     <section class="banner" v-else>
       <!-- <div class="container"> -->
@@ -93,7 +93,8 @@ export default {
     return {
       animationOn: true,
       transitionAnimationLink:
-        "https://assets7.lottiefiles.com/datafiles/ogIQ10UnwnKiBZS/data.json"
+        "https://assets8.lottiefiles.com/datafiles/AtGF4p7zA8LpP2R/data.json",
+      animationSpeed: "2.5"
     };
   },
   created() {

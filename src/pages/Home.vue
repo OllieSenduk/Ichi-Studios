@@ -11,11 +11,11 @@
           data-w-id="6866990c-9e10-825e-284a-22c4160c98df"
           class="hero_copy"
         >
-          <h1 id="header" class="hero-heading">Innovate. Surpise. Love</h1>
+          <h1 id="header" class="hero-heading">Create the Future</h1>
           <p
             id="subheader"
             class="paragraph-l cc-subhead"
-          >We find digital solutions for brands by desiging & building scalable prototypes.</p>
+          >We help brands find digital solutions by desiging & building scalable prototypes.</p>
           <a
             id="continue-hero"
             data-w-id="6866990c-9e10-825e-284a-22c4160c98e4"
@@ -24,50 +24,23 @@
           >
             <div>
               Get in touch
-              <span class="cta-button_sub-text">— no really!</span>
+              <span class="cta-button_sub-text">— but really!</span>
             </div>
             <div data-w-id="762d5b6f-0761-e312-ee75-d1d01e68edcd" class="inner-button"></div>
           </a>
         </div>
         <div id="w-node-22c4160c98e8-eaea5c31" class="hero_screenshot">
-          <img src="https://i.imgur.com/3fMphEH.png" alt class="image-2" />
+          <img src="https://i.imgur.com/3fMphEH.png" alt class="hero_image" />
         </div>
+
         <div id="w-node-1e7871d5feeb-eaea5c31" class="hero_logos">
-          <img
-            src="https://assets-global.website-files.com/5d3e265ac89f6a3e64292efc/5d46818f3a861d5ed287f9a4_fb.svg"
-            alt
-            class="logo cc-fb"
-          />
-          <img
-            src="https://assets-global.website-files.com/5d3e265ac89f6a3e64292efc/5d428085c0e46ebd0c23c840_nasa.svg"
-            alt
-            class="logo cc-nasa"
-          />
-          <img
-            src="https://assets-global.website-files.com/5d3e265ac89f6a3e64292efc/5d4280bf7ac7887a22808d0d_cbs.svg"
-            alt
-            class="logo cc-cbs"
-          />
-          <img
-            src="https://assets-global.website-files.com/5d3e265ac89f6a3e64292efc/5d4863631ebeba6127bb0786_twitter.svg"
-            alt
-            class="logo cc-twitter"
-          />
-          <img
-            src="https://assets-global.website-files.com/5d3e265ac89f6a3e64292efc/5d42803c7ac788d482808c93_dell-word.svg"
-            alt
-            class="logo cc-dell"
-          />
-          <img
-            src="https://assets-global.website-files.com/5d3e265ac89f6a3e64292efc/5d42808fc0e46e4e3423c85e_mtv.svg"
-            alt
-            class="logo cc-mtv"
-          />
-          <img
-            src="https://assets-global.website-files.com/5d3e265ac89f6a3e64292efc/5d4c8b2c574a787655d450ce_getaround.svg"
-            alt
-            class="logo cc-g"
-          />
+          <img src="https://i.imgur.com/89tZdKj.png" alt class="logo lawspot" />
+          <img src="https://i.imgur.com/3XaAZuW.png" alt class="logo Zaina" />
+          <img src="https://i.imgur.com/usLBmhC.jpg" alt class="logo IKEA" />
+          <img src="https://i.imgur.com/X02YRNW.png" alt class="logo Le_Wagon" />
+          <img src="https://i.imgur.com/y6vzoAX.png" alt class="logo Jobdex" />
+          <img src="https://i.imgur.com/cOPzNdc.jpg" alt class="logo DepotLab" />
+          <img src="https://i.imgur.com/Fs4mHSj.png" alt class="logo Clubhaus" />
           <img
             src="https://assets-global.website-files.com/5d3e265ac89f6a3e64292efc/5d42802a5e4c2e4e91fd9bb2_intuit-black.svg"
             alt
@@ -93,7 +66,7 @@ export default {
     return {
       animationOn: true,
       transitionAnimationLink:
-        "https://assets7.lottiefiles.com/datafiles/ogIQ10UnwnKiBZS/data.json"
+        "https://assets8.lottiefiles.com/datafiles/JNtJcb5adubeQfD/data.json"
     };
   },
   created() {

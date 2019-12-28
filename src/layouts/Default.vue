@@ -2,7 +2,11 @@
   <div class="layout">
     <div class="content-wrapper">
       <Header />
-      <slot />
+      <transition>
+        <div class="application-wrapper" mode="out-in">
+          <slot />
+        </div>
+      </transition>
     </div>
     <Footer />
   </div>

@@ -34,9 +34,7 @@ export default {
 </script>
 
 <style lang="scss">
-.nav-item {
-  a {
-    background: white;
-  }
+.nav {
+  z-index: 10;
 }
 </style>
