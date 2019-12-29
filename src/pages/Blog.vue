@@ -36,6 +36,21 @@ query Blog {
   }
 }
 </page-query>
+<script>
+
+export default {
+  metaInfo: {
+    title: "Blog"
+  },
+  data() {
+    return {
+      animationOn: true,
+      transitionAnimationLink:
+        "https://assets7.lottiefiles.com/datafiles/ogIQ10UnwnKiBZS/data.json"
+    };
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 .media {

@@ -2,15 +2,14 @@ import DefaultLayout from '~/layouts/Default.vue';
 
 // PACKAGES
 import BootstrapVue from 'bootstrap-vue';
-import lottie from "lottie-web";
+import lottie from 'lottie-web';
 
 // STYLES
-import './assets/styles/main.scss';
+import './assets/styles/bootstrap.scss';
 
 // MIXINGS
 import checkIfMobile from './mixins/checkIfMobile';
 import pageLoad from './mixins/pageLoad';
-
 
 // MAIN APPLICATION
 export default function(Vue, { router, head, isClient }) {
@@ -23,5 +22,4 @@ export default function(Vue, { router, head, isClient }) {
 	Vue.component('Layout', DefaultLayout);
 	Vue.mixin(checkIfMobile);
 	Vue.mixin(pageLoad);
-
 }

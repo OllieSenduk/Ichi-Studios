@@ -5,7 +5,7 @@ export default {
 				function() {
 					context.animationOn = false;
 				}.bind(context),
-				3000
+				1700
 			);
 		}
 	}

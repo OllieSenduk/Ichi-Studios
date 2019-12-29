@@ -1,14 +1,5 @@
 <template>
-  <div class="animation-wrapper">
-    <!-- <lottie-player
-      :src="link"
-      background="transparent"
-      :speed="speed"
-      style="width: 800px; height: 800px;"
-      loop
-      autoplay
-    ></lottie-player> -->
-  </div>
+  <div class="animation-wrapper"></div>
 </template>
 
 <script>
@@ -25,16 +16,16 @@ export default {
       type: String,
       default: "1"
     }
-  }, 
+  },
   mounted() {
     lottie.loadAnimation({
-      container: document.querySelector(".animation-wrapper"), // the dom element that will contain the animation
-      renderer: "svg",
+      container: document.querySelector(".animation-wrapper"),
+      renderer: "canvas",
       loop: true,
       autoplay: true,
-      path: 'https://labs.nearpod.com/bodymovin/demo/markus/isometric/markus2.json',
+      path: this.$props.link
     });
-    lottie.setLocationHref()
+    lottie.setLocationHref();
   }
 };
 </script>
