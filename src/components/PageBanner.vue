@@ -26,20 +26,18 @@
 
 <script>
 import lottie from "lottie-web";
+import bannerCopy from "@/constants/copy/bannerCopy";
 
 export default {
-  props: {
-    title: {
-      type: String,
-      default: "Ichi Studios"
+  computed: {
+    title() {
+      return bannerCopy[this.currentPath(this)].title;
     },
-    subtitle: {
-      type: String,
-      default: "Let's build the future"
+    subtitle() {
+      return bannerCopy[this.currentPath(this)].subtitle;
     },
-    imgUrl: {
-      type: String,
-      default: "https://i.imgur.com/3fMphEH.png"
+    imgUrl() {
+      return bannerCopy[this.currentPath(this)].imgUrl;
     }
   },
   mounted() {
@@ -48,7 +46,7 @@ export default {
       renderer: "canvas",
       loop: true,
       autoplay: true,
-      path: this.$props.imgUrl
+      path: this.imgUrl
     });
     lottie.setLocationHref();
   }

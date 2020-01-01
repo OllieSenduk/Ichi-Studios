@@ -1,13 +1,61 @@
+// Variables
+$header-font-size: 3rem;
+$body-font-size: 1.2rem;
+$header-font-weight: 600;
+$margin-bottom: 23px;
+$main-font: "Work Sans";
+$body-font: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+$text-grey: rgb(102, 102, 102);
+$line-height-text: 34px;
+$color-primary: #4353ff;
+
 *,
 ::after,
 ::before {
 	box-sizing: border-box;
 }
+
+body {
+	font-family: $body-font;
+	margin: 0;
+	padding: 0;
+	line-height: 1.5;
+	font-size: 10px;
+}
+
 section {
 	display: block;
 }
 
+a {
+	cursor: pointer;
+
+	&:link {
+		text-decoration: inherit;
+		color: inherit;
+	}
+
+	&:visited {
+		text-decoration: inherit;
+		color: inherit;
+	}
+}
+
 // FONTS
+
+p {
+	font-size: $body-font-size;
+	color: $text-grey;
+	line-height: $line-height-text;
+}
+
+@media (max-width: 991px) {
+	p {
+		font-size: 18px;
+	}
+}
+h1,
 h2,
 h3,
 h4 {
@@ -15,7 +63,7 @@ h4 {
 	margin-bottom: 0.5rem;
 }
 p {
-	margin-top: 0;
+	margin-top: 2rem;
 	margin-bottom: 1rem;
 	line-height: $line-height-text;
 }
@@ -23,6 +71,7 @@ img {
 	vertical-align: middle;
 	border-style: none;
 }
+h1,
 h2,
 h3,
 h4 {
@@ -32,6 +81,7 @@ h4 {
 	line-height: 1.2;
 	color: inherit;
 }
+
 h2 {
 	font-size: 2rem;
 }
@@ -43,7 +93,7 @@ h4 {
 }
 
 .watermark-title {
-	font-family: "Work Sans", sans-serif;
+	font-family: $main-font, sans-serif;
 	display: block;
 	font-size: 10rem;
 	color: #f8f8f8;
@@ -55,13 +105,32 @@ h4 {
 	height: auto;
 	line-height: 1;
 	z-index: -1;
-  }
+}
 
+@media (max-width: 991px) {
+	.watermark-title {
+		font-size: 5rem;
+	}
+}
 
 //   SPACING
 
 .hv-center-flex {
 	display: flex;
-    align-items: center;
-    justify-content: center;
+	align-items: center;
+	justify-content: center;
+}
+
+.margin-top {
+	margin-top: 3rem;
+}
+
+.xs-section-padding {
+	padding: 100px 0;
+}
+
+@media (max-width: 991px) {
+	.xs-section-padding {
+		padding: 60px 0;
+	}
 }

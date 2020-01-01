@@ -1,21 +1,83 @@
 <template>
   <Layout>
-    <section v-if="animationOn">
+    <!-- <section v-if="animationOn">
       <appPageTransition :link="transitionAnimationLink"></appPageTransition>
+    </section>-->
+    <appPageBanner></appPageBanner>
+    <section class="xs-section-padding working-progress-area" data-scrollax-parent="true">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 mx-auto single-working-progress">
+            <appChapterHeader></appChapterHeader>
+          </div>
+        </div>
+        <div class="row xs-section-padding">
+          <div class="col-lg-12 mx-auto">
+            <div class="cases-cards-container">
+              <appCard
+                v-for="(item, itemUrl) in featuredCases"
+                :key="item.title"
+                :link="itemUrl"
+                :title="item.title"
+                :description="item.description"
+                :imgUrl="item.imgUrl"
+                :imgFit="item.imgFit"
+              ></appCard>
+            </div>
+          </div>
+        </div>
+        <appSeperator title="Other Questions we helped answer"></appSeperator>
+        <div class="row xs-section-padding">
+          <div class="col-lg-12 mx-auto">
+            <div class="other-cases-cards-container">
+              <appSimpleCard
+                v-for="project in projects"
+                :key="project.title"
+                :imgUrl="project.imgUrl"
+                :title="project.title"
+                :description="project.shortDescription"
+              ></appSimpleCard>
+            </div>
+          </div>
+        </div>
+        <appSeperator title="Open Source"></appSeperator>
+        <div class="row xs-section-padding">
+          <div class="col-lg-12 mx-auto">
+            <div class="other-cases-cards-container">
+              <appSimpleCard
+                v-for="project in openSource"
+                :key="project.title"
+                :imgUrl="project.imgUrl"
+                :title="project.title"
+                :description="project.shortDescription"
+              ></appSimpleCard>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
-    <appPageBanner v-else :title="bannerTitle" :subtitle="bannerSubtitle" :imgUrl="bannerImgUrl"></appPageBanner>
   </Layout>
 </template>
 
 <script>
 import PageTransition from "@/components/animations/PageTransition";
 import PageBanner from "@/components/PageBanner";
-import bannerCopy from "@/constants/copy/bannerCopy";
+import ChapterHeader from "@/components/ChapterHeader";
+import Card from "@/components/Card";
+import Seperator from "@/components/Seperator";
+import SimpleCard from "@/components/SimpleCard";
+
+import featuredCases from "@/constants/copy/cases";
+import projects from "@/constants/projects";
 
 export default {
   components: {
     appPageTransition: PageTransition,
-    appPageBanner: PageBanner
+    appPageBanner: PageBanner,
+    appChapterHeader: ChapterHeader,
+    appCard: Card,
+    appSeperator: Seperator,
+    appSimpleCard: SimpleCard
   },
   metaInfo: {
     title: "Cases"
@@ -32,18 +94,41 @@ export default {
     this.pageLoad(this, this.animationOn);
   },
   computed: {
-    bannerTitle() {
-      return bannerCopy.cases.title;
+    featuredCases() {
+      return featuredCases;
     },
-    bannerSubtitle() {
-      return bannerCopy.cases.subtitle;
+    projects() {
+      return projects.filter(project => project.project).slice(0, 4);
     },
-    bannerImgUrl() {
-      return bannerCopy.cases.imgUrl;
+    openSource() {
+      return projects.filter(project => project.openSource).slice(0, 4);
     }
   }
 };
 </script>
 
 <style lang="scss" scoped>
+.cases-cards-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 80px;
+}
+
+@include mq($until: tablet) {
+  .cases-cards-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.other-cases-cards-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 80px;
+}
+
+@include mq($until: tablet) {
+  .other-cases-cards-container {
+    grid-template-columns: 1fr;
+  }
+}
 </style>

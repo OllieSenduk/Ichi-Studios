@@ -1,0 +1,143 @@
+.working-progress-area {
+	position: relative;
+}
+.working-progress-area .doodle-parallax .single-doodle {
+	position: absolute;
+}
+.working-progress-area .doodle-parallax .single-doodle.one {
+	right: -120px;
+	top: 482px;
+}
+.working-progress-area .doodle-parallax .single-doodle.two {
+	bottom: 320px;
+	left: -250px;
+}
+.single-working-progress {
+	counter-increment: step;
+}
+.count-number {
+	position: relative;
+	display: inline-block;
+	width: 62px;
+	height: 63px;
+	text-align: center;
+	z-index: 1;
+	line-height: 63px;
+	margin-bottom: 20px;
+}
+.count-number::before {
+	content: counter(step);
+	color: #ffffff;
+	font-size: 1.375rem;
+	font-weight: 700;
+	margin-left: -2px;
+	display: inline-block;
+}
+.count-number::after {
+	position: absolute;
+	content: "";
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-image: url(https://dazzling-goodall-bb1549.netlify.com/assets/images/progress/spin.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	z-index: -1;
+}
+.spin.count-number {
+	visibility: hidden;
+}
+.spin.count-number::after {
+	-webkit-transform-origin: center center;
+	-ms-transform-origin: center center;
+	transform-origin: center center;
+	-webkit-transform: rotate(0deg);
+	-ms-transform: rotate(0deg);
+	transform: rotate(0deg);
+	-webkit-transition: -webkit-transform 1s ease;
+	transition: -webkit-transform 1s ease;
+	-o-transition: transform 1s ease;
+	transition: transform 1s ease;
+	transition: transform 1s ease, -webkit-transform 1s ease;
+}
+.spin.count-number.animated::after {
+	-webkit-transform: rotate(720deg);
+	-ms-transform: rotate(720deg);
+	transform: rotate(720deg);
+}
+.working-progress-images img {
+	border-radius: 5px;
+	-webkit-box-shadow: 0px 15px 50px 0px rgba(0, 0, 0, 0.06);
+	box-shadow: 0px 15px 50px 0px rgba(0, 0, 0, 0.06);
+}
+.working-progress-content {
+	padding-top: 25px;
+}
+.working-progress-content .section-title {
+	font-size: 1.875rem;
+	font-weight: 600;
+	margin-bottom: 25px;
+}
+.single-working-progress:not(:last-child) {
+	position: relative;
+	padding-bottom: 300px;
+}
+.single-working-progress:not(:last-child)::before {
+	position: absolute;
+	content: "";
+	bottom: 50px;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	transform: translateX(-50%);
+	width: 555px;
+	height: 200px;
+	background-image: url(https://i.imgur.com/gp2LeNX.png);
+}
+.single-working-progress:nth-child(even) > .row {
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: reverse;
+	-ms-flex-direction: row-reverse;
+	flex-direction: row-reverse;
+}
+.single-working-progress:nth-child(even) .working-progress-images {
+	padding-right: 28px;
+}
+.single-working-progress:nth-child(odd) .working-progress-content {
+	padding-right: 30px;
+}
+.agency-section-title {
+	margin-bottom: 23px;
+	position: relative;
+	z-index: 1;
+}
+.agency-section-title .sub-title {
+	font-size: 0.875rem;
+	color: $color-primary;
+	font-weight: 700;
+	font-family: "Roboto", sans-serif;
+	letter-spacing: 1px;
+	margin-bottom: 10px;
+}
+.agency-section-title .main-title {
+	font-size: 2.25rem;
+	font-weight: 700;
+	margin-bottom: 0px;
+}
+.agency-section-title .main-title em {
+	font-family: "Playfair Display", serif;
+}
+.agency-section-title.text-center {
+	margin-bottom: 80px;
+}
+.agency-section-title.text-center .watermark-title {
+	top: -69px;
+}
+
+@include mq($until: largeMobile) {
+    .agency-section-title.text-center .watermark-title {
+        top: -20px;
+    }
+}

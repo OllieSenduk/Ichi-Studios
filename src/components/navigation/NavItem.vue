@@ -1,5 +1,5 @@
 <template>
-  <b-nav-item :active="checkForActive()" :to="title">{{title}}</b-nav-item>
+  <b-nav-item :active="checkForActive()" :to="`/${title}`">{{title}}</b-nav-item>
 </template>
 
 <script>

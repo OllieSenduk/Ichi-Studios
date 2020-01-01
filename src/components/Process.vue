@@ -3,46 +3,39 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-10 mx-auto">
-          <div class="agency-section-title text-center">
-            <h3 class="sub-title">CHAPTER ONE</h3>
-            <h4 class="main-title">
-              Our Working
-              <em>Process</em>
-            </h4>
-            <span
-              class="watermark-title"
-              data-scrollax="properties: { translateY: '-250px' }"
-              style="transform: translateZ(0px) translateY(58.1798px);"
-            >PROCESS</span>
-          </div>
+          <appChapterHeader></appChapterHeader>
         </div>
       </div>
       <div class="row">
         <div class="col-lg-12 mx-auto single-working-progress">
-                <appProcessContent :title="content.stepOne.title" :content="content.stepOne.content" :imgUrl="content.stepOne.imgUrl" :imgContainer="content.stepOne.imgContainer"></appProcessContent>
+          <appProcessContent
+            :title="content.stepOne.title"
+            :content="content.stepOne.content"
+            :imgUrl="content.stepOne.imgUrl"
+            :imgContainer="content.stepOne.imgContainer"
+          ></appProcessContent>
         </div>
         <!-- .single-working-progress END -->
         <div class="col-lg-12 mx-auto single-working-progress">
-                <appProcessContent :title="content.stepTwo.title" :content="content.stepTwo.content" :imgUrl="content.stepTwo.imgUrl" :imgContainer="content.stepTwo.imgContainer"></appProcessContent>
-
+          <appProcessContent
+            :title="content.stepTwo.title"
+            :content="content.stepTwo.content"
+            :imgUrl="content.stepTwo.imgUrl"
+            :imgContainer="content.stepTwo.imgContainer"
+          ></appProcessContent>
         </div>
         <!-- .single-working-progress END -->
         <div class="col-lg-12 mx-auto single-working-progress">
-                <appProcessContent :title="content.stepThree.title" :content="content.stepThree.content" :imgUrl="content.stepThree.imgUrl" :imgContainer="content.stepThree.imgContainer"></appProcessContent>
+          <appProcessContent
+            :title="content.stepThree.title"
+            :content="content.stepThree.content"
+            :imgUrl="content.stepThree.imgUrl"
+            :imgContainer="content.stepThree.imgContainer"
+          ></appProcessContent>
 
-              <!-- <div class="working-progress-content">
-                <span class="count-number wow spin animated" style="visibility: visible;"></span>
-                <h2 class="section-title">Reflect & Adjust</h2>
-                <p>We work systematic integrate corporate responsibility in our core business and make our expertise available the benefit of the societies where we</p>
-              </div> -->
-              <!-- .working-progress-content END -->
-            <!-- </div>
-            <div class="col-md-6 hv-center-flex">
-              <div class="working-progress-images"> -->
-                <!-- <img src="assets/images/progress/progress-3.jpg" alt draggable="false" /> -->
-              <!-- </div> -->
-              <!-- .working-progress-images END -->
-        </div>        <!-- .single-working-progress END -->
+          <!-- .working-progress-images END -->
+        </div>
+        <!-- .single-working-progress END -->
       </div>
       <!-- .row END -->
     </div>
@@ -69,162 +62,36 @@
 </template>
 
 <script>
-    import ProcessContent from '@/components/ProcessContent';
-    import ProcessStepContent from '@/constants/copy/processStepContent';
-    import bannerCopy from "@/constants/copy/bannerCopy";
+import ProcessContent from "@/components/ProcessContent";
+import ChapterHeader from "@/components/ChapterHeader";
 
-    export default {
-        components: {
-            appProcessContent: ProcessContent
-        },
-         computed: {
-            content() {
-                return ProcessStepContent;
-            },
-         }
+// COPY
+import processStepContent from "@/constants/copy/processStepContent";
+import bannerCopy from "@/constants/copy/bannerCopy";
+import chapterHeaders from "@/constants/copy/chapterHeaders";
+
+export default {
+  components: {
+    appProcessContent: ProcessContent,
+    appChapterHeader: ChapterHeader
+  },
+  methods: {
+    currentPath() {
+      return this.$root._route.path.substr(1);
     }
+  },
+  computed: {
+    content() {
+      return processStepContent;
+    }
+  },
+  created() {}
+};
 </script>
 
 <style lang="scss">
 /*! CSS Used from: https://dazzling-goodall-bb1549.netlify.com/assets/css/style.css */
 
-.working-progress-area {
-  position: relative;
-}
-.working-progress-area .doodle-parallax .single-doodle {
-  position: absolute;
-}
-.working-progress-area .doodle-parallax .single-doodle.one {
-  right: -120px;
-  top: 482px;
-}
-.working-progress-area .doodle-parallax .single-doodle.two {
-  bottom: 320px;
-  left: -250px;
-}
-.single-working-progress {
-  counter-increment: step;
-}
-.count-number {
-  position: relative;
-  display: inline-block;
-  width: 62px;
-  height: 63px;
-  text-align: center;
-  z-index: 1;
-  line-height: 63px;
-  margin-bottom: 20px;
-}
-.count-number::before {
-  content: counter(step);
-  color: #ffffff;
-  font-size: 1.375rem;
-  font-weight: 700;
-  margin-left: -2px;
-  display: inline-block;
-}
-.count-number::after {
-  position: absolute;
-  content: "";
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url(https://dazzling-goodall-bb1549.netlify.com/assets/images/progress/spin.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  z-index: -1;
-}
-.spin.count-number {
-  visibility: hidden;
-}
-.spin.count-number::after {
-  -webkit-transform-origin: center center;
-  -ms-transform-origin: center center;
-  transform-origin: center center;
-  -webkit-transform: rotate(0deg);
-  -ms-transform: rotate(0deg);
-  transform: rotate(0deg);
-  -webkit-transition: -webkit-transform 1s ease;
-  transition: -webkit-transform 1s ease;
-  -o-transition: transform 1s ease;
-  transition: transform 1s ease;
-  transition: transform 1s ease, -webkit-transform 1s ease;
-}
-.spin.count-number.animated::after {
-  -webkit-transform: rotate(720deg);
-  -ms-transform: rotate(720deg);
-  transform: rotate(720deg);
-}
-.working-progress-images img {
-  border-radius: 5px;
-  -webkit-box-shadow: 0px 15px 50px 0px rgba(0, 0, 0, 0.06);
-  box-shadow: 0px 15px 50px 0px rgba(0, 0, 0, 0.06);
-}
-.working-progress-content {
-  padding-top: 25px;
-}
-.working-progress-content .section-title {
-  font-size: 1.875rem;
-  font-weight: 600;
-  margin-bottom: 25px;
-}
-.single-working-progress:not(:last-child) {
-  position: relative;
-  padding-bottom: 300px;
-}
-.single-working-progress:not(:last-child)::before {
-  position: absolute;
-  content: "";
-  bottom: 50px;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
-  width: 555px;
-  height: 200px;
-  background-image: url(https://i.imgur.com/gp2LeNX.png);
-}
-.single-working-progress:nth-child(even) > .row {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: reverse;
-  -ms-flex-direction: row-reverse;
-  flex-direction: row-reverse;
-}
-.single-working-progress:nth-child(even) .working-progress-images {
-  padding-right: 28px;
-}
-.single-working-progress:nth-child(odd) .working-progress-content {
-  padding-right: 30px;
-}
-.agency-section-title {
-  margin-bottom: 23px;
-  position: relative;
-  z-index: 1;
-}
-.agency-section-title .sub-title {
-  font-size: 0.875rem;
-  color: $color-primary;
-  font-weight: 700;
-  font-family: "Roboto", sans-serif;
-  letter-spacing: 1px;
-  margin-bottom: 10px;
-}
-.agency-section-title .main-title {
-  font-size: 2.25rem;
-  font-weight: 700;
-  margin-bottom: 0px;
-}
-.agency-section-title .main-title em {
-  font-family: "Playfair Display", serif;
-}
-.agency-section-title.text-center {
-  margin-bottom: 80px;
-}
-.agency-section-title.text-center .watermark-title {
-  top: -69px;
-}
 [data-scrollax-parent="true"] > .container > .row + .row {
   z-index: 2;
   position: relative;
@@ -254,23 +121,16 @@ h3 {
   font-weight: 700;
 }
 
-.xs-section-padding {
-  padding: 100px 0;
-}
 p:last-child {
   margin-bottom: 0px;
 }
 /*! CSS Used from: https://dazzling-goodall-bb1549.netlify.com/assets/css/responsive.css */
 @media (max-width: 991px) {
-  .watermark-title {
-    display: none;
-  }
+
   .doodle-parallax {
     display: none;
   }
-  .xs-section-padding {
-    padding: 60px 0;
-  }
+
   .single-working-progress:nth-child(odd) .working-progress-content {
     padding-right: 0;
   }
@@ -292,6 +152,7 @@ p:last-child {
   .agency-section-title.text-center {
     margin-bottom: 40px;
   }
+  
   .agency-section-title .main-title {
     font-size: 1.55rem;
   }

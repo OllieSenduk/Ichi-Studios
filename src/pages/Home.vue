@@ -1,9 +1,9 @@
 <template>
   <Layout>
-    <section v-if="animationOn">
+    <!-- <section v-if="animationOn">
       <appPageTransition :link="transitionAnimationLink"></appPageTransition>
-    </section>
-    <div v-else>
+    </section>-->
+    <div>
       <appHomeBanner></appHomeBanner>
       <appProcess></appProcess>
     </div>
@@ -13,13 +13,15 @@
 <script>
 import PageTransition from "@/components/animations/PageTransition";
 import HomeBanner from "@/components/HomeBanner";
+import Contact from "@/components/Contact";
 import Process from "@/components/Process";
 
 export default {
   components: {
     appPageTransition: PageTransition,
     appHomeBanner: HomeBanner,
-    appProcess: Process
+    appProcess: Process,
+    appContact: Contact
   },
   metaInfo: {
     title: "Home"

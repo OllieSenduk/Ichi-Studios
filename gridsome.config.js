@@ -6,7 +6,6 @@ function addStyleResource(rule) {
 	});
 }
 
-
 module.exports = {
 	siteName: 'Ichi Studios',
 	siteDescription: 'A starter project for Gridsome with Bootstrap and some other useful tools.',

@@ -1,0 +1,15 @@
+.nav-link {
+	font-family: $body-font;
+	font-size: 18px;
+	color: black !important;
+	&.active {
+		color: $color-primary !important;
+	}
+}
+
+@include mq($until: tablet) {
+	.nav-link {
+		font-family: $body-font;
+		font-size: 15px;
+	}
+}

@@ -10,6 +10,8 @@ import './assets/styles/bootstrap.scss';
 // MIXINGS
 import checkIfMobile from './mixins/checkIfMobile';
 import pageLoad from './mixins/pageLoad';
+import currentPath from './mixins/currentPath';
+import imgAltFromTitle from './mixins/imgAltFromTitle';
 
 // MAIN APPLICATION
 export default function(Vue, { router, head, isClient }) {
@@ -22,4 +24,6 @@ export default function(Vue, { router, head, isClient }) {
 	Vue.component('Layout', DefaultLayout);
 	Vue.mixin(checkIfMobile);
 	Vue.mixin(pageLoad);
+	Vue.mixin(currentPath);
+	Vue.mixin(imgAltFromTitle);
 }

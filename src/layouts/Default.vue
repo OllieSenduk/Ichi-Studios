@@ -2,11 +2,10 @@
   <div class="layout">
     <div class="content-wrapper">
       <Header />
-      <transition>
-        <div class="application-wrapper" mode="out-in">
-          <slot />
-        </div>
-      </transition>
+      <div class="application-wrapper" mode="out-in">
+        <slot />
+        <Contact />
+      </div>
     </div>
     <Footer />
   </div>
@@ -15,11 +14,13 @@
 <script>
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import Contact from "../components/Contact";
 
 export default {
   components: {
     Footer,
-    Header
+    Header,
+    Contact
   }
 };
 </script>
