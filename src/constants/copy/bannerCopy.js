@@ -6,7 +6,7 @@ const bannerCopy = {
 		imgUrl: 'https://api.jsonbin.io/b/5e088af032536c77d677d951'
 	},
 	Cases: {
-		title: "Work we're Proud of",
+		title: 'Where Digital Inovation meets Design.',
 		subtitle:
 			'We draw upon logic, imagination, intuition and systematic reasoning to find solutions for our clients.',
 		imgUrl: 'https://api.jsonbin.io/b/5e087ef132536c77d677d5c5'

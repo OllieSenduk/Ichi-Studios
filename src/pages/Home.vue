@@ -5,6 +5,8 @@
     </section>-->
     <div>
       <appHomeBanner></appHomeBanner>
+      <appQuote></appQuote>
+
       <appProcess></appProcess>
     </div>
   </Layout>
@@ -13,6 +15,8 @@
 <script>
 import PageTransition from "@/components/animations/PageTransition";
 import HomeBanner from "@/components/HomeBanner";
+import Quote from "@/components/Quote";
+
 import Contact from "@/components/Contact";
 import Process from "@/components/Process";
 
@@ -21,6 +25,7 @@ export default {
     appPageTransition: PageTransition,
     appHomeBanner: HomeBanner,
     appProcess: Process,
+    appQuote: Quote,
     appContact: Contact
   },
   metaInfo: {

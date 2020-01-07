@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="agency-section-title text-center">
-      <h3 class="sub-title">{{subtitle}}</h3>
+      <h3 class="sub-title" v-if="subtitle">{{subtitle}}</h3>
       <h4 class="main-title">
         {{titleFirstWords}}
         <em>{{titleLastWord}}</em>
@@ -21,7 +21,7 @@ import chapterHeaders from "@/constants/copy/chapterHeaders";
 export default {
   methods: {
     title() {
-      return chapterHeaders[this.currentPath(this)].title;
+      return chapterHeaders[this.currentPath(this)].title || "";
     }
   },
   computed: {
@@ -44,7 +44,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 @include mq($until: largeMobile) {
   .watermark-title {
     display: none;

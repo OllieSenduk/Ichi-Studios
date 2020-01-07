@@ -1,17 +1,26 @@
 <template>
-  <g-link :to="link" class="card">
-    <img :src="imgUrl" :style="imgStyleFromProps" :alt="imgAltFromTitle('case', title)" />
+  <g-link :to="path" class="card">
+    <div id="w-node-22c4160c98e8-eaea5c31" :style="imgStyleFromProps" :class="link"></div>
+
+    <!-- <img :src="imgUrl" :style="imgStyleFromProps" :alt="imgAltFromTitle('case', title)" /> -->
     <div class="card-infos">
       <div>
         <h2 class="text-center">{{title}}</h2>
         <p>{{description}}</p>
+        <appSmallButton></appSmallButton>
       </div>
     </div>
   </g-link>
 </template>
 
 <script>
+import lottie from "lottie-web";
+import SmallButton from "@/components/SmallButton";
+
 export default {
+  components: {
+    appSmallButton: SmallButton
+  },
   props: {
     link: {
       type: String,
@@ -35,11 +44,21 @@ export default {
       default: "cover"
     }
   },
+  mounted() {
+    lottie.loadAnimation({
+      container: document.querySelector("." + this.$props.link),
+      renderer: "canvas",
+      loop: true,
+      autoplay: true,
+      path: this.$props.imgUrl
+    });
+    lottie.setLocationHref();
+  },
   computed: {
     imgStyleFromProps() {
       return `object-fit: ${this.$props.imgFit}`;
     },
-    link() {
+    path() {
       return `cases/${this.$props.link}/`;
     }
   }

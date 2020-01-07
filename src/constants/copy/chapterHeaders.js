@@ -6,11 +6,13 @@ const chapterTitles = {
 	},
 	Cases: {
 		title: 'Featured Cases',
-		subtitle: 'chapter two',
+		subtitle: 'chapter three',
 		watermark: 'Our Work'
 	},
 	About: {
-		title: ''
+		title: 'Team & Values',
+		subtitle: 'chapter two',
+		watermark: 'About us'
 	}
 };
 

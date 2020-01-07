@@ -2,7 +2,7 @@
   <div class="layout">
     <div class="content-wrapper">
       <Header />
-      <div class="application-wrapper" mode="out-in">
+      <div class="application-wrapper">
         <slot />
         <Contact />
       </div>

@@ -1,7 +1,7 @@
 <template>
-  <section class="banner" v-else>
+  <section class="banner">
     <!-- <div class="container"> -->
-    <div class="hero_container">
+    <div class="hero_container container">
       <div
         id="w-node-22c4160c98df-eaea5c31"
         data-w-id="6866990c-9e10-825e-284a-22c4160c98df"
@@ -11,7 +11,7 @@
         <p
           id="subheader"
           class="paragraph-l cc-subhead"
-        >We help brands find digital solutions by desiging & building scalable prototypes.</p>
+        >We help brands find digital solutions by desiging, building & testing scalable prototypes.</p>
         <appButton title="Get in Touch" subtitle=" - but really!"></appButton>
       </div>
       <div id="w-node-22c4160c98e8-eaea5c31" class="hero_screenshot"></div>
@@ -50,7 +50,7 @@ export default {
   },
   computed: {
     logos() {
-      return projectLogos;
+      return projectLogos.filter(logo => !logo.openSource);
     }
   }
 };

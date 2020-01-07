@@ -1,6 +1,6 @@
 <template>
-  <section class="banner" v-else>
-    <div class="hero_container">
+  <section class="banner">
+    <div class="hero_container container">
       <div
         id="w-node-22c4160c98df-eaea5c31"
         data-w-id="6866990c-9e10-825e-284a-22c4160c98df"

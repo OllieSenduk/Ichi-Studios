@@ -4,7 +4,7 @@
       <appPageTransition :link="transitionAnimationLink"></appPageTransition>
     </section>-->
     <appPageBanner></appPageBanner>
-    <section class="xs-section-padding working-progress-area" data-scrollax-parent="true">
+    <section class="xs-section-padding working-progress-area">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 mx-auto single-working-progress">
@@ -66,6 +66,7 @@ import ChapterHeader from "@/components/ChapterHeader";
 import Card from "@/components/Card";
 import Seperator from "@/components/Seperator";
 import SimpleCard from "@/components/SimpleCard";
+import SmallButton from "@/components/SmallButton";
 
 import featuredCases from "@/constants/copy/cases";
 import projects from "@/constants/projects";
@@ -77,7 +78,8 @@ export default {
     appChapterHeader: ChapterHeader,
     appCard: Card,
     appSeperator: Seperator,
-    appSimpleCard: SimpleCard
+    appSimpleCard: SimpleCard,
+    appSmallButton: SmallButton
   },
   metaInfo: {
     title: "Cases"
@@ -98,7 +100,7 @@ export default {
       return featuredCases;
     },
     projects() {
-      return projects.filter(project => project.project).slice(0, 4);
+      return projects.filter(project => project.project).slice(0, 6);
     },
     openSource() {
       return projects.filter(project => project.openSource).slice(0, 4);

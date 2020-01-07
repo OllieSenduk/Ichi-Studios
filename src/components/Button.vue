@@ -7,7 +7,7 @@
   >
     <div>
       {{title}}
-      <span class="cta-button_sub-text">{{subtitle}}</span>
+      <span class="cta-button_sub-text" v-if="subtitle">{{subtitle}}</span>
     </div>
     <div data-w-id="762d5b6f-0761-e312-ee75-d1d01e68edcd" class="inner-button"></div>
   </a>
@@ -21,7 +21,8 @@ export default {
       default: "Get in touch"
     },
     subtitle: {
-      type: String
+      type: String,
+      required: false
     }
   }
 };

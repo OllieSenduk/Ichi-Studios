@@ -5,19 +5,26 @@ const projectLogos = [
 		project: false
 	},
 	{
+		title: 'This Talent Works',
+		imgUrl: 'https://i.imgur.com/CLdnIx7.png',
+		project: true,
+		link: 'https://thistalentworks.com/',
+		shortDescription:
+			'How can we achieve a sustainable growth rate, now that we have reached product-market fit with our platform?'
+	},
+	{
 		title: 'Zaina',
 		imgUrl: 'https://i.imgur.com/3XaAZuW.png',
 		project: true,
 		link: 'https://zaina.io/',
-		shortDescription:
-			'How can we build a platform to help Moroccan startups become more visible and link them to the right investors?'
+		shortDescription: 'How can we help Moroccan startups become more visible and link them to the right investors?'
 	},
 	{
-		title: 'Tablevibe',
-		imgUrl: 'https://i.imgur.com/VKBmmM8.png',
+		title: 'Clubhaus',
+		imgUrl: 'https://i.imgur.com/VdHJiQw.png',
 		project: true,
-		shortDescription:
-			'How can restaurants utilize customer feedback to create a better customer experience & grow their business?'
+		link: 'creativosdelanoche.com',
+		shortDescription: 'How can we bring together the creative talent Barcelona has to offer?'
 	},
 	{
 		title: 'Ikea',
@@ -34,21 +41,21 @@ const projectLogos = [
 		imgUrl: 'https://i.imgur.com/y6vzoAX.png',
 		project: true,
 		link: 'https://www.jobdex.nl/',
-		shortDescription: 'How can we build a platform for freelancers looking for work in the hospitality industry?'
+		shortDescription: 'How can we connect talented freelancers with companies in the hospitality industry?'
 	},
 	{
 		title: 'Lawspot',
 		imgUrl: 'https://i.imgur.com/89tZdKj.png',
 		project: true,
 		link: 'https://www.lawspot.nl/',
-		shortDescription: 'How can we improve user-experience & whilst also improving SEO to our platform?'
+		shortDescription:
+			'How can make the user-experience of our platform more intuitive while improving on SEO rankings?'
 	},
 	{
-		title: 'Clubhaus',
-		imgUrl: 'https://i.imgur.com/VdHJiQw.png',
-		project: true,
-		link: 'creativosdelanoche.com',
-		shortDescription: 'How can we bring together the creative talent Barcelona has to offer?'
+		title: 'Ikea',
+		shortDescription: 'How can we train our employees to be equiped for the digital future ahead?',
+		imgUrl: 'https://i.imgur.com/usLBmhC.jpg',
+		project: true
 	},
 	{
 		title: 'Draw Static',
