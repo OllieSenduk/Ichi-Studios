@@ -1,14 +1,20 @@
 <template>
   <section>
-    <form action class="form">
+    <form action="https://formspree.io/xzbdneva" method="POST" ref='form'>
       <input
         type="text"
-        value="Email"
+        v-model='email'
+        placeholder="Email"
         onfocus="if (this.value=='Email') this.value='';"
         onblur="if (this.value=='') this.value='Email';"
         class="form__input"
       />
-      <appButton title="Request Call" style="width: 100%;"></appButton>
+      <div v-if='hasError'>
+        <p>
+          Please enter a valid email
+        </p>
+      </div>
+      <appButton title="Request Call" style="width: 100%;" @clicked='submit'></appButton>
     </form>
   </section>
 </template>
@@ -19,6 +25,32 @@ import Button from "@/components/Button";
 export default {
   components: {
     appButton: Button
+  },
+  data() {
+    return {
+      email: null,
+      hasError: false
+    }
+  },
+  methods: {
+    submit() {
+      if (this.validate()) {
+        this.$refs.form.submit()
+      }
+    },
+    validate() {
+      if (this.email && this.validateEmail()) {
+        this.hasError = false;
+        return true;
+      }
+
+      this.hasError = true;
+      return false;
+    },
+    validateEmail() {
+      const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(String(this.email).toLowerCase());
+    }
   }
 };
 </script>

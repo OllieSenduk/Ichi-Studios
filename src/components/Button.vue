@@ -3,6 +3,7 @@
     id="continue-hero"
     data-w-id="6866990c-9e10-825e-284a-22c4160c98e4"
     href="#"
+    @click="clicked"
     class="hero-button cc-main w-inline-block"
   >
     <div>
@@ -23,6 +24,21 @@ export default {
     subtitle: {
       type: String,
       required: false
+    },
+    scrollToElement: {
+      type: String,
+      required: false,
+      default: null
+    }
+  },
+  methods: {
+    clicked() {
+      this.$emit('clicked')
+
+      if (this.scrollToElement) {
+        this.$scrollTo(this.scrollToElement, 1000, {offset: -100})
+        // document.querySelector().scrollIntoView({ block: "end", behavior: "smooth" })
+      }
     }
   }
 };

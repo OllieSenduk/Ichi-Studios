@@ -3,7 +3,7 @@ import DefaultLayout from '~/layouts/Default.vue';
 // PACKAGES
 import BootstrapVue from 'bootstrap-vue';
 import lottie from 'lottie-web';
-
+import VueScrollTo from 'vue-scrollto'
 // STYLES
 import './assets/styles/bootstrap.scss';
 
@@ -20,6 +20,7 @@ export default function(Vue, { router, head, isClient }) {
 	});
 	Vue.use(BootstrapVue);
 	Vue.use(lottie);
+  Vue.use(VueScrollTo)
 
 	Vue.component('Layout', DefaultLayout);
 	Vue.mixin(checkIfMobile);

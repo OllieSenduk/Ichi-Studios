@@ -12,7 +12,7 @@
           id="subheader"
           class="paragraph-l cc-subhead"
         >We help brands find digital solutions by desiging, building & testing scalable prototypes.</p>
-        <appButton title="Get in Touch" subtitle=" - but really!"></appButton>
+        <appButton title="Get in Touch" subtitle=" - but really!" scrollToElement='.contact'></appButton>
       </div>
       <div id="w-node-22c4160c98e8-eaea5c31" class="hero_screenshot"></div>
       <div id="w-node-1e7871d5feeb-eaea5c31" class="hero_logos">

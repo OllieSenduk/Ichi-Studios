@@ -29,5 +29,8 @@ export default {
     width: 100%;
     height: 100%;
   }
+  .router-link-exact-active {
+    color: $color-primary !important;
+  }
 }
 </style>
