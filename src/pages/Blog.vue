@@ -2,20 +2,19 @@
   <Layout>
     <h1 class="my-4 mb-5">Blog</h1>
 
-    <g-link
-      :to="item.node.path"
-      v-for="item in $page.posts.edges"
-      :key="item.node.id"
-      class="blog-post"
-    >
+    <g-link>
 
-    <div class="media my-5">
-      <g-image immediate :src="item.node.image" class="mr-3" alt="image" />
-      <div class="media-body">
-        <h5 class="mt-0">{{item.node.title}}</h5>
-        <p class="text-dark">{{item.node.excerpt}}</p>
+      <div
+        class="media my-5"
+        v-for="item in $page.posts.edges"
+        :key="item.node.id"
+      >
+        <g-image immediate :src="item.node.image" class="mr-3" alt="image" />
+        <div class="media-body">
+          <h5 class="mt-0">Coming soon!</h5>
+          <p class="text-dark">This is coming, real soon. It will be incredibly soon. So soon. Soon. Stay tuned! This is coming, real soon. It will be incredibly soon. So soon. Soon. Stay tuned!</p>
+        </div>
       </div>
-    </div>
 
     </g-link>
   </Layout>
