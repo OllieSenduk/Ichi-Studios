@@ -2,7 +2,7 @@
   <header class="header pt2 pb2">
     <b-nav tabs justified class="content-wrapper fixed">
       <template v-for="link in links">
-        <appNavItem :title="link" :key="link"></appNavItem>
+        <appNavItem :title="link.name" :url="link.url" :key="link.url"></appNavItem>
       </template>
     </b-nav>
   </header>
@@ -27,7 +27,12 @@ export default {
   },
   data() {
     return {
-      links: ["Home", "About", "Cases", "Blog"]
+      links: [
+        {name: "Home", url: ''},
+        {name: "About", url: 'about'},
+        {name: "Cases", url: 'cases'},
+        {name: "Blog", url: 'blog'}
+      ]
     };
   }
 };
@@ -37,4 +42,12 @@ export default {
 .nav {
   z-index: 10;
 }
+.nav-tabs .nav-link.active {
+  border: none !important;
+}
+
+.nav-tabs .nav-link:hover {
+  border: none !important;
+}
+
 </style>

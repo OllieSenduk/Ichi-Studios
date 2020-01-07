@@ -18,9 +18,9 @@
 
           <div class="footer__nav-list">
             <a href="/" class="footer__link" data-footer-link="1">Home</a>
-            <a href="/About" class="footer__link" data-footer-link="2">About</a>
-            <a href="/Cases" class="footer__link" data-footer-link="3">Cases</a>
-            <a href="/Blog" class="footer__link" data-footer-link="4">Blog</a>
+            <a href="/about" class="footer__link" data-footer-link="2">About</a>
+            <a href="/cases" class="footer__link" data-footer-link="3">Cases</a>
+            <a href="/blog" class="footer__link" data-footer-link="4">Blog</a>
           </div>
         </div>
       </section>

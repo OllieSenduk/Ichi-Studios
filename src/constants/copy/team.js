@@ -2,39 +2,17 @@ const team = {
 	oliver: {
 		fullName: 'Oliver Senduk',
 		role: 'Founder / Head of Strategy',
-		texts: [
-			{
-				title: 'The hipster',
-				text: '.'
-			},
-			{
-				title: 'The Connector',
-				text:
-					'With a background as a software developer, Oliver knows how to speak both digital, as well as business.'
-			},
-			{
-				title: 'The Yogi',
-				text:
-					'Having a mother as a yoga teacher, he has learned the importance of sitting up straight at a young age.'
-			}
-		],
-		testimonial: {
-			logo: 'https://svgshare.com/i/HAC.svg',
-			name: 'Joscha Koepke',
-			function: 'Google - Global Product Lead',
-			text:
-				'Oliver was amazing. Always completely dedicated and had a great way of making complex situations simple. I loved his personal style and would recommend him to everybody!'
-		}
+		text: "Oliver is a software engineer with a focus on creating strategies & roadmaps to launch & grow ideas and products. Besides running Ichi Studios, he is also a mentor for the participants in the world's biggest Blockchain & AI hackathon Oddesy .",
 	},
 	inou: {
-		title: 'Featured Cases',
-		subtitle: 'chapter three',
-		watermark: 'Our Work'
+		fullName: 'Inou Ridder',
+    role: 'Founder / Head of Technology',
+    text: "Inou lives and breaths software and has led many digital projects to great success. Besides being a wizard with code, he also has amazing skills in communicating, which he has demontrated by being the lead teacher at the Le Wagon coding school for entrepeneurs, where he has given lectures to 300+ people all over the world. Inou also wrote this in third person"
 	},
 	leon: {
-		title: 'Team & Values',
-		subtitle: 'chapter two',
-		watermark: 'About us'
+		fullName: 'Leon Houweling',
+    role: 'Founder / Head of Sales',
+    text: "Leon has amassed a solid leadership record in the business and charity arenas. He has steered several companies through challenging phases to deliver results that position them for sustainable business growth."
 	}
 };
 
