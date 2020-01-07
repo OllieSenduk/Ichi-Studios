@@ -39,15 +39,15 @@ export default {
 </script>
 
 <style lang="scss">
-.nav {
-  z-index: 10;
-}
-.nav-tabs .nav-link.active {
-  border: none !important;
-}
+  .nav {
+    z-index: 10;
+  }
+  .nav-tabs .nav-link.active {
+    border: none !important;
+  }
 
-.nav-tabs .nav-link:hover {
-  border: none !important;
-}
+  .nav-tabs .nav-link:hover {
+    border: none !important;
+  }
 
 </style>
