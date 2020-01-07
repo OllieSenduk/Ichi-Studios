@@ -26,12 +26,12 @@
             </div>
           </div>
         </div>
-        <appSeperator title="Other Questions we helped answer"></appSeperator>
+        <appSeperator title="Other Questions we helped answer" class="xs-section-padding"></appSeperator>
         <div class="row xs-section-padding">
           <div class="col-lg-12 mx-auto">
             <div class="other-cases-cards-container">
               <appSimpleCard
-                v-for="project in projects"
+                v-for="project in appProjects"
                 :key="project.title"
                 :imgUrl="project.imgUrl"
                 :title="project.title"
@@ -40,9 +40,9 @@
             </div>
           </div>
         </div>
-        <appSeperator title="Open Source"></appSeperator>
-        <div class="row xs-section-padding">
-          <div class="col-lg-12 mx-auto">
+        <appSeperator title="Open Source" class="xs-section-padding"></appSeperator>
+        <div class="row">
+          <div class="col-lg-12 mx-auto xs-section-padding">
             <div class="other-cases-cards-container">
               <appSimpleCard
                 v-for="project in openSource"
@@ -99,7 +99,7 @@ export default {
     featuredCases() {
       return featuredCases;
     },
-    projects() {
+    appProjects() {
       return projects.filter(project => project.project).slice(0, 6);
     },
     openSource() {
@@ -118,18 +118,6 @@ export default {
 
 @include mq($until: tablet) {
   .cases-cards-container {
-    grid-template-columns: 1fr;
-  }
-}
-
-.other-cases-cards-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 80px;
-}
-
-@include mq($until: tablet) {
-  .other-cases-cards-container {
     grid-template-columns: 1fr;
   }
 }
