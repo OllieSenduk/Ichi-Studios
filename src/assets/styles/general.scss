@@ -115,6 +115,18 @@ h4 {
 	}
 }
 
+.other-cases-cards-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 80px;
+}
+
+@include mq($until: tablet) {
+	.other-cases-cards-container {
+		grid-template-columns: 1fr;
+	}
+}
+
 //   SPACING
 
 .hv-center-flex {

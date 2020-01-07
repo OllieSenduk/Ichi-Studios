@@ -13,10 +13,24 @@
         </div>
       </div>
     </section>
-
-    <appSeperator title="Leadership Team"></appSeperator>
-    <appFeatureCard></appFeatureCard>
-    <appSeperator title="Some other things about us"></appSeperator>
+    <div class="row xs-section-padding">
+      <div class="col-lg-12 mx-auto">
+        <div class="other-cases-cards-container">
+          <appSimpleCard
+            v-for="value in appValues"
+            :key="value.title"
+            :imgUrl="value.imgUrl"
+            :title="value.title"
+            :description="value.text"
+            :json="value.json"
+          ></appSimpleCard>
+        </div>
+      </div>
+    </div>
+    <appSeperator title="Leadership Team" class="xs-section-padding"></appSeperator>
+    <appWideCard></appWideCard>
+    <appFeatureCard class="xs-section-padding"></appFeatureCard>
+    <appSeperator title="Some other things about us" class="xs-section-padding"></appSeperator>
 
     <appArtsyGrid class="xs-section-padding"></appArtsyGrid>
   </Layout>
@@ -31,6 +45,10 @@ import HumanChart from "@/components/HumanChart";
 import Quote from "@/components/Quote";
 import ArtsyGrid from "@/components/ArtsyGrid";
 import FeatureCard from "@/components/FeatureCard";
+import SimpleCard from "@/components/SimpleCard";
+import WideCard from "@/components/WideCard";
+
+import values from "@/constants/copy/values";
 
 export default {
   components: {
@@ -41,7 +59,9 @@ export default {
     appHumanChart: HumanChart,
     appQuote: Quote,
     appArtsyGrid: ArtsyGrid,
-    appFeatureCard: FeatureCard
+    appFeatureCard: FeatureCard,
+    appSimpleCard: SimpleCard,
+    appWideCard: WideCard
   },
   metaInfo: {
     title: "About"
@@ -53,7 +73,12 @@ export default {
         "https://api.jsonbin.io/b/5e09239902ce5777b8b45b6b"
     };
   },
-  computed: {},
+  computed: {
+    appValues() {
+      return values;
+    }
+  },
+
   created() {
     this.pageLoad(this, this.animationOn);
   }

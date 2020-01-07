@@ -5,10 +5,12 @@ const team = {
 		texts: [
 			{
 				title: 'The hipster',
-				text: 'Oliver is always out there trying to make new things happen.'
+				text: '.'
 			},
 			{
-				title: ''
+				title: 'The Connector',
+				text:
+					'With a background as a software developer, Oliver knows how to speak both digital, as well as business.'
 			},
 			{
 				title: 'The Yogi',

@@ -1,7 +1,12 @@
 <template>
   <div class="card-simple">
-    <div class="card-simple__image-wrapper">
-      <img :src="imgUrl" :alt="imgAltFromTitle('case', title)" class="card-simple__image" />
+    <div class="card-simple__image-wrapper" :class="containerClass">
+      <img
+        :src="imgUrl"
+        :alt="imgAltFromTitle('case', title)"
+        class="card-simple__image"
+        v-if="!json"
+      />
     </div>
     <div class="card-simple__content text-center">
       <h3 class="text-center">{{title}}</h3>
@@ -12,6 +17,7 @@
 
 <script>
 import bannerCopy from "@/constants/copy/bannerCopy";
+import lottie from "lottie-web";
 
 export default {
   props: {
@@ -26,11 +32,29 @@ export default {
     description: {
       type: String,
       required: true
+    },
+    json: {
+      type: Boolean,
+      required: false,
+      default: false
     }
+  },
+  mounted() {
+    lottie.loadAnimation({
+      container: document.querySelector("." + this.containerClass),
+      renderer: "canvas",
+      loop: true,
+      autoplay: true,
+      path: this.$props.imgUrl
+    });
+    lottie.setLocationHref();
   },
   computed: {
     backgroundImg() {
       return `background-image: url(${this.$props.imgUrl})`;
+    },
+    containerClass() {
+      return this.$props.title.replace(/ /g, "");
     }
   }
 };

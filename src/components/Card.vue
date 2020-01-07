@@ -1,8 +1,6 @@
 <template>
   <g-link :to="path" class="card">
     <div id="w-node-22c4160c98e8-eaea5c31" :style="imgStyleFromProps" :class="link"></div>
-
-    <!-- <img :src="imgUrl" :style="imgStyleFromProps" :alt="imgAltFromTitle('case', title)" /> -->
     <div class="card-infos">
       <div>
         <h2 class="text-center">{{title}}</h2>
