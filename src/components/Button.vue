@@ -3,6 +3,7 @@
     id="continue-hero"
     data-w-id="6866990c-9e10-825e-284a-22c4160c98e4"
     href="#"
+    @click="$emit('clicked')"
     class="hero-button cc-main w-inline-block"
   >
     <div>

@@ -11,15 +11,15 @@
               </li>
               <li class="project__info-list-item">
                 <p class="project__info-list-label">Categories</p>
-                <ul>
-                  <li
+
+                  <div
                     v-for="(category, index) in categories"
                     :key="index"
                     class="project__info-list-sub-item"
                   >
                     <h6 class="project__info-list-title">{{category}}</h6>
-                  </li>
-                </ul>
+                  </div>
+
               </li>
               <li class="project__info-list-item">
                 <p class="project__info-list-label">Duration</p>
