@@ -17,7 +17,7 @@
         </div>
         <div span="7" class="artsy-grid__second">
           <div style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
-            <h3>Humanity Obsessed</h3>
+            <h3>Obsessed with Humans</h3>
             <p>We strive to create work that adds value to people’s lives, not noise. We believe our industry needs to be transformed to create things people actually want and welcome.</p>
           </div>
         </div>
@@ -45,19 +45,10 @@
         <div class="artsy-grid__sixth">
           <div style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
             <h3>Creatively Led</h3>
-            <p>With our projects the biggest objective is always to capture the hearts and minds with thoughtful creations that elevate the mission of your brand.</p>
+            <p>With our projects the biggest objective is always to capture the hearts and minds of your users. We do this by always thinking how we can elevate the mission of your brand.</p>
           </div>
         </div>
-        <div class="artsy-grid__eith">
-          <div width="200" height="180" class="hgXpdm">
-            <img alt="Ichi Studio Values" src="https://i.imgur.com/QgGXFy0.jpg" />
-          </div>
-        </div>
-        <div class="dtIzwI">
-          <div width="390" height="330" class="jLmxvh">
-            <img alt="Ichi Studio Values" src="https://i.imgur.com/TrXW61P.png" />
-          </div>
-        </div>
+
         <div class="artsy-grid__ninth">
           <div class="dceMee">
             <div style="height: 100%;">

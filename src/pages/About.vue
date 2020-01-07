@@ -28,8 +28,16 @@
       </div>
     </div>
     <appSeperator title="Leadership Team" class="xs-section-padding"></appSeperator>
-    <appWideCard></appWideCard>
-    <appFeatureCard class="xs-section-padding"></appFeatureCard>
+    <appWideCard
+      v-for="(member, index) in appTeam"
+      :key="index"
+      :index="index"
+      :imgUrl="member.imgUrl"
+      :role="member.role"
+      :name="member.fullName"
+      :text="member.text"
+      class="xs-section-padding"
+    ></appWideCard>
     <appSeperator title="Some other things about us" class="xs-section-padding"></appSeperator>
 
     <appArtsyGrid class="xs-section-padding"></appArtsyGrid>
@@ -49,6 +57,7 @@ import SimpleCard from "@/components/SimpleCard";
 import WideCard from "@/components/WideCard";
 
 import values from "@/constants/copy/values";
+import team from "@/constants/copy/team";
 
 export default {
   components: {
@@ -76,6 +85,9 @@ export default {
   computed: {
     appValues() {
       return values;
+    },
+    appTeam() {
+      return team;
     }
   },
 

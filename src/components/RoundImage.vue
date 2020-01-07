@@ -8,13 +8,12 @@
               <img
                 width="300"
                 height="300"
-                src="https://www.spotzer.com/wp-content/uploads/2017/09/Pete-min-300x300.jpg"
-                data-lazy-src="https://www.spotzer.com/wp-content/uploads/2017/09/Pete-min-300x300.jpg"
+                :src="imgUrl"
+                :data-lazy-src="imgUrl"
                 class="attachment-medium size-medium wp-post-image lazyloaded"
                 alt
-                data-lazy-srcset="https://www.spotzer.com/wp-content/uploads/2017/09/Pete-min-300x300.jpg 300w, https://www.spotzer.com/wp-content/uploads/2017/09/Pete-min-150x150.jpg 150w, https://www.spotzer.com/wp-content/uploads/2017/09/Pete-min.jpg 500w"
                 data-lazy-sizes="(max-width: 300px) 100vw, 300px"
-                srcset="https://www.spotzer.com/wp-content/uploads/2017/09/Pete-min-300x300.jpg 300w, https://www.spotzer.com/wp-content/uploads/2017/09/Pete-min-150x150.jpg 150w, https://www.spotzer.com/wp-content/uploads/2017/09/Pete-min.jpg 500w"
+                :srcset="imgUrl"
                 sizes="(max-width: 300px) 100vw, 300px"
               />
             </div>
@@ -26,11 +25,16 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    imgUrl: {
+      required: true
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
-/*! CSS Used from: https://www.spotzer.com/wp-content/cache/busting/1/wp-content-plugins-js_composer-assets-css-js_composer.min-5.2.1.css ; media=all */
 @media all {
   .vc_column-inner::after {
     clear: both;
@@ -162,8 +166,6 @@ export default {};
     box-shadow: 0px 11px 50px 0px rgba(0, 0, 0, 0.2);
     max-width: 290px;
     border: 5px solid #fff;
-    -webkit-border-radius: 50%;
-    border-radius: 50%;
   }
   @media screen and (max-width: 800px) {
     .single-team-picture img {
