@@ -37,4 +37,12 @@ export default {
 .nav {
   z-index: 10;
 }
+.nav-tabs .nav-link.active {
+  border: none !important;
+}
+
+.nav-tabs .nav-link:hover {
+  border: none !important;
+}
+
 </style>
