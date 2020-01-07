@@ -1,15 +1,15 @@
 const chapterTitles = {
-	Home: {
+	'': {
 		title: 'The Ichi Process',
 		subtitle: 'chapter one',
 		watermark: 'What we Do'
 	},
-	Cases: {
+	cases: {
 		title: 'Featured Cases',
 		subtitle: 'chapter three',
 		watermark: 'Our Work'
 	},
-	About: {
+	about: {
 		title: 'Team & Values',
 		subtitle: 'chapter two',
 		watermark: 'About us'
