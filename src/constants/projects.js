@@ -27,11 +27,6 @@ const projectLogos = [
 		shortDescription: 'How can we bring together the creative talent Barcelona has to offer?'
 	},
 	{
-		title: 'Ikea',
-		imgUrl: 'https://i.imgur.com/usLBmhC.jpg',
-		project: false
-	},
-	{
 		title: 'Le_Wagon',
 		imgUrl: 'https://i.imgur.com/X02YRNW.png',
 		project: false

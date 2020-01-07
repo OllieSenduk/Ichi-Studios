@@ -1,5 +1,5 @@
 <template>
-  <b-nav-item :active="checkForActive()" :to="`/${title}`">{{title}}</b-nav-item>
+  <b-nav-item :active="checkForActive()" :to="`/${url}`">{{title}}</b-nav-item>
 </template>
 
 <script>
@@ -8,6 +8,10 @@ export default {
     title: {
       type: String,
       default: "Surprise!"
+    },
+    url: {
+      type: String,
+      default: ''
     }
   },
   methods: {
