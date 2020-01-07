@@ -63,7 +63,7 @@ const featuredCases = {
 				{
 					imgUrl: 'https://i.imgur.com/hVLgLdx.png',
 					title: 'The dashboard for restaurant owners.',
-					content: 'The dashboard for restaurant owners.'
+					content: 'A data driven dashboard for restaurant owners where the business owner can analyze data metrics to accurately asses the needs of their business.'
 				},
 				// {
 				// 	imgUrl: 'https://i.imgur.com/EUpbL9u.png',
@@ -72,8 +72,8 @@ const featuredCases = {
 				// },
 				{
 					imgUrl: 'https://i.imgur.com/lkoAaWs.png',
-					title: 'The dashboard for restaurant owners.',
-					content: 'Bright colors and minimal text.'
+					title: 'The review interface for restaurant guests.',
+					content: 'Gamified review application with bright colors and minimal text.'
 				}
 			]
 		}
