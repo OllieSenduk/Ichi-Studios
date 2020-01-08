@@ -4,10 +4,10 @@
       <div class="row">
         <aside class="col-lg-4">
           <div class="project__info">
-            <ul class="project__info-list">
+            <ul class="project__info-list text-sm-center text-md-left">
               <li class="project__info-list-item">
                 <p class="project__info-list-label">Client</p>
-                <p class="project__info-list-title">{{client}}</p>
+                <p class="project__info-list-title ">{{client}}</p>
               </li>
               <li class="project__info-list-item">
                 <p class="project__info-list-label">Categories</p>

@@ -10,9 +10,9 @@ const featuredCases = {
 				"We love making money as much as the next guy. Losing money however, that's a different ballgame. During the initial cryptocurrency trading craze, a lot of people from Ichi Studios felt that they were missing the boat, so they started trading with their emotions. With very little success",
 			challenge: 'How can we take all of the emotions away from trading and always apply the best strategy.',
 			solution: 'We sat down with two professional traders and translated 9 of their trading strategies into code. Subsequently, we created a trading bot that applies the correct strategies depending on the current state of the market. The application is linked to multiple trading platforms to decide on the most profitable trade currently available.',
-			client: 'Ichi Studios',
+			client: 'Inhouse',
 			categories: [ 'Algorithm', 'Development', 'Fintech' ],
-			duration: '7 months',
+			duration: '5 months',
 			howItWorks: {
 				imgUrlOne: 'https://api.jsonbin.io/b/5e107c7c2c56914977975f4d',
 				imgHeaderOne: 'Step One',

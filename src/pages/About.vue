@@ -38,7 +38,7 @@
       :text="member.text"
       class="xs-section-padding"
     ></appWideCard>
-    <appSeperator title="Some other things about us" class="xs-section-padding"></appSeperator>
+    <appSeperator title="Fun Facts" class="xs-section-padding"></appSeperator>
 
     <appArtsyGrid class="xs-section-padding"></appArtsyGrid>
   </Layout>

@@ -29,7 +29,7 @@
         <div class="footer__col-wrap">
           <h4 class="footer__col-title">AMS</h4>
 
-          <a class="footer__address" href="https://goo.gl/UJYasL" target="_blank">
+          <a class="footer__address" href="https://goo.gl/maps/fFHExuDD62Hq8tgr6" target="_blank">
             <span class="footer__address-row">Tweede Jan van der Heijdenstraat 8</span>
             <span class="footer__address-row">1073VH</span>
             <span class="footer__address-row">Amsterdam, Netherlands</span>
@@ -41,10 +41,21 @@
         <div class="footer__col-wrap">
           <h4 class="footer__col-title">BCN</h4>
 
-          <a class="footer__address" href="https://goo.gl/UJYasL" target="_blank">
+          <a class="footer__address" href="https://goo.gl/maps/7VjPKqR4WZtWYoXo8" target="_blank">
             <span class="footer__address-row">Carrer de Joaquim Ruyra, 9-11</span>
             <span class="footer__address-row">08025</span>
             <span class="footer__address-row">Barcelona, Spain</span>
+          </a>
+        </div>
+      </section>
+      <section class="footer__col">
+        <div class="footer__col-wrap">
+          <h4 class="footer__col-title">TYO</h4>
+
+          <a class="footer__address" href="https://goo.gl/maps/okxcFo8Pq2jff6fj8" target="_blank">
+            <span class="footer__address-row">2-15-19 Kamiosaki, Shinagawa-ku</span>
+            <span class="footer__address-row">〒141-0021</span>
+            <span class="footer__address-row">Tokyo, Japan</span>
           </a>
         </div>
       </section>

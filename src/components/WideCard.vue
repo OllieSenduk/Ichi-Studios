@@ -3,7 +3,7 @@
     <appRoundImage :imgUrl="imgUrl"></appRoundImage>
     <div class="wide-card__content">
       <div class="wide-card__title text-center">
-        <h6>{{name}}</h6>
+        <h5>{{name}}</h5>
         <p class="color-primary">{{role}}</p>
       </div>
       <div class="wide-card__text">

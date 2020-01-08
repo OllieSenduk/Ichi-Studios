@@ -77,14 +77,14 @@
               width="100"
               srcset="https://i.imgur.com/UQ01lnt.png 500w, https://i.imgur.com/UQ01lnt.png 800w, https://i.imgur.com/UQ01lnt.png 1024w"
               sizes="100px"
-              alt
+              alt="signature"
             />
           </div>
         </div>
       </div>
     </div>
     <div class="col-md-6 col-sm-12">
-      <div class="align-center">
+      <div class="align-center d-sm-none d-md-block">
         <img
           src="https://i.imgur.com/MJ94esL.jpg"
           width="500"

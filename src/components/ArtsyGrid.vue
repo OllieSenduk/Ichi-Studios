@@ -10,15 +10,15 @@
             </div>
           </div>
           <div style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
-            <h3>Strategically Driven</h3>
+            <h5>Amsterdam, Barcelona & Tokyo</h5>
 
-            <p>We believe the path to world-class work is through rigorous creative strategy that has clear and measurable objectives and is rooted in Brand Purpose.</p>
+            <p>Although are clients come from all over the world, Ichi Studios was started in Amsterdam and has since opened up in Barcelona & Tokyo.</p>
           </div>
         </div>
         <div span="7" class="artsy-grid__second">
           <div style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
-            <h3>Obsessed with Humans</h3>
-            <p>We strive to create work that adds value to people’s lives, not noise. We believe our industry needs to be transformed to create things people actually want and welcome.</p>
+            <h5> Talks & Open Source</h5>
+            <p>We feel like it's important to submerge ourselves in the community, therefor we often do talks, organize events and contribute to open source projects. </p>
           </div>
         </div>
         <div class="artsy-grid__third">
@@ -38,14 +38,14 @@
         </div>
         <div class="artsy-grid__fifth">
           <div style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
-            <h3>Data Driven</h3>
-            <p>Ambition for the best creative leads all of us. We care about the quality and integrity of our work above all else.</p>
+            <h5>Team Building</h5>
+            <p>As a largely remote company, we make sure that the team meets up a few times a year and organize both online as well as offline activities.</p>
           </div>
         </div>
-        <div class="artsy-grid__sixth">
+              <div class="artsy-grid__sixth">
           <div style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
-            <h3>Creatively Led</h3>
-            <p>With our projects the biggest objective is always to capture the hearts and minds of your users. We do this by always thinking how we can elevate the mission of your brand.</p>
+            <h5>Social Impact</h5>
+            <p>With the start of 2020, we have decided to start dedicating a portion of our time to altruistic projects. So if you have some amazing idea to solve some of the world's most pressing issues and want help? Let us know. </p>
           </div>
         </div>
 
@@ -151,10 +151,11 @@ export default {};
   box-sizing: border-box;
 }
 h2,
-h3 {
+h3,
+h4 {
   font-family: inherit;
   margin: 0px;
-  font-weight: 600;
+  font-weight: 800;
   line-height: 1;
   color: inherit;
   text-transform: uppercase;
@@ -225,7 +226,7 @@ img {
 
 .artsy-image {
   position: absolute;
-  width: 30%;
+  width: 25%;
 }
 
 .oAOkY {

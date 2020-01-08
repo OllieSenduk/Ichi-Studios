@@ -9,8 +9,8 @@
       </div>
     </div>
     <div class="col-xs-12 col-md-4">
-      <h6 class="color-primary" :class="{'text-right': alignLeft }">{{title}}</h6>
-      <p :class="{'text-right': alignLeft }">{{content}}</p>
+      <h6 class="color-primary text-xs-center" :class="{'text-md-right': alignLeft }">{{title}}</h6>
+      <p class="text-xs-center" :class="{'text-md-right': alignLeft }">{{content}}</p>
     </div>
   </section>
 </template>

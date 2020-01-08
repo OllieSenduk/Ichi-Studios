@@ -34,7 +34,7 @@ export default {
 
 @include mq($until: tablet) {
   .hr-sect {
-    font-size: 12px;
+    font-size: 20px;
   }
 }
 .hr-sect::before,

@@ -26,7 +26,7 @@
             </div>
           </div>
         </div>
-        <appSeperator title="Other Questions we helped answer" class="xs-section-padding"></appSeperator>
+        <appSeperator title="Other Projects" class="xs-section-padding"></appSeperator>
         <div class="row xs-section-padding">
           <div class="col-lg-12 mx-auto">
             <div class="other-cases-cards-container">
