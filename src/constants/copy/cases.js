@@ -3,12 +3,16 @@ const featuredCases = {
 		title: 'Trading API',
 		description:
 			'An automated trading system build to switch between 8 different trading strategies based on our developed algorithms.',
-		imgUrl: 'https://assets6.lottiefiles.com/packages/lf20_YuFOn8.json',
+		imgUrl: 'https://i.imgur.com/PfrE3MI.jpg',
 		details: {
 			title: 'Seemless Trading',
 			introduction:
-				"We love making money as much as the next guy. Losing money however, that's a different ballgame. During the economical",
-			challenge: 'How can we take all of the emotional away ',
+				"We love making money as much as the next guy. Losing money however, that's a different ballgame. During the initial cryptocurrency trading craze, a lot of people from Ichi Studios felt that they were missing the boat, so they started trading with their emotions. With very little success",
+			challenge: 'How can we take all of the emotions away from trading and always apply the best strategy.',
+			solution: 'We sat down with two professional traders and translated 9 of their trading strategies into code. Subsequently, we created a trading bot that applies the correct strategies depending on the current state of the market. The application is linked to multiple trading platforms to decide on the most profitable trade currently available.',
+			client: 'Ichi Studios',
+			categories: [ 'Algorithm', 'Development', 'Fintech' ],
+			duration: '7 months',
 			howItWorks: {
 				imgUrlOne: 'https://api.jsonbin.io/b/5e107c7c2c56914977975f4d',
 				imgHeaderOne: 'Step One',
@@ -17,23 +21,17 @@ const featuredCases = {
 				imgHeaderTwo: 'Step Two',
 				textTwo: 'Algorithms decide on the best trading strategy.'
 			},
-			solution: 'Goodbye world',
 			images: [
 				{
 					imgUrl: 'https://i.imgur.com/KymmHYG.png',
-					title: 'The dashboard for restaurant owners.',
+					title: 'Dashboard showing the top traders',
 					content: 'We have also started building a small web interface to get a better look at the results.'
 				},
 				{
 					imgUrl: 'https://i.imgur.com/OTyix29.png',
-					title: 'The dashboard for restaurant owners.',
+					title: 'Utalizing other trading platforms',
 					content: "We get most of the trend data from Coinmarketcap's API."
 				},
-				{
-					imgUrl: 'https://i.imgur.com/OTyix29.png',
-					title: 'The dashboard for restaurant owners.',
-					content: "We've used platforms like Binance & Bitfinex to send our trading requests to."
-				}
 			]
 		}
 	},

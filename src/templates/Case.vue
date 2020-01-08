@@ -9,9 +9,9 @@
       class="xs-section-padding"
     ></appCaseInfo>
     <div class="case__main-img-wrapper">
-      <img src="https://i.imgur.com/LguTCag.jpg" alt />
+      <img :src="mainImage" alt />
     </div>
-    <appTextBlock title="challenge" :body="challenge" class="xs-section-padding"></appTextBlock>
+    <appTextBlock title="Challenge" :body="challenge" class="xs-section-padding"></appTextBlock>
     <div class="case__steps-wrapper"></div>
     <appTextBlock title="Solution" :body="solution" class="xs-section-padding"></appTextBlock>
     <appImageBlock
@@ -45,6 +45,9 @@ export default {
     currentCase() {
       const id = this.$route.params.identifier || "tablevibe";
       return cases[id];
+    },
+    mainImage() {
+      return this.currentCase.imgUrl
     },
     challenge() {
       return this.currentCase.details.challenge;

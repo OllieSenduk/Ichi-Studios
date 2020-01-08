@@ -71,7 +71,7 @@
           </div>
           <h1 class="name-title">Oliver R. Senduk</h1>
           <h1 class="name-title ceo">Ceo of Ichi Studios</h1>
-          <div class="top-margin">
+          <div class="top-margin text-center">
             <img
               src="https://assets.website-files.com/5db858d0958ed2489d94456b/5dbb03e2285ec2f47d573fc5_sing.png"
               width="100"
@@ -86,9 +86,9 @@
     <div class="col-md-6 col-sm-12">
       <div class="align-center">
         <img
-          src="https://i.imgur.com/n8fu7j2.png"
+          src="https://i.imgur.com/MJ94esL.jpg"
           width="500"
-          srcset="https://i.imgur.com/n8fu7j2.png"
+          srcset="https://i.imgur.com/MJ94esL.jpg"
           sizes="(max-width: 479px) 88vw, (max-width: 767px) 400px, 47vw"
           alt
           class="man"
@@ -142,9 +142,14 @@ export default {};
   padding-left: 10px;
   text-align: center;
 }
+
+.man {
+  width: 70%;
+}
 @media (max-width: 767px) {
   .man {
-    width: 400px;
+    width: 300px;
+    align-self: center;
     margin-top: 40px;
   }
 }
