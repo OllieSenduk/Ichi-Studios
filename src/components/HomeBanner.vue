@@ -33,10 +33,16 @@ import lottie from "lottie-web";
 import Button from "@/components/Button";
 
 import projectLogos from "@/constants/projects";
+import homeBannerIllustration from "@/assets/animations/futuristicComputer.json";
 
 export default {
   components: {
     appButton: Button
+  },
+  data() {
+    return {
+      homeBannerIllustration
+    }
   },
   mounted() {
     lottie.loadAnimation({
@@ -44,7 +50,7 @@ export default {
       renderer: "canvas",
       loop: true,
       autoplay: true,
-      path: "https://api.jsonbin.io/b/5e0870bef9369177b2744cff"
+      animationData: this.homeBannerIllustration
     });
     lottie.setLocationHref();
   },

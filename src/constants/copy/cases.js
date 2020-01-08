@@ -3,7 +3,7 @@ const featuredCases = {
 		title: 'Trading API',
 		description:
 			'An automated trading system build to switch between 8 different trading strategies based on our developed algorithms.',
-		imgUrl: 'https://i.imgur.com/PfrE3MI.jpg',
+		imgUrl: 'blockchain.json',
 		details: {
 			title: 'Seemless Trading',
 			introduction:
@@ -30,7 +30,7 @@ const featuredCases = {
 				{
 					imgUrl: 'https://i.imgur.com/OTyix29.png',
 					title: 'Utalizing other trading platforms',
-					content: "We get most of the trend data from Coinmarketcap's API."
+					content: "We get most of the trend data from Coinmarketcap's API and use platforms like Coinbase Pro & Bitfinex for trading."
 				},
 			]
 		}
@@ -39,7 +39,7 @@ const featuredCases = {
 		title: 'Tablevibe',
 		description:
 			'How can restaurants utilize customer feedback to create a better customer experience & grow their business?',
-		imgUrl: 'https://api.jsonbin.io/b/5e0de438f9369177b2769fcd',
+		imgUrl: 'drinks.json',
 		details: {
 			title: 'Feedback as a Valuable Data Metric',
 			introduction:
@@ -63,11 +63,6 @@ const featuredCases = {
 					title: 'The dashboard for restaurant owners.',
 					content: 'A data driven dashboard for restaurant owners where the business owner can analyze data metrics to accurately asses the needs of their business.'
 				},
-				// {
-				// 	imgUrl: 'https://i.imgur.com/EUpbL9u.png',
-				// 	title: 'The dashboard for restaurant owners.',
-				// 	content: 'Cute designs and rewards to stimulate the review-leaving process. [mobile view]'
-				// },
 				{
 					imgUrl: 'https://i.imgur.com/lkoAaWs.png',
 					title: 'The review interface for restaurant guests.',

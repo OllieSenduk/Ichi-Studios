@@ -40,12 +40,14 @@ export default {
     }
   },
   mounted() {
+    this.illustration = require(`../assets/animations/${this.$props.imgUrl}`)
+
     lottie.loadAnimation({
       container: document.querySelector("." + this.containerClass),
       renderer: "canvas",
       loop: true,
       autoplay: true,
-      path: this.$props.imgUrl
+      animationData: this.illustration
     });
     lottie.setLocationHref();
   },

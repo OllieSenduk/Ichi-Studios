@@ -34,7 +34,7 @@ export default {
     },
     imgUrl: {
       type: String,
-      default: "https://i.imgur.com/bHvprN1.gif",
+      default: "blockchain.json",
       required: false
     },
     imgFit: {
@@ -43,12 +43,14 @@ export default {
     }
   },
   mounted() {
+    this.illustration = require(`../assets/animations/${this.imgUrl}`)
+
     lottie.loadAnimation({
       container: document.querySelector("." + this.$props.link),
       renderer: "canvas",
       loop: true,
       autoplay: true,
-      path: this.$props.imgUrl
+      animationData: this.illustration
     });
     lottie.setLocationHref();
   },

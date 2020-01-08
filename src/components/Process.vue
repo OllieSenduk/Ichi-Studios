@@ -65,7 +65,6 @@
 import ProcessContent from "@/components/ProcessContent";
 import ChapterHeader from "@/components/ChapterHeader";
 
-// COPY
 import processStepContent from "@/constants/copy/processStepContent";
 import bannerCopy from "@/constants/copy/bannerCopy";
 import chapterHeaders from "@/constants/copy/chapterHeaders";
@@ -76,9 +75,6 @@ export default {
     appChapterHeader: ChapterHeader
   },
   methods: {
-    currentPath() {
-      return this.$root._route.path.substr(1);
-    }
   },
   computed: {
     content() {

@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="artsy">
-      <img src="https://i.imgur.com/qIwqsHt.png" alt="blob" class="artsy-image" />
+      <img src="https://i.imgur.com/TrXW61P.png" alt="blob" class="artsy-image" />
       <div class="artsy-grid">
         <div class="artsy-grid__title-wrapper">
           <div>
@@ -225,7 +225,7 @@ img {
 
 .artsy-image {
   position: absolute;
-  width: 10%;
+  width: 30%;
 }
 
 .oAOkY {
@@ -396,7 +396,7 @@ img {
 }
 @media screen and (min-width: 625px) {
   .artsy-grid {
-    grid-template-rows: auto auto 48px auto auto auto auto 35px auto auto 130px auto;
+    grid-template-rows: auto auto 48px auto auto auto;
   }
 }
 @media screen and (max-width: 624px) {
@@ -418,11 +418,20 @@ img {
     max-width: none;
     margin-bottom: 120px;
   }
+
+   .artsy-image {
+    width: 31%;
+  }
 }
 @media screen and (max-width: 879px) {
   .artsy-grid__title-wrapper {
     grid-column: 1 / -1;
     margin-bottom: 80px;
+  }
+
+
+  .artsy-image {
+    display: none;
   }
 }
 @media screen and (max-width: 624px) {

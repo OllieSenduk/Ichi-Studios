@@ -41,15 +41,18 @@ export default {
     }
   },
   mounted() {
+    this.illustration = require(`../assets/animations/${this.imgUrl}`)
+
     lottie.loadAnimation({
       container: document.querySelector(".hero_screenshot"),
       renderer: "canvas",
       loop: true,
       autoplay: true,
-      path: this.imgUrl
+      animationData: this.illustration
     });
     lottie.setLocationHref();
-  }
+  },
+
 };
 </script>
 

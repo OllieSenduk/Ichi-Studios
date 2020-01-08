@@ -1,5 +1,5 @@
 <template>
-  <section class="contact">
+  <section class="contact xs-section-padding">
     <div class="container">
       <div class="row">
         <div class="contact__wrapper">

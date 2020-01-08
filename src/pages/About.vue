@@ -49,7 +49,6 @@ import PageTransition from "@/components/animations/PageTransition";
 import PageBanner from "@/components/PageBanner";
 import ChapterHeader from "@/components/ChapterHeader";
 import Seperator from "@/components/Seperator";
-import HumanChart from "@/components/HumanChart";
 import Quote from "@/components/Quote";
 import ArtsyGrid from "@/components/ArtsyGrid";
 import FeatureCard from "@/components/FeatureCard";
@@ -65,7 +64,6 @@ export default {
     appPageBanner: PageBanner,
     appSeperator: Seperator,
     appChapterHeader: ChapterHeader,
-    appHumanChart: HumanChart,
     appQuote: Quote,
     appArtsyGrid: ArtsyGrid,
     appFeatureCard: FeatureCard,

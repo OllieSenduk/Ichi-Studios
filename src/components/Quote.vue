@@ -73,9 +73,9 @@
           <h1 class="name-title ceo">Ceo of Ichi Studios</h1>
           <div class="top-margin text-center">
             <img
-              src="https://assets.website-files.com/5db858d0958ed2489d94456b/5dbb03e2285ec2f47d573fc5_sing.png"
+              src="https://i.imgur.com/UQ01lnt.png"
               width="100"
-              srcset="https://assets.website-files.com/5db858d0958ed2489d94456b/5dbb03e2285ec2f47d573fc5_sing-p-500.png 500w, https://assets.website-files.com/5db858d0958ed2489d94456b/5dbb03e2285ec2f47d573fc5_sing-p-800.png 800w, https://assets.website-files.com/5db858d0958ed2489d94456b/5dbb03e2285ec2f47d573fc5_sing.png 1024w"
+              srcset="https://i.imgur.com/UQ01lnt.png 500w, https://i.imgur.com/UQ01lnt.png 800w, https://i.imgur.com/UQ01lnt.png 1024w"
               sizes="100px"
               alt
             />
@@ -144,7 +144,7 @@ export default {};
 }
 
 .man {
-  width: 70%;
+  width: 50%;
 }
 @media (max-width: 767px) {
   .man {

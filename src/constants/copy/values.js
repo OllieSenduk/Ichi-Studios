@@ -1,26 +1,38 @@
 const values = [
 	{
-		title: 'A will to Win',
-		imgUrl: 'https://assets7.lottiefiles.com/temp/lf20_ZtX97R.json',
-		text: 'Business is about cooperation, but there is also a competative aspect.',
-		json: true
+		title: 'Impossible is Nothing',
+		text: 'We want to built the future. To do so we will never say something is impossible to achieve.',
+		imgUrl: 'moonMan.json',
+		json: true 
 	},
 	{
 		title: 'Kaizen',
-		imgUrl: 'https://assets5.lottiefiles.com/packages/lf20_28pMew.json',
-		text: 'Kaizen is a great Japanese saying which means "to improve everyday".',
+		imgUrl: 'rocketGraph.json',
+		text: 'Kaizen is a Japanese saying meaning "to improve everyday". We enforce this by taking a moment every week to reflect on our learnings.',
 		json: true
 	},
 	{
 		title: 'Self Ownership',
-		imgUrl: 'https://assets7.lottiefiles.com/packages/lf20_dBbqyA.json',
-		text: 'As the team works remote for most of the year, everyone takes responsibility for what they ship.',
+		imgUrl: 'blobs.json',
+		text: 'As the team works remote for most of the year, everyone takes responsibility for what they ship & understands the importance of great communication.',
 		json: true
 	},
 	{
-		title: 'Data Driven',
-		text: 'We love quantifying and setting actionable goals to meassure progress.',
-		imgUrl: 'https://assets9.lottiefiles.com/temp/lf20_5ZxC6E.json',
+		title: 'Data Driven something something',
+		text: 'Our strength lies in our creative ideas and expertise. However, we always want to back our assumptions with data & set actionable goals to meassure progress.',
+		imgUrl: 'arrow.json',
+		json: true
+	},
+	{
+		title: 'A will to Win',
+		imgUrl: 'trophee.json',
+		text: 'Everyone at Ichi wants to succeed in whatever they do. However, we all share the notion that winning alone is lame. Instead, we choose to win together.',
+		json: true
+	},
+	{
+		title: 'Underpromise - Overdeliver',
+		imgUrl: 'gift.json',
+		text: 'As an agency, we will always strive to be as clear as humanly possible in what the timeline & deliverables will be. Clear prosesses & communication is our key to a good partnership.',
 		json: true
 	}
 ];

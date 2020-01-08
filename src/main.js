@@ -20,7 +20,7 @@ export default function(Vue, { router, head, isClient }) {
 	});
 	Vue.use(BootstrapVue);
 	Vue.use(lottie);
-  Vue.use(VueScrollTo)
+  	Vue.use(VueScrollTo)
 
 	Vue.component('Layout', DefaultLayout);
 	Vue.mixin(checkIfMobile);
