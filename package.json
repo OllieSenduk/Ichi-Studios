@@ -18,7 +18,7 @@
     "canvg": "^3.0.4",
     "gridsome": "^0.7.9",
     "lottie-web": "^5.5.10",
-    "node-sass": "^4.13.0",
+    "node-sass": "^7.0.0",
     "sass-loader": "^7.0.0",
     "sass-mq": "^5.0.1",
     "vue-scrollto": "^2.17.1"
